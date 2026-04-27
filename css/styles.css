@@ -279,9 +279,9 @@
     }
 
     /* Seccion de Ingenieria.
-       Funciona como una pestana propia dentro de la pagina: conserva la
-       distribucion del bosquejo con video a un lado y definicion al otro,
-       pero suma una espiral tecnica para diferenciarla del hero multimedia. */
+       Esta es la primera pantalla de la pestana, por eso no lleva etiqueta.
+       El diseno funciona como portada: titulo grande, video protagonista y
+       piezas flotantes que sugieren ciencia, calculo, diseno y solucion. */
     .engineering-section {
       position: relative;
       overflow: hidden;
@@ -289,26 +289,45 @@
       display: grid;
       align-items: center;
       background:
-        radial-gradient(circle at 14% 18%, rgba(37, 99, 235, 0.12), transparent 26%),
-        radial-gradient(circle at 82% 64%, rgba(0, 184, 169, 0.12), transparent 28%),
-        repeating-linear-gradient(135deg, rgba(17, 24, 39, 0.035) 0 1px, transparent 1px 42px),
+        radial-gradient(circle at 16% 22%, rgba(37, 99, 235, 0.16), transparent 28%),
+        radial-gradient(circle at 76% 52%, rgba(0, 184, 169, 0.16), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(246, 195, 67, 0.14), transparent 22%),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(0, 184, 169, 0.045) 1px, transparent 1px),
         linear-gradient(180deg, #ffffff, #eef5ff);
+      background-size: auto, auto, auto, 72px 72px, 72px 72px, auto;
       border-bottom: 1px solid var(--line);
     }
 
     .engineering-section::before {
       content: "";
       position: absolute;
-      left: 50%;
-      top: 42px;
-      width: min(460px, 72vw);
-      height: 82px;
-      border-top: 4px solid transparent;
+      right: -110px;
+      top: 90px;
+      width: 360px;
+      aspect-ratio: 1;
+      border: 1px dashed rgba(37, 99, 235, 0.28);
+      border-radius: 50%;
       background:
-        repeating-radial-gradient(ellipse at center, transparent 0 13px, rgba(37, 99, 235, 0.28) 14px 15px, transparent 16px 28px);
+        radial-gradient(circle, transparent 38%, rgba(0, 184, 169, 0.08) 39%, transparent 40%),
+        conic-gradient(from 90deg, transparent 0 18deg, rgba(37, 99, 235, 0.18) 18deg 24deg, transparent 24deg 48deg);
+      opacity: 0.9;
+      pointer-events: none;
+      animation: turn 28s linear infinite;
+    }
+
+    .engineering-section::after {
+      content: "";
+      position: absolute;
+      left: 7%;
+      bottom: 72px;
+      width: min(330px, 54vw);
+      height: 82px;
+      background:
+        repeating-radial-gradient(ellipse at center, transparent 0 12px, rgba(0, 184, 169, 0.28) 13px 14px, transparent 15px 27px);
       mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-      transform: translateX(-50%) rotate(-2deg);
-      opacity: 0.72;
+      transform: rotate(-4deg);
+      opacity: 0.62;
       pointer-events: none;
       animation: engineeringPulse 5s ease-in-out infinite;
     }
@@ -321,40 +340,90 @@
     }
 
     .engineering-heading {
-      max-width: 780px;
-      margin: 0 auto 34px;
-      text-align: center;
-    }
-
-    .engineering-heading h2 {
-      margin: 0 0 14px;
-      font-size: clamp(2.1rem, 5vw, 4.4rem);
-      line-height: 1;
+      max-width: 620px;
+      margin: 0;
     }
 
     .engineering-heading p {
       margin: 0;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 1.12rem;
       line-height: 1.75;
       font-weight: 650;
     }
 
+    .engineering-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .engineering-tags span {
+      padding: 9px 12px;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 999px;
+      color: var(--ink);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.07);
+    }
+
     .engineering-layout {
       display: grid;
-      grid-template-columns: minmax(280px, 1fr) minmax(260px, 0.8fr);
-      gap: clamp(24px, 5vw, 72px);
+      grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.05fr);
+      grid-template-areas:
+        "copy video"
+        "definition video";
+      gap: clamp(18px, 3vw, 42px) clamp(24px, 5vw, 72px);
       align-items: center;
+    }
+
+    .engineering-heading {
+      grid-area: copy;
     }
 
     .engineering-video-card {
       position: relative;
+      grid-area: video;
       padding: clamp(14px, 2vw, 22px);
       border: 1px solid rgba(221, 227, 236, 0.94);
       border-radius: 8px;
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(238, 245, 255, 0.9));
-      box-shadow: var(--shadow);
+        radial-gradient(circle at 18% 14%, rgba(0, 184, 169, 0.18), transparent 24%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(238, 245, 255, 0.92));
+      box-shadow:
+        var(--shadow),
+        0 0 0 10px rgba(255, 255, 255, 0.42);
+      transform: rotate(1.2deg);
+    }
+
+    .engineering-video-card::before,
+    .engineering-video-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .engineering-video-card::before {
+      right: -34px;
+      bottom: -34px;
+      width: 130px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 107, 95, 0.32);
+    }
+
+    .engineering-video-card::after {
+      left: 32px;
+      top: -24px;
+      width: 74px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      box-shadow: 0 18px 34px rgba(37, 99, 235, 0.24);
+      animation: float 4s ease-in-out infinite;
     }
 
     .engineering-video-card video {
@@ -369,10 +438,10 @@
 
     .engineering-orbit {
       position: absolute;
-      inset: -34px auto auto -34px;
-      width: 140px;
+      inset: auto auto -46px -46px;
+      width: 190px;
       aspect-ratio: 1;
-      border: 1px dashed rgba(0, 184, 169, 0.4);
+      border: 1px dashed rgba(0, 184, 169, 0.48);
       border-radius: 50%;
       animation: turn 16s linear infinite;
     }
@@ -393,7 +462,8 @@
 
     .engineering-definition {
       position: relative;
-      padding: clamp(22px, 3vw, 34px);
+      grid-area: definition;
+      padding: clamp(18px, 2.6vw, 28px);
       border: 1px solid rgba(221, 227, 236, 0.92);
       border-radius: 8px;
       background:
@@ -425,6 +495,7 @@
       background: var(--soft-blue);
     }
 
+    .engineering-definition h2,
     .engineering-definition h3 {
       margin: 0 0 12px;
       font-size: clamp(1.5rem, 3vw, 2.4rem);
@@ -2295,7 +2366,15 @@
       }
 
       .engineering-layout {
+        grid-template-areas:
+          "copy"
+          "video"
+          "definition";
         gap: 28px;
+      }
+
+      .engineering-video-card {
+        transform: none;
       }
 
       .multimedia-layout {
@@ -2459,6 +2538,16 @@
       .engineering-orbit {
         width: 104px;
         inset: -20px auto auto -16px;
+      }
+
+      .engineering-section::before {
+        right: -170px;
+        top: 120px;
+      }
+
+      .engineering-section::after {
+        left: 12px;
+        bottom: 40px;
       }
 
       .multimedia-composition {
