@@ -1868,16 +1868,8 @@
       right: 18px;
       bottom: 18px;
       z-index: 18;
-      width: 52px;
-      height: 52px;
-      border: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--coral), var(--gold));
-      color: white;
-      font-size: 24px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: var(--shadow);
+      width: 70px;
+      min-height: 66px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 160ms ease, transform 160ms ease;
@@ -2196,8 +2188,8 @@
       .previous-action {
         right: 10px;
         bottom: 14px;
-        width: 54px;
-        height: 54px;
+        width: 70px;
+        min-height: 58px;
       }
 
       body {
