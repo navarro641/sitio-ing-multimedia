@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multimedia</title>
+  <!-- Fuentes principales del sitio: Poppins para titulos e Inter para lectura. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="multimedia">
+  <!-- Encabezado fijo: cambia de archivo segun la pestana elegida. -->
+  <header class="topbar">
+    <a href="index.html" class="brand" aria-label="Inicio">
+      <span class="brand-mark">IM</span>
+      <span>Ing. Multimedia</span>
+    </a>
+    <nav aria-label="Secciones principales">
+      <a href="ingenieria.html">Ingenieria</a>
+      <a href="multimedia.html" class="active">Multimedia</a>
+      <a href="index.html">Ingenieria Multimedia</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- Multimedia: pagina propia con video, definicion y composicion visual. -->
+    <section class="multimedia-page single-topic-page" id="multimedia">
+      <div class="multimedia-shell">
+        <div class="multimedia-heading">
+          <span class="section-kicker">Lenguaje digital</span>
+          <h1>Multimedia</h1>
+          <p>
+            La multimedia integra texto, imagen, audio, video, animacion e
+            interactividad en un solo sistema para comunicar informacion de
+            forma mas atractiva, clara y efectiva.
+          </p>
+        </div>
+
+        <div class="multimedia-layout">
+          <article class="multimedia-video-card">
+            <video controls>
+              <source src="assets/video/multimedia/Que-es-la-multimedia.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </article>
+
+          <aside class="multimedia-composition" aria-label="Elementos principales de multimedia">
+            <div class="media-node text-node">Texto</div>
+            <div class="media-node image-node">Imagen</div>
+            <div class="media-node audio-node">Audio</div>
+            <div class="media-node video-node">Video</div>
+            <div class="media-node interaction-node">Interaccion</div>
+            <div class="media-core">Medios conectados</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Proyecto de sitio web sencillo</strong>
+    <p>Seccion dedicada al concepto general de multimedia.</p>
+  </footer>
+
+  <!-- En esta pagina solo aparece el boton Anterior, sin accesos a test o herramientas. -->
+  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestana anterior"><span>↑</span><small>Anterior</small></button>
+  <script src="js/main.js"></script>
+</body>
+</html>

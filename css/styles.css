@@ -438,6 +438,138 @@
       font-weight: 650;
     }
 
+    .single-topic-page {
+      min-height: calc(100vh - 64px);
+    }
+
+    .engineering-heading h1,
+    .multimedia-heading h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.4rem, 7vw, 5.6rem);
+      line-height: 0.98;
+    }
+
+    /* Pagina de Multimedia.
+       Mantiene la misma logica de video + definicion, pero con una composicion
+       de nodos flotantes para mostrar que multimedia une varios medios. */
+    .multimedia-page {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(255, 107, 95, 0.12), transparent 26%),
+        radial-gradient(circle at 82% 60%, rgba(0, 184, 169, 0.14), transparent 28%),
+        repeating-linear-gradient(90deg, rgba(37, 99, 235, 0.04) 0 1px, transparent 1px 54px),
+        linear-gradient(180deg, #ffffff, #f2fbfa);
+    }
+
+    .multimedia-shell {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .multimedia-heading {
+      max-width: 780px;
+      margin: 0 0 34px;
+    }
+
+    .multimedia-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-weight: 650;
+    }
+
+    .multimedia-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 1fr) minmax(280px, 0.92fr);
+      gap: clamp(24px, 5vw, 72px);
+      align-items: center;
+    }
+
+    .multimedia-video-card {
+      padding: clamp(14px, 2vw, 22px);
+      border: 1px solid rgba(221, 227, 236, 0.94);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(232, 251, 248, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    .multimedia-video-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      background: #05070a;
+    }
+
+    .multimedia-composition {
+      position: relative;
+      min-height: 430px;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.4) 42%, transparent 43%),
+        radial-gradient(circle at center, rgba(0, 184, 169, 0.12), transparent 68%);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .multimedia-composition::before,
+    .multimedia-composition::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px dashed rgba(0, 184, 169, 0.32);
+      border-radius: 50%;
+      animation: turn 20s linear infinite;
+    }
+
+    .multimedia-composition::after {
+      inset: 28%;
+      border-color: rgba(255, 107, 95, 0.28);
+      animation-direction: reverse;
+      animation-duration: 14s;
+    }
+
+    .media-node,
+    .media-core {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 16px 34px rgba(17, 24, 39, 0.13);
+    }
+
+    .media-node {
+      width: 92px;
+      height: 92px;
+      color: white;
+      animation: mediaNodeFloat 4s ease-in-out infinite;
+    }
+
+    .media-core {
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      padding: 18px;
+      color: var(--ink);
+      background: white;
+      transform: translate(-50%, -50%);
+    }
+
+    .text-node { left: 42%; top: -16px; background: var(--blue); }
+    .image-node { right: -12px; top: 38%; background: var(--teal); animation-delay: -0.7s; }
+    .audio-node { left: 42%; bottom: -16px; background: var(--coral); animation-delay: -1.4s; }
+    .video-node { left: -12px; top: 38%; background: var(--gold); color: #231b00; animation-delay: -2s; }
+    .interaction-node { right: 13%; bottom: 13%; background: var(--dark); animation-delay: -2.8s; }
+
     .section-title {
       max-width: 760px;
       margin: 0 0 28px;
@@ -2067,6 +2199,11 @@
       50% { opacity: 0.8; transform: translateX(-50%) rotate(-2deg) scaleX(1.04); }
     }
 
+    @keyframes mediaNodeFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -10px; }
+    }
+
     @keyframes areaFloat {
       0%, 100% { translate: 0 0; }
       50% { translate: 0 -14px; }
@@ -2140,6 +2277,7 @@
     @media (max-width: 900px) {
       .intro-grid,
       .engineering-layout,
+      .multimedia-layout,
       .hero,
       .split,
       .test-box {
@@ -2157,6 +2295,10 @@
       }
 
       .engineering-layout {
+        gap: 28px;
+      }
+
+      .multimedia-layout {
         gap: 28px;
       }
 
@@ -2309,13 +2451,32 @@
         min-height: auto;
       }
 
-      .engineering-heading {
+      .engineering-heading,
+      .multimedia-heading {
         text-align: left;
       }
 
       .engineering-orbit {
         width: 104px;
         inset: -20px auto auto -16px;
+      }
+
+      .multimedia-composition {
+        min-height: 330px;
+        width: min(330px, 82vw);
+        margin: 0 auto;
+      }
+
+      .media-node {
+        width: 72px;
+        height: 72px;
+        font-size: 0.82rem;
+      }
+
+      .media-core {
+        width: 124px;
+        height: 124px;
+        font-size: 0.88rem;
       }
 
       .action-modal {

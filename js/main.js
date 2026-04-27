@@ -111,7 +111,11 @@ function playBubblePopSound() {
       window.setTimeout(() => audioContext.close(), 260);
     }
 
-    // Detecta las opciones del menu y las secciones a las que apuntan.
+    const currentPage = document.body.dataset.page || "ingenieria-multimedia";
+
+    // Detecta las opciones del menu que apuntan a secciones internas.
+    // En las paginas separadas el menu apunta a archivos HTML, por eso este
+    // arreglo puede quedar vacio y el codigo debe seguir funcionando.
     const sectionLinks = Array.from(document.querySelectorAll("nav a[href^='#']"));
     const mainSections = sectionLinks
       .map((link) => document.querySelector(link.getAttribute("href")))
@@ -129,7 +133,9 @@ function playBubblePopSound() {
 
     // Actualiza el resaltado del menu segun la seccion visible en pantalla.
     function updateActiveNav() {
+      if (!sectionLinks.length) return;
       const current = getCurrentMainSection();
+      if (!current) return;
 
       sectionLinks.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === `#${current.id}`);
@@ -149,21 +155,23 @@ function playBubblePopSound() {
 
     // Abre el modal del video introductorio.
     function openVideoModal() {
+      if (!videoModal) return;
       videoModal.classList.add("open");
       videoModal.setAttribute("aria-hidden", "false");
     }
 
     // Cierra el modal del video y pausa la reproduccion.
     function closeVideoModal() {
+      if (!videoModal) return;
       videoModal.classList.remove("open");
       videoModal.setAttribute("aria-hidden", "true");
-      introVideo.pause();
+      introVideo?.pause();
     }
 
     // Carga los datos del tema seleccionado dentro del modal general.
     function openModal(key) {
       const item = modalData[key];
-      if (!item) return;
+      if (!item || !modal || !modalTitle || !modalText || !modalArt) return;
       modalTitle.textContent = item.title;
       modalText.textContent = item.text;
       modalArt.innerHTML = `<svg viewBox="0 0 620 210" width="100%" height="210" role="img" aria-label="${item.title}">
@@ -183,12 +191,12 @@ function playBubblePopSound() {
       element.addEventListener("click", () => openModal(element.dataset.open));
     });
 
-    document.querySelector("#closeModal").addEventListener("click", () => {
+    document.querySelector("#closeModal")?.addEventListener("click", () => {
       modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
     });
 
-    modal.addEventListener("click", (event) => {
+    modal?.addEventListener("click", (event) => {
       if (event.target === modal) {
         modal.classList.remove("open");
         modal.setAttribute("aria-hidden", "true");
@@ -196,10 +204,10 @@ function playBubblePopSound() {
     });
 
     // Conecta los botones de video con su modal.
-    document.querySelector("#openVideo").addEventListener("click", openVideoModal);
-    document.querySelector("#openVideoOrbit").addEventListener("click", openVideoModal);
-    document.querySelector("#closeVideo").addEventListener("click", closeVideoModal);
-    videoModal.addEventListener("click", (event) => {
+    document.querySelector("#openVideo")?.addEventListener("click", openVideoModal);
+    document.querySelector("#openVideoOrbit")?.addEventListener("click", openVideoModal);
+    document.querySelector("#closeVideo")?.addEventListener("click", closeVideoModal);
+    videoModal?.addEventListener("click", (event) => {
       if (event.target === videoModal) {
         closeVideoModal();
       }
@@ -412,20 +420,33 @@ function playBubblePopSound() {
     }
 
     function updatePreviousButton() {
+      if (!backTop) return;
+      if (currentPage !== "ingenieria-multimedia") {
+        backTop.classList.add("show");
+        floatingActions?.classList.add("hide");
+        return;
+      }
+
       const currentIndex = getCurrentSectionIndex();
       backTop.classList.toggle("show", currentIndex > 0);
-
-      // En la pestana/seccion de Ingenieria solo debe verse el boton Anterior.
-      // Los accesos a test, universidades y herramientas se ocultan temporalmente.
-      const currentMainSection = getCurrentMainSection();
-      floatingActions?.classList.toggle("hide", currentMainSection?.id === "ingenieria");
+      floatingActions?.classList.remove("hide");
     }
 
     window.addEventListener("scroll", updatePreviousButton);
     window.addEventListener("resize", updatePreviousButton);
     updatePreviousButton();
 
-    backTop.addEventListener("click", () => {
+    backTop?.addEventListener("click", () => {
+      if (currentPage !== "ingenieria-multimedia") {
+        const fallback = backTop.dataset.fallback || "index.html";
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = fallback;
+        }
+        return;
+      }
+
       const previousSection = pageSections[Math.max(0, getCurrentSectionIndex() - 1)];
       previousSection.scrollIntoView({ behavior: "smooth", block: "start" });
     });

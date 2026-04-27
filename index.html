@@ -10,17 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body data-page="ingenieria-multimedia">
   <!-- Encabezado fijo: logo del sitio y menu principal de navegacion. -->
   <header class="topbar">
-    <a href="#inicio" class="brand" aria-label="Inicio">
+    <a href="index.html" class="brand" aria-label="Inicio">
       <span class="brand-mark">IM</span>
       <span>Ing. Multimedia</span>
     </a>
     <nav aria-label="Secciones principales">
-      <a href="#ingenieria">Ingenieria</a>
-      <a href="#multimedia">Multimedia</a>
-      <a href="#ing-multimedia" class="active">Ingenieria Multimedia</a>
+      <a href="ingenieria.html">Ingenieria</a>
+      <a href="multimedia.html">Multimedia</a>
+      <a href="index.html" class="active">Ingenieria Multimedia</a>
     </nav>
   </header>
 
@@ -36,8 +36,8 @@
             combinando principios de ingeniería de software, diseño y comunicación.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#ingenieria">Ver ingenieria</a>
-            <a class="button secondary" href="#multimedia">Ver multimedia</a>
+            <a class="button" href="ingenieria.html">Ver ingenieria</a>
+            <a class="button secondary" href="multimedia.html">Ver multimedia</a>
             <button class="button secondary" type="button" id="openVideo">Ver video</button>
           </div>
         </div>
@@ -50,45 +50,6 @@
             <div class="orb code"><span>{ }</span></div>
           </div>
           <div class="center-chip">Multimedia<br>en movimiento</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ingenieria: bloque tipo pestana con video, definicion y espiral animada. -->
-    <section class="engineering-section" id="ingenieria">
-      <div class="engineering-shell">
-        <div class="engineering-heading">
-          <span class="section-kicker">Fundamento base</span>
-          <h2>Que es la ingenieria</h2>
-          <p>
-            La ingenieria aplica conocimientos cientificos y matematicos para
-            resolver problemas practicos. Convierte las ideas en soluciones
-            tangibles que transforman la vida cotidiana.
-          </p>
-        </div>
-
-        <div class="engineering-layout">
-          <article class="engineering-video-card">
-            <div class="engineering-orbit" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <video controls>
-              <source src="assets/video/ingenieria/Que-es-la-ingenieria.mp4" type="video/mp4">
-              Tu navegador no puede reproducir este video.
-            </video>
-          </article>
-
-          <aside class="engineering-definition">
-            <span class="mini-label">Definicion</span>
-            <h3>Conocimiento que se vuelve solucion</h3>
-            <p>
-              No es solo una ciencia teorica, sino una actividad transformadora:
-              toma principios de la ciencia, la matematica y la creatividad para
-              disenar, construir y mejorar sistemas, procesos, objetos y servicios.
-            </p>
-          </aside>
         </div>
       </div>
     </section>
@@ -137,7 +98,7 @@
     </section>
 
     <!-- Areas de desempeno: imagenes flotantes tipo globo que explotan al hacer clic. -->
-    <section id="multimedia">
+    <section id="areas-desempeno">
       <div class="areas-heading">
         <span class="section-kicker">Campo laboral</span>
         <h2>Areas de desempeno</h2>
