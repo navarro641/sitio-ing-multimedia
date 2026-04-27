@@ -977,6 +977,14 @@
       background-size: 22px 22px, 96px 96px, 96px 96px, auto, auto;
     }
 
+    .innovation-kicker {
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+      margin: 0 auto 18px;
+      color: #d9fff9;
+    }
+
     .innovation-stage {
       position: relative;
       min-height: 790px;
@@ -1021,11 +1029,11 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
       display: grid;
       place-items: center;
-      padding: 48px;
+      padding: 58px;
       color: white;
       text-align: center;
       background:
@@ -1043,21 +1051,21 @@
       display: block;
       transform: rotate(0deg);
       animation: centerTextCounter 18s linear infinite;
-      max-width: 170px;
+      max-width: 205px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .gear-center span {
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      line-height: 1.16;
+      font-size: 1.38rem;
+      font-weight: 900;
+      line-height: 1.08;
     }
 
     .gear-center strong {
-      margin-top: 8px;
-      font-size: 2.7rem;
+      margin-top: 10px;
+      font-size: 2.15rem;
       line-height: 1;
     }
 
@@ -1845,18 +1853,18 @@
       }
 
       .gear-center {
-        width: 190px;
-        height: 190px;
-        padding: 28px;
+        width: 210px;
+        height: 210px;
+        padding: 34px;
       }
 
       .gear-center span {
-        max-width: 116px;
-        font-size: 0.78rem;
+        max-width: 132px;
+        font-size: 0.9rem;
       }
 
       .gear-center strong {
-        font-size: 2rem;
+        font-size: 1.7rem;
       }
 
       .future-gear {
