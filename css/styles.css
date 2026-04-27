@@ -289,31 +289,16 @@
       display: grid;
       align-items: center;
       background:
-        radial-gradient(circle at 16% 22%, rgba(37, 99, 235, 0.16), transparent 28%),
-        radial-gradient(circle at 76% 52%, rgba(0, 184, 169, 0.16), transparent 30%),
-        radial-gradient(circle at 88% 18%, rgba(246, 195, 67, 0.14), transparent 22%),
-        linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(0, 184, 169, 0.045) 1px, transparent 1px),
+        linear-gradient(125deg, rgba(37, 99, 235, 0.12), transparent 44%),
+        radial-gradient(circle at 82% 58%, rgba(0, 184, 169, 0.13), transparent 31%),
+        repeating-linear-gradient(135deg, rgba(37, 99, 235, 0.045) 0 8px, transparent 8px 22px),
         linear-gradient(180deg, #ffffff, #eef5ff);
-      background-size: auto, auto, auto, 72px 72px, 72px 72px, auto;
+      background-size: auto, auto, auto, auto;
       border-bottom: 1px solid var(--line);
     }
 
     .engineering-section::before {
-      content: "";
-      position: absolute;
-      right: -110px;
-      top: 90px;
-      width: 360px;
-      aspect-ratio: 1;
-      border: 1px dashed rgba(37, 99, 235, 0.28);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle, transparent 38%, rgba(0, 184, 169, 0.08) 39%, transparent 40%),
-        conic-gradient(from 90deg, transparent 0 18deg, rgba(37, 99, 235, 0.18) 18deg 24deg, transparent 24deg 48deg);
-      opacity: 0.9;
-      pointer-events: none;
-      animation: turn 28s linear infinite;
+      content: none;
     }
 
     .engineering-section::after {
@@ -335,7 +320,7 @@
     .engineering-shell {
       position: relative;
       z-index: 1;
-      width: min(1180px, 100%);
+      width: min(1280px, 100%);
       margin: 0 auto;
     }
 
@@ -374,8 +359,8 @@
 
     .engineering-hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+      gap: clamp(64px, 10vw, 150px);
       align-items: center;
     }
 
@@ -2478,11 +2463,6 @@
 
       .engineering-stage {
         min-height: 340px;
-      }
-
-      .engineering-section::before {
-        right: -170px;
-        top: 120px;
       }
 
       .engineering-section::after {
