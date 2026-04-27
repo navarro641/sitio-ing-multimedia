@@ -404,6 +404,39 @@ function playBubblePopSound() {
       document.querySelector("#profileTest")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
+    // Historia de la ingenieria: cada punto trae sus datos en atributos data-*.
+    // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
+    const historyDetail = document.querySelector("#historyDetail");
+    const historyPoints = Array.from(document.querySelectorAll(".history-point"));
+
+    function closeHistoryDetail() {
+      historyDetail?.classList.remove("open");
+      historyPoints.forEach((point) => point.classList.remove("active"));
+    }
+
+    historyPoints.forEach((point) => {
+      point.addEventListener("click", () => {
+        if (!historyDetail) return;
+
+        const image = historyDetail.querySelector("img");
+        const year = historyDetail.querySelector(".mini-label");
+        const title = historyDetail.querySelector("h3");
+        const text = historyDetail.querySelector("p");
+
+        image.src = point.dataset.image;
+        image.alt = point.dataset.title;
+        year.textContent = point.dataset.year;
+        title.textContent = point.dataset.title;
+        text.textContent = point.dataset.text;
+
+        historyPoints.forEach((item) => item.classList.remove("active"));
+        point.classList.add("active");
+        historyDetail.classList.add("open");
+      });
+    });
+
+    document.querySelector(".history-close")?.addEventListener("click", closeHistoryDetail);
+
     // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
     // Se calcula con todas las secciones directas del main, no solo con el menu.
     const backTop = document.querySelector("#backTop");
