@@ -244,58 +244,47 @@
       </div>
     </section>
 
-    <!-- Linea de tiempo: se usa para mostrar etapas historicas en ventanas emergentes. -->
-    <section id="historia">
-      <div class="section-title">
-        <h2>Historia de la ingenieria multimedia</h2>
-        <p>Selecciona una etapa para ver una ventana con informacion ampliada.</p>
-      </div>
-      <div class="timeline">
-        <article class="era" data-open="era80">
-          <strong>1980-1990</strong>
-          <p>Primeros entornos digitales, interfaces graficas y contenidos interactivos.</p>
+    <!-- Innovacion y proyeccion 2030: engranajes animados con textos al pausar. -->
+    <section class="innovation-section" id="innovacion-2030">
+      <div class="innovation-stage">
+        <article class="innovation-note innovation-note-left">
+          <h3>Inteligencia artificial</h3>
+          <p>La automatizacion de tareas repetitivas permite enfocar el trabajo en creatividad e innovacion estrategica.</p>
         </article>
-        <article class="era" data-open="era2000">
-          <strong>2000</strong>
-          <p>La web, el video digital y el diseno interactivo se vuelven mas comunes.</p>
-        </article>
-        <article class="era" data-open="era2020">
-          <strong>2020</strong>
-          <p>Apps, streaming, videojuegos, UX y experiencias inmersivas crecen rapidamente.</p>
-        </article>
-        <article class="era" data-open="era2030">
-          <strong>2030</strong>
-          <p>Proyeccion: inteligencia artificial, realidad mixta y contenidos adaptativos.</p>
-        </article>
-      </div>
-    </section>
 
-    <!-- Herramientas gratuitas: tarjetas con descripcion y efecto al pasar el cursor. -->
-    <section id="herramientas" class="tools-band">
-      <div class="section-title">
-        <h2>Herramientas gratuitas</h2>
-        <p>Pasa el cursor sobre cada herramienta para ver una explicacion breve.</p>
-      </div>
-      <div class="tools">
-        <article class="tool" title="Figma permite crear interfaces, wireframes y prototipos.">
-          <div class="tool-logo">F</div>
-          <h3>Figma</h3>
-          <p>Prototipos, interfaces y trabajo colaborativo.</p>
+        <article class="innovation-note innovation-note-right-top">
+          <h3>IA generativa</h3>
+          <p>La generacion automatica de imagenes, video y musica redefine los procesos creativos multimedia.</p>
         </article>
-        <article class="tool" title="Blender sirve para modelado, animacion, render y 3D.">
-          <div class="tool-logo">B</div>
-          <h3>Blender</h3>
-          <p>Animacion, modelado 3D y piezas visuales.</p>
+
+        <div class="gear-system" aria-label="Innovacion y proyeccion a futuro 2030">
+          <div class="gear-center">
+            <span>Innovacion y proyeccion a futuro</span>
+            <strong>2030</strong>
+          </div>
+
+          <button class="future-gear future-gear-ia" type="button" aria-label="Inteligencia artificial">
+            <img src="assets/img/ingenieria-multimedia/IA.jpg" alt="Inteligencia artificial">
+          </button>
+          <button class="future-gear future-gear-gen" type="button" aria-label="IA generativa y multimedia">
+            <img src="assets/img/ingenieria-multimedia/ias-gnerativas.jpg" alt="IA generativa y multimedia">
+          </button>
+          <button class="future-gear future-gear-col" type="button" aria-label="Tendencias en Colombia">
+            <img src="assets/img/ingenieria-multimedia/tendencias-en-colombia.jpg" alt="Tendencias en Colombia">
+          </button>
+          <button class="future-gear future-gear-xr" type="button" aria-label="Realidad virtual aumentada y mixta">
+            <img src="assets/img/ingenieria-multimedia/Realidad-aumentada.jpg" alt="Realidad virtual aumentada y mixta">
+          </button>
+        </div>
+
+        <article class="innovation-note innovation-note-left-bottom">
+          <h3>Tendencias en Colombia</h3>
+          <p>El crecimiento TIC impulsa contenidos interactivos, realidad aumentada y desarrollo web.</p>
         </article>
-        <article class="tool" title="VS Code ayuda a escribir y organizar codigo.">
-          <div class="tool-logo">{ }</div>
-          <h3>VS Code</h3>
-          <p>Edicion de codigo para web, apps y scripts.</p>
-        </article>
-        <article class="tool" title="Audacity permite grabar, editar y limpiar audio.">
-          <div class="tool-logo">â™ª</div>
-          <h3>Audacity</h3>
-          <p>Grabacion, edicion y exportacion de sonido.</p>
+
+        <article class="innovation-note innovation-note-right-bottom">
+          <h3>Realidad extendida</h3>
+          <p>VR, AR y realidad mixta aumentan la demanda de experiencias inmersivas disenadas por ingenieros multimedia.</p>
         </article>
       </div>
     </section>
@@ -321,64 +310,6 @@
       </div>
     </section>
 
-    <!-- Test interactivo: calcula un perfil segun las respuestas seleccionadas. -->
-    <section id="test">
-      <div class="section-title">
-        <h2>Descubre tu perfil</h2>
-        <p>Responde tres preguntas y mira una orientacion rapida del tipo de ingeniero multimedia que podrias ser.</p>
-      </div>
-      <div class="test-box">
-        <form id="quiz">
-          <fieldset class="question">
-            <legend>1. Que disfrutas mas?</legend>
-            <label><input type="radio" name="q1" value="visual" checked> Crear imagenes, interfaces o animaciones</label>
-            <label><input type="radio" name="q1" value="codigo"> Resolver problemas con codigo</label>
-            <label><input type="radio" name="q1" value="audio"> Grabar, editar o contar historias</label>
-          </fieldset>
-          <fieldset class="question">
-            <legend>2. En un proyecto prefieres...</legend>
-            <label><input type="radio" name="q2" value="codigo" checked> Programar la interaccion</label>
-            <label><input type="radio" name="q2" value="visual"> Disenar la experiencia visual</label>
-            <label><input type="radio" name="q2" value="audio"> Crear contenido audiovisual</label>
-          </fieldset>
-          <fieldset class="question">
-            <legend>3. Que producto te llama mas?</legend>
-            <label><input type="radio" name="q3" value="audio" checked> Un video o pieza sonora</label>
-            <label><input type="radio" name="q3" value="visual"> Una animacion o interfaz</label>
-            <label><input type="radio" name="q3" value="codigo"> Una app o videojuego</label>
-          </fieldset>
-          <button class="button" type="submit">Ver resultado</button>
-        </form>
-        <aside class="result-panel">
-          <h3 id="resultTitle">Resultado del test</h3>
-          <p id="resultText">
-            Completa el test para ver una recomendacion de perfil. El resultado aparece aqui como una ventana de resumen.
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Universidades: listado de enlaces externos para estudiar en Colombia. -->
-    <section id="universidades">
-      <div class="section-title">
-        <h2>Donde estudiar en Colombia</h2>
-        <p>Enlaces de referencia para explorar programas relacionados con multimedia, diseno, software e interaccion.</p>
-      </div>
-      <div class="universities">
-        <article class="uni">
-          <h3>Universidad Militar Nueva Granada</h3>
-          <a href="https://www.umng.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
-        </article>
-        <article class="uni">
-          <h3>Universidad de San Buenaventura</h3>
-          <a href="https://www.usb.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
-        </article>
-        <article class="uni">
-          <h3>Universidad Autonoma de Occidente</h3>
-          <a href="https://www.uao.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
-        </article>
-      </div>
-    </section>
   </main>
 
   <!-- Pie de pagina del sitio. -->

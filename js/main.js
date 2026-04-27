@@ -259,22 +259,6 @@ function playBubblePopSound() {
       });
     });
 
-    // Procesa el test y muestra el perfil con mayor cantidad de respuestas.
-    document.querySelector("#quiz").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const score = { visual: 0, codigo: 0, audio: 0 };
-      for (const value of data.values()) score[value] += 1;
-      const winner = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
-      const result = {
-        visual: ["Perfil creativo visual", "Tu ruta se acerca al diseno de interfaces, animacion, modelado, identidad visual y experiencias graficas."],
-        codigo: ["Perfil desarrollador interactivo", "Tu ruta se acerca a programacion, aplicaciones, videojuegos, web, interaccion y solucion tecnica de problemas."],
-        audio: ["Perfil audiovisual narrativo", "Tu ruta se acerca a video, sonido, guion, edicion, comunicacion y contenidos digitales."]
-      };
-      document.querySelector("#resultTitle").textContent = result[winner][0];
-      document.querySelector("#resultText").textContent = result[winner][1];
-    });
-
     // Muestra el boton de volver arriba cuando el usuario baja por la pagina.
     const backTop = document.querySelector("#backTop");
     window.addEventListener("scroll", () => {
