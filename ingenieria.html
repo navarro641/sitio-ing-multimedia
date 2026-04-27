@@ -28,36 +28,28 @@
     <!-- Ingenieria: primera vista de la pestana, sin etiqueta superior. -->
     <section class="engineering-section single-topic-page" id="ingenieria">
       <div class="engineering-shell">
-        <div class="engineering-layout">
-        <div class="engineering-heading">
-          <h1>Ingenieria</h1>
-          <p>
-            La ingenieria aplica conocimientos cientificos y matematicos para
-            resolver problemas practicos. Convierte las ideas en soluciones
-            tangibles que transforman la vida cotidiana.
-          </p>
-          <div class="engineering-tags" aria-label="Ideas clave de la ingenieria">
-            <span>Ciencia</span>
-            <span>Matematica</span>
-            <span>Diseno</span>
-            <span>Solucion</span>
-          </div>
-        </div>
-
-          <div class="engineering-visual" aria-label="Ingenieria en movimiento">
-            <div class="engineering-orbit" aria-hidden="true">
-              <span class="eng-node eng-node-science">&Sigma;</span>
-              <span class="eng-node eng-node-design">+</span>
-              <span class="eng-node eng-node-build">{ }</span>
-              <span class="eng-node eng-node-solution">OK</span>
+        <div class="engineering-hero-grid">
+          <div class="engineering-heading">
+            <h1>Ingenieria</h1>
+            <p>
+              La ingenieria aplica conocimientos cientificos y matematicos para
+              resolver problemas practicos. Convierte las ideas en soluciones
+              tangibles que transforman la vida cotidiana.
+            </p>
+            <div class="hero-actions">
+              <button class="button" type="button" id="openVideo">Ver video</button>
+              <a class="button secondary" href="index.html">Volver a Ing. Multimedia</a>
             </div>
-            <article class="engineering-video-card">
-              <video controls>
-                <source src="assets/video/ingenieria/Que-es-la-ingenieria.mp4" type="video/mp4">
-                Tu navegador no puede reproducir este video.
-              </video>
-            </article>
-            <div class="engineering-core">Soluciones<br>en movimiento</div>
+          </div>
+
+          <div class="engineering-stage" aria-label="Ingenieria en movimiento">
+            <div class="engineering-media-orbit">
+              <button class="eng-orb play" type="button" id="openVideoOrbit" aria-label="Reproducir video"><span>▶</span></button>
+              <div class="eng-orb math"><span>Σ</span></div>
+              <div class="eng-orb build"><span>⚙</span></div>
+              <div class="eng-orb plan"><span>⌁</span></div>
+            </div>
+            <div class="engineering-center-chip">Soluciones<br>en movimiento</div>
           </div>
         </div>
       </div>
@@ -68,6 +60,20 @@
     <strong>Proyecto de sitio web sencillo</strong>
     <p>Seccion dedicada a los fundamentos generales de la ingenieria.</p>
   </footer>
+
+  <!-- Modal especifico para reproducir el video de ingenieria. -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <article class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+      <div class="modal-content">
+        <button class="close" type="button" id="closeVideo" aria-label="Cerrar">X</button>
+        <h2 id="videoTitle">Video de ingenieria</h2>
+      </div>
+      <video id="introVideo" controls>
+        <source src="assets/video/ingenieria/Que-es-la-ingenieria.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+    </article>
+  </div>
 
   <!-- En esta pagina solo aparece el boton Anterior, sin accesos a test o herramientas. -->
   <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestana anterior"><span>â†‘</span><small>Anterior</small></button>
