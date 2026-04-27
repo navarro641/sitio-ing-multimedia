@@ -969,11 +969,11 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle, rgba(37, 99, 235, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 184, 169, 0.05) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px),
-        radial-gradient(circle at 50% 46%, rgba(0, 184, 169, 0.12), transparent 33%),
-        #ffffff;
+        radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 184, 169, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 50% 46%, rgba(0, 184, 169, 0.16), transparent 33%),
+        linear-gradient(180deg, #17202a, #111827);
       background-size: 22px 22px, 96px 96px, 96px 96px, auto, auto;
     }
 
@@ -982,21 +982,6 @@
       min-height: 790px;
       max-width: 1180px;
       margin: 0 auto;
-    }
-
-    .innovation-heading {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto 18px;
-      text-align: center;
-    }
-
-    .innovation-heading h2 {
-      margin: 0;
-      font-size: clamp(1.9rem, 4.6vw, 3.8rem);
-      line-height: 1.05;
-      letter-spacing: 0;
     }
 
     .gear-system {
@@ -1046,7 +1031,9 @@
       background:
         radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 38%),
         linear-gradient(135deg, var(--blue), var(--teal));
-      box-shadow: 0 24px 70px rgba(37, 99, 235, 0.24);
+      box-shadow:
+        0 24px 70px rgba(37, 99, 235, 0.32),
+        0 0 0 8px rgba(255, 255, 255, 0.16);
       transform: translate(-50%, -50%);
       animation: centerGearTurn 18s linear infinite;
     }
@@ -1085,7 +1072,8 @@
       cursor: pointer;
       box-shadow:
         0 18px 42px rgba(17, 24, 39, 0.2),
-        0 0 0 6px rgba(255, 255, 255, 0.86);
+        0 0 0 7px rgba(255, 255, 255, 0.22),
+        0 0 0 12px rgba(37, 99, 235, 0.14);
       animation: orbitGearTurn 9s linear infinite;
     }
 
@@ -1118,9 +1106,9 @@
       z-index: 2;
       max-width: 285px;
       padding: 18px;
-      border: 1px solid rgba(221, 227, 236, 0.9);
+      border: 1px solid rgba(221, 227, 236, 0.74);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.92);
       box-shadow:
         0 20px 48px rgba(17, 24, 39, 0.16),
         0 0 0 4px rgba(37, 99, 235, 0.06);
@@ -1137,7 +1125,7 @@
 
     .innovation-note h3 {
       margin: 0 0 8px;
-      color: var(--blue);
+      color: var(--ink);
       font-size: 1.08rem;
     }
 
