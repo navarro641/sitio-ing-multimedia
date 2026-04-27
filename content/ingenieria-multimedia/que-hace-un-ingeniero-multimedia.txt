@@ -1,0 +1,5 @@
+¿Qué hace un Ingeniero Multimedia?
+Un ingeniero multimedia es un profesional que combina habilidades técnicas y creativas para diseñar, desarrollar y gestionar contenido multimedia interactivo. Su trabajo puede incluir:
+•	Diseño y producción de contenido multimedia: Crear gráficos, animaciones, videos y audio para proyectos digitales.
+•	Integración de tecnologías: Combinar diferentes medios (texto, audio, video) con tecnologías como realidad aumentada (AR) y realidad virtual (VR) para crear experiencias inmersivas.
+•	Desarrollo de software y aplicaciones: Programar aplicaciones multimedia interactivas utilizando lenguajes como HTML, CSS y JavaScript.

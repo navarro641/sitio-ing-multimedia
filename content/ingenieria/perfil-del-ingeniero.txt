@@ -1,0 +1,7 @@
+Características esenciales (El perfil)
+Estas son las cualidades mentales y de carácter que definen a un ingeniero:
+•	Mentalidad Analítica: La capacidad de descomponer un problema complejo en partes pequeñas y lógicas para entender cómo funciona cada una.
+•	Ingenio (Creatividad Aplicada): No es solo "inventar", sino encontrar soluciones nuevas y eficientes utilizando los recursos que se tienen a mano (de ahí viene la palabra ingeniero).
+•	Pensamiento Crítico: No acepta las cosas "porque sí". Siempre busca evidencias, datos y pruebas antes de validar una solución.
+•	Resiliencia al Fallo: Entiende que el error es parte del proceso técnico. Un ingeniero no se rinde cuando algo no funciona; investiga por qué falló para corregirlo.
+•	Ética y Responsabilidad: Consciente de que sus decisiones afectan la seguridad, el dinero y la vida de las personas y el medio ambiente.

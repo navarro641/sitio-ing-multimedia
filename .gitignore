@@ -1,0 +1,11 @@
+# Archivos temporales del sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Carpetas de dependencias si en el futuro se usan herramientas con Node
+node_modules/
+
+# Salidas temporales o builds generados
+dist/
+build/

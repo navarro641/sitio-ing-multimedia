@@ -1,0 +1,13 @@
+Habilidades y Competencias
+Un ingeniero multimedia debe dominar una combinación de habilidades técnicas y creativas:
+Habilidades Técnicas:
+•	Programación: HTML, CSS, JavaScript, Python.
+•	Diseño Gráfico: Photoshop, Illustrator, Figma.
+•	Animación 2D/3D: After Effects, Blender, Autodesk Maya.
+•	Edición de Video y Audio: Premiere Pro, Final Cut Pro, Audacity.
+•	Gestión de Proyectos: Conocimiento en metodologías ágiles.
+Habilidades Creativas y Blandas:
+•	Creatividad: Fundamental para diseñar contenidos atractivos.
+•	Comunicación: Saber transmitir ideas a equipos y clientes.
+•	Trabajo en equipo: Colaborar con diseñadores, programadores y comunicadores.
+•	Resolución de problemas: Encontrar soluciones innovadoras a desafíos técnicos y creativos.

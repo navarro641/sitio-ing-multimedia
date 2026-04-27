@@ -1,0 +1,4 @@
+Tipos de Multimedia
+•	Lineal: El usuario no tiene control sobre el flujo. Solo observa. Un ejemplo: una película en el cine o un video en YouTube
+•	No Lineal: el usuario decide el orden y ritmo de la información. Un ejemplo: un sitio web, un video juego, o una enciclopedia digital.
+•	Hipermedia: cuando los elementos están conectados por enlaces(links). Un ejemplo navegar por Instagram.

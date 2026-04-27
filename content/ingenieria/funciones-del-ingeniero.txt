@@ -1,0 +1,8 @@
+Funciones principales (Lo que hacen)
+Independientemente de su especialidad, estas son las tareas que todo ingeniero realiza:
+•	Resolución de Problemas: Identificar una necesidad o una falla y diseñar una solución técnica que la resuelva de manera efectiva.
+•	Optimización: No solo se trata de que algo funcione, sino de que funcione mejor. Esto implica reducir costos, ahorrar tiempo o minimizar el uso de energía.
+•	Modelado y Simulación: Antes de construir o lanzar algo, el ingeniero crea modelos (matemáticos, digitales o físicos) para predecir cómo se comportará la solución en la realidad.
+•	Gestión de Proyectos: Organizar recursos, presupuestos y personas para asegurar que una idea técnica se convierta en una realidad tangible dentro de los plazos establecidos.
+•	Investigación y Desarrollo (I+D): Explorar nuevas tecnologías o materiales para aplicarlos en la creación de herramientas que aún no existen.
+•	Mantenimiento y Mejora Continua: Supervisar que los sistemas existentes sigan funcionando correctamente y actualizarlos para que no queden obsoletos.

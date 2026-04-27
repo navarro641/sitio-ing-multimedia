@@ -1,0 +1,7 @@
+elementos:
+•	Texto: proporciona información escrita, como títulos, descripciones o subtítulos.
+•	Imágenes: ilustran conceptos o refuerzan el contenido textual.
+•	Audio: incluye música, narraciones, efectos sonoros o grabaciones de voz.
+•	Vídeo: permite mostrar procesos, demostraciones o escenas en movimiento.
+•	Animaciones: ayudan a representar ideas dinámicas o abstractas de manera visual.
+Cuantos más medios se integren de forma coherente y complementaria, mayor será el potencial comunicativo del recurso

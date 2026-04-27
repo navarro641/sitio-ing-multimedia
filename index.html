@@ -1,0 +1,339 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingenieria Multimedia</title>
+  <!-- Fuentes principales del sitio: Poppins para titulos e Inter para lectura. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Encabezado fijo: logo del sitio y menu principal de navegacion. -->
+  <header class="topbar">
+    <a href="#inicio" class="brand" aria-label="Inicio">
+      <span class="brand-mark">IM</span>
+      <span>Ing. Multimedia</span>
+    </a>
+    <nav aria-label="Secciones principales">
+      <a href="#ingenieria">Ingenieria</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#ing-multimedia" class="active">Ingenieria Multimedia</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- Portada principal: presenta el tema central y los accesos rapidos. -->
+    <section class="home-layout" id="ing-multimedia">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h1>Ingenieria Multimedia</h1>
+          <p>
+            Es una rama de la ingeniería que se especializa en la creación, 
+            administración y distribución de contenido multimedia interactivo, 
+            combinando principios de ingeniería de software, diseño y comunicación.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#ingenieria">Ver ingenieria</a>
+            <a class="button secondary" href="#multimedia">Ver multimedia</a>
+            <button class="button secondary" type="button" id="openVideo">Ver video</button>
+          </div>
+        </div>
+        <!-- Elemento visual animado de la portada. El boton azul abre el video introductorio. -->
+        <div class="stage" aria-label="Elementos de multimedia en movimiento">
+          <div class="media-orbit">
+            <button class="orb video" type="button" id="openVideoOrbit" aria-label="Reproducir video"><span>▶</span></button>
+            <div class="orb audio"><span>♪</span></div>
+            <div class="orb design"><span>✦</span></div>
+            <div class="orb code"><span>{ }</span></div>
+          </div>
+          <div class="center-chip">Multimedia<br>en movimiento</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Que hace un ingeniero multimedia: dos tarjetas con imagenes tipo cortina. -->
+    <section class="curtain-section" id="que-hace-ing-multimedia">
+      <div class="curtain-heading">
+        <div>
+          <span class="section-kicker">Rol profesional</span>
+          <h2>Que hace un ingeniero multimedia</h2>
+        </div>
+        <p>
+          Su trabajo combina creatividad, tecnologia y comunicacion para crear
+          experiencias digitales interactivas. Haz clic en cada tarjeta para cambiar
+          la imagen activa y pasa el cursor para ampliarla.
+        </p>
+      </div>
+
+      <div class="curtain-grid">
+        <article class="curtain-card" tabindex="0" aria-label="Diseno, produccion e integracion multimedia">
+          <div class="curtain-images">
+            <img class="active" src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-1.jpg" alt="Diseno y produccion de contenido multimedia">
+            <img src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-2.jpg" alt="Creacion de recursos visuales multimedia">
+            <img src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-3.jpg" alt="Integracion de tecnologias multimedia">
+          </div>
+          <div class="curtain-copy">
+            <button class="sound-toggle" type="button" aria-label="Activar audio">♪</button>
+            <h3>Diseno y produccion multimedia</h3>
+            <p>Crear graficos, animaciones, videos y audio para proyectos digitales.</p>
+          </div>
+        </article>
+
+        <article class="curtain-card" tabindex="0" aria-label="Software, aplicaciones y experiencias interactivas">
+          <div class="curtain-images">
+            <img class="active" src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-4.jpg" alt="Desarrollo de software multimedia">
+            <img src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-5.jpg" alt="Aplicaciones interactivas">
+            <img src="assets/img/ingenieria-multimedia/que-hace-un-ing-multimedia-6.jpg" alt="Experiencias inmersivas multimedia">
+          </div>
+          <div class="curtain-copy">
+            <button class="sound-toggle" type="button" aria-label="Activar audio">♪</button>
+            <h3>Desarrollo multimedia</h3>
+            <p>Programar aplicaciones multimedia interactivas utilizando lenguajes como HTML, CSS y JavaScript.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Bloque base sobre ingenieria. Aqui iran los subtemas de esta categoria. -->
+    <section id="ingenieria">
+      <div class="split">
+        <div class="visual-panel">
+          <div class="flip-card" aria-label="Tarjeta interactiva">
+            <div class="flip-inner">
+              <div class="flip-face">Pasa el cursor para girar la tarjeta</div>
+              <div class="flip-face flip-back">La multimedia combina texto, imagen, sonido, video, software e interaccion.</div>
+            </div>
+          </div>
+        </div>
+        <div class="section-title">
+          <h2>Que hace un ingeniero multimedia</h2>
+          <p>
+            Planea, disena y desarrolla productos digitales: aplicaciones,
+            paginas web, animaciones, experiencias interactivas, contenido
+            audiovisual, videojuegos, simuladores y sistemas educativos.
+          </p>
+          <div class="inline-actions">
+            <button class="button" type="button" data-open="perfil">Perfil del aspirante</button>
+            <button class="button secondary" type="button" data-open="habilidades">Habilidades</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque base sobre multimedia. Aqui iran concepto, elementos, tipos y pilares. -->
+    <section id="multimedia">
+      <div class="section-title">
+        <h2>Areas de desempeno</h2>
+        <p>Los iconos resaltan al pasar el cursor, como en el bosquejo.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon">âŒ˜</div>
+          <h3>Desarrollo web y software</h3>
+          <p>Construccion de interfaces, apps, plataformas interactivas y sistemas orientados al usuario.</p>
+        </article>
+        <article class="card">
+          <div class="icon">â—‰</div>
+          <h3>Animacion y 3D</h3>
+          <p>Modelado, movimiento, personajes, escenarios y piezas visuales para distintos medios.</p>
+        </article>
+        <article class="card">
+          <div class="icon">â–£</div>
+          <h3>Diseno UX/UI</h3>
+          <p>Experiencias claras, navegacion, prototipos, pruebas y diseno de interfaces.</p>
+        </article>
+        <article class="card">
+          <div class="icon">â–¶</div>
+          <h3>Produccion audiovisual</h3>
+          <p>Video, sonido, edicion, guion, contenido educativo y piezas digitales.</p>
+        </article>
+        <article class="card">
+          <div class="icon">â—Ž</div>
+          <h3>Realidad extendida</h3>
+          <p>Experiencias inmersivas, realidad virtual, realidad aumentada y simulacion.</p>
+        </article>
+        <article class="card">
+          <div class="icon">â—†</div>
+          <h3>Creatividad digital</h3>
+          <p>Proyectos que mezclan arte, tecnologia, investigacion, comunicacion y educacion.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Linea de tiempo: se usa para mostrar etapas historicas en ventanas emergentes. -->
+    <section id="historia">
+      <div class="section-title">
+        <h2>Historia de la ingenieria multimedia</h2>
+        <p>Selecciona una etapa para ver una ventana con informacion ampliada.</p>
+      </div>
+      <div class="timeline">
+        <article class="era" data-open="era80">
+          <strong>1980-1990</strong>
+          <p>Primeros entornos digitales, interfaces graficas y contenidos interactivos.</p>
+        </article>
+        <article class="era" data-open="era2000">
+          <strong>2000</strong>
+          <p>La web, el video digital y el diseno interactivo se vuelven mas comunes.</p>
+        </article>
+        <article class="era" data-open="era2020">
+          <strong>2020</strong>
+          <p>Apps, streaming, videojuegos, UX y experiencias inmersivas crecen rapidamente.</p>
+        </article>
+        <article class="era" data-open="era2030">
+          <strong>2030</strong>
+          <p>Proyeccion: inteligencia artificial, realidad mixta y contenidos adaptativos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Herramientas gratuitas: tarjetas con descripcion y efecto al pasar el cursor. -->
+    <section id="herramientas" class="tools-band">
+      <div class="section-title">
+        <h2>Herramientas gratuitas</h2>
+        <p>Pasa el cursor sobre cada herramienta para ver una explicacion breve.</p>
+      </div>
+      <div class="tools">
+        <article class="tool" title="Figma permite crear interfaces, wireframes y prototipos.">
+          <div class="tool-logo">F</div>
+          <h3>Figma</h3>
+          <p>Prototipos, interfaces y trabajo colaborativo.</p>
+        </article>
+        <article class="tool" title="Blender sirve para modelado, animacion, render y 3D.">
+          <div class="tool-logo">B</div>
+          <h3>Blender</h3>
+          <p>Animacion, modelado 3D y piezas visuales.</p>
+        </article>
+        <article class="tool" title="VS Code ayuda a escribir y organizar codigo.">
+          <div class="tool-logo">{ }</div>
+          <h3>VS Code</h3>
+          <p>Edicion de codigo para web, apps y scripts.</p>
+        </article>
+        <article class="tool" title="Audacity permite grabar, editar y limpiar audio.">
+          <div class="tool-logo">â™ª</div>
+          <h3>Audacity</h3>
+          <p>Grabacion, edicion y exportacion de sonido.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ramas de la ingenieria: los botones cambian el texto explicativo inferior. -->
+    <section id="ramas">
+      <div class="section-title">
+        <h2>Ramas de la ingenieria</h2>
+        <p>El boton seleccionado muestra su definicion en el centro inferior.</p>
+      </div>
+      <div class="branches">
+        <div class="branch-map">
+          <div class="branch-center">Ramas</div>
+          <button class="branch-btn b1 active" type="button" data-branch="software">Software</button>
+          <button class="branch-btn b2" type="button" data-branch="audiovisual">Audiovisual</button>
+          <button class="branch-btn b3" type="button" data-branch="ux">UX/UI</button>
+          <button class="branch-btn b4" type="button" data-branch="videojuegos">Videojuegos</button>
+          <button class="branch-btn b5" type="button" data-branch="datos">Datos</button>
+        </div>
+        <div class="branch-info" id="branchInfo">
+          Software: crea aplicaciones, paginas web, sistemas interactivos y soluciones digitales.
+        </div>
+      </div>
+    </section>
+
+    <!-- Test interactivo: calcula un perfil segun las respuestas seleccionadas. -->
+    <section id="test">
+      <div class="section-title">
+        <h2>Descubre tu perfil</h2>
+        <p>Responde tres preguntas y mira una orientacion rapida del tipo de ingeniero multimedia que podrias ser.</p>
+      </div>
+      <div class="test-box">
+        <form id="quiz">
+          <fieldset class="question">
+            <legend>1. Que disfrutas mas?</legend>
+            <label><input type="radio" name="q1" value="visual" checked> Crear imagenes, interfaces o animaciones</label>
+            <label><input type="radio" name="q1" value="codigo"> Resolver problemas con codigo</label>
+            <label><input type="radio" name="q1" value="audio"> Grabar, editar o contar historias</label>
+          </fieldset>
+          <fieldset class="question">
+            <legend>2. En un proyecto prefieres...</legend>
+            <label><input type="radio" name="q2" value="codigo" checked> Programar la interaccion</label>
+            <label><input type="radio" name="q2" value="visual"> Disenar la experiencia visual</label>
+            <label><input type="radio" name="q2" value="audio"> Crear contenido audiovisual</label>
+          </fieldset>
+          <fieldset class="question">
+            <legend>3. Que producto te llama mas?</legend>
+            <label><input type="radio" name="q3" value="audio" checked> Un video o pieza sonora</label>
+            <label><input type="radio" name="q3" value="visual"> Una animacion o interfaz</label>
+            <label><input type="radio" name="q3" value="codigo"> Una app o videojuego</label>
+          </fieldset>
+          <button class="button" type="submit">Ver resultado</button>
+        </form>
+        <aside class="result-panel">
+          <h3 id="resultTitle">Resultado del test</h3>
+          <p id="resultText">
+            Completa el test para ver una recomendacion de perfil. El resultado aparece aqui como una ventana de resumen.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Universidades: listado de enlaces externos para estudiar en Colombia. -->
+    <section id="universidades">
+      <div class="section-title">
+        <h2>Donde estudiar en Colombia</h2>
+        <p>Enlaces de referencia para explorar programas relacionados con multimedia, diseno, software e interaccion.</p>
+      </div>
+      <div class="universities">
+        <article class="uni">
+          <h3>Universidad Militar Nueva Granada</h3>
+          <a href="https://www.umng.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
+        </article>
+        <article class="uni">
+          <h3>Universidad de San Buenaventura</h3>
+          <a href="https://www.usb.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
+        </article>
+        <article class="uni">
+          <h3>Universidad Autonoma de Occidente</h3>
+          <a href="https://www.uao.edu.co/" target="_blank" rel="noreferrer">Visitar sitio</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de pagina del sitio. -->
+  <footer>
+    <strong>Proyecto de sitio web sencillo</strong>
+    <p>Creado a partir del bosquejo: encabezado, secciones, ventanas, animaciones, test, resultados y pie de pagina.</p>
+  </footer>
+
+  <!-- Modal reutilizable para mostrar informacion ampliada de varias secciones. -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div id="modalArt"></div>
+      <div class="modal-content">
+        <button class="close" type="button" id="closeModal" aria-label="Cerrar">X</button>
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+      </div>
+    </article>
+  </div>
+
+  <!-- Modal especifico para reproducir el video de introduccion. -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <article class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+      <div class="modal-content">
+        <button class="close" type="button" id="closeVideo" aria-label="Cerrar">X</button>
+        <h2 id="videoTitle">Video de introduccion</h2>
+      </div>
+      <video id="introVideo" controls>
+        <source src="assets/video/ingenieria-multimedia/intro.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+    </article>
+  </div>
+
+  <!-- Boton flotante que aparece al bajar y devuelve al inicio. -->
+  <button class="back-top" type="button" id="backTop" aria-label="Volver arriba">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

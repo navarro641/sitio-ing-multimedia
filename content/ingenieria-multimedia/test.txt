@@ -1,0 +1,22 @@
+Test Para descubrir el perfil o área de interés       
+Preguntas y Perfiles:
+•	Pregunta 1: ¿Qué actividad te llama más la atención?
+A: Diseñar personajes y mundos para un videojuego.
+B: Crear contenido llamativo para redes sociales o publicidad.
+C: Producir un cortometraje o una pieza audiovisual.
+D: Desarrollar una nueva app o una página web interactiva.
+•	Pregunta 2: ¿Qué herramienta te gustaría dominar?
+A: Un motor de videojuegos como Unity o Unreal Engine.
+B: Software de diseño como Photoshop, Illustrator o Figma.
+C: Programas de edición de video como Premiere Pro o After Effects.
+D: Lenguajes de programación como Python o JavaScript.
+•	Pregunta 3: ¿Cuál es tu objetivo profesional ideal?
+A: Ser parte de un estudio de desarrollo de juegos.
+B: Dirigir el arte digital y la estrategia de marca de una empresa.
+C: Trabajar en la postproducción de películas y series.
+D: Liderar proyectos de innovación tecnológica en una compañía.
+Perfiles de Resultado:
+•	Mayoría A: El Creador de Mundos (Ingeniería de Videojuegos). Te enfocas en el desarrollo de videojuegos, simulación y entretenimiento interactivo .
+•	Mayoría B: El Estratega Digital (Diseño y Marketing Digital). Tu fuerte es la creación de contenido visual, diseño de interfaces (UX/UI) y publicidad interactiva .
+•	Mayoría C: El Productor Audiovisual (Animación y Postproducción). Te apasiona la producción de cine, animación 2D/3D, efectos visuales (VFX) y todo el ecosistema audiovisual .
+•	Mayoría D: El Innovador Tecnológico (Desarrollo y Aplicaciones). Te mueve la programación, la inteligencia artificial, el análisis de datos y la creación de software multimedia de vanguardia

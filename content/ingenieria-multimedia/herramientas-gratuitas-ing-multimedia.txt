@@ -1,0 +1,15 @@
+Herramientas gratuitas para un Ingeniero Multimedia
+•	Diseño Gráfico e Ilustración:
+-Canva: Ideal para crear gráficos para redes sociales, presentaciones y material visual sencillo.
+-GIMP: Una alternativa gratuita y muy potente a Photoshop.
+-Krita: Excelente para dibujo e ilustración digital.
+•	Animación y Modelado 3D:
+-Blender: La herramienta de código abierto más completa para modelado 3D, animación, efectos visuales y más. Un estándar en la industria .
+•	Edición de Audio:
+-Audacity: Software libre y muy popular para grabar y editar audio, ideal para podcasts o diseño de sonido.
+•	Edición de Video:
+-DaVinci Resolve: Una herramienta profesional para edición de video, corrección de color y postproducción de audio. Su versión gratuita es increíblemente potente.
+-CapCut: Perfecta para editar videos cortos para redes sociales de forma rápida e intuitiva.
+•	Desarrollo y Programación:
+-Visual Studio Code: El editor de código más utilizado por desarrolladores. Gratuito, liviano y súper potente.
+-Scratch: Ideal para empezar a entender la lógica de programación de manera visual y divertida.

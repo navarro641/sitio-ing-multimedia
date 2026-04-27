@@ -1,0 +1,7 @@
+Los Pilares de la Multimedia
+Uso simultáneo de varios medios: combina diferentes formatos para presentar la información.
+-Interactividad: en muchos casos permite al usuario intervenir o tomar decisiones (por ejemplo, en menús interactivos, juegos educativos o simulaciones).
+-Enfoque comunicativo: busca mejorar la transmisión del mensaje o contenido.
+-Adaptabilidad: puede usarse en diferentes entornos, desde la enseñanza hasta el ocio, pasando por la publicidad o la investigación.
+-Accesibilidad digital: muchos recursos multimedia se distribuyen a través de internet, lo que facilita su acceso global.
+-Requiere soporte tecnológico: se necesita al menos un dispositivo (ordenador, móvil, tableta...) para reproducir y visualizar contenidos multimedia.

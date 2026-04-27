@@ -1,0 +1,1101 @@
+﻿/* Variables generales: colores, sombras y valores reutilizables del sitio. */
+:root {
+      --bg: #f6f8fb;
+      --ink: #17202a;
+      --muted: #5f6b7a;
+      --line: #dde3ec;
+      --blue: #2563eb;
+      --teal: #00b8a9;
+      --coral: #ff6b5f;
+      --gold: #f6c343;
+      --dark: #111827;
+      --panel: #ffffff;
+      --soft-blue: #eef5ff;
+      --soft-teal: #e8fbf8;
+      --soft-coral: #fff0ee;
+      --shadow: 0 18px 50px rgba(17, 24, 39, 0.13);
+    }
+
+    /* Ajuste global para que paddings y bordes no rompan el ancho de los elementos. */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand,
+    .button {
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Encabezado fijo con logo y menu principal. */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px clamp(18px, 4vw, 56px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar,
+    nav,
+    .hero-actions,
+    .inline-actions {
+      min-width: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white;
+      font-size: 18px;
+    }
+
+    /* Menu de navegacion. La clase active marca la seccion actual. */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--blue);
+      background: var(--soft-blue);
+      border-color: #c7d8ff;
+      box-shadow: inset 0 -3px 0 var(--blue);
+    }
+
+    /* Portada principal: texto a la izquierda y animacion circular a la derecha. */
+    .home-layout {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      align-items: center;
+      padding: 54px clamp(18px, 5vw, 72px) 36px;
+      background:
+        linear-gradient(115deg, rgba(37, 99, 235, 0.12), transparent 42%),
+        linear-gradient(35deg, rgba(0, 184, 169, 0.08), transparent 36%),
+        linear-gradient(180deg, #ffffff, var(--soft-blue));
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Rejilla de portada. En escritorio usa dos columnas; en movil pasa a una. */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      align-items: center;
+      gap: 34px;
+      width: 100%;
+    }
+
+    .intro-text h1 {
+      margin: 0 0 16px;
+      max-width: 780px;
+      font-size: clamp(2.3rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .intro-text p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 34px;
+      align-items: center;
+      padding: 54px clamp(18px, 5vw, 72px) 36px;
+      background:
+        linear-gradient(115deg, rgba(37, 99, 235, 0.12), transparent 42%),
+        linear-gradient(35deg, rgba(0, 184, 169, 0.08), transparent 36%),
+        linear-gradient(180deg, #ffffff, var(--soft-blue));
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      max-width: 780px;
+      font-size: clamp(2.3rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions,
+    .inline-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    /* Botones generales del sitio. La variante secondary invierte color/fondo. */
+    .button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+      text-align: center;
+    }
+
+    .button.secondary {
+      background: #ffffff;
+      color: var(--blue);
+      border: 1px solid #c7d8ff;
+      box-shadow: none;
+    }
+
+    /* Animacion circular de multimedia en movimiento. */
+    .stage {
+      min-height: 420px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .media-orbit {
+      width: min(420px, 82vw);
+      aspect-ratio: 1;
+      position: relative;
+      border: 1px solid rgba(35, 102, 209, 0.18);
+      border-radius: 50%;
+      animation: turn 22s linear infinite;
+    }
+
+    .media-orbit::before {
+      content: "";
+      position: absolute;
+      inset: 15%;
+      border: 1px dashed rgba(2, 168, 150, 0.35);
+      border-radius: 50%;
+    }
+
+    .center-chip {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      text-align: center;
+      font-weight: 900;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .orb {
+      position: absolute;
+      width: 84px;
+      height: 84px;
+      border: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      font-weight: 900;
+      box-shadow: 0 16px 28px rgba(23, 32, 42, 0.16);
+      animation: counter 22s linear infinite;
+      cursor: pointer;
+    }
+
+    .orb span {
+      font-size: 34px;
+    }
+
+    .orb.audio { top: -20px; left: 42%; background: var(--coral); }
+    .orb.video { right: -18px; top: 40%; background: var(--blue); }
+    .orb.design { bottom: -20px; left: 42%; background: var(--teal); }
+    .orb.code { left: -18px; top: 40%; background: var(--gold); color: #231b00; }
+
+    .orb:hover {
+      filter: brightness(1.05);
+      transform: scale(1.04);
+    }
+
+    /* Espaciado general de cada seccion de contenido. */
+    section {
+      padding: 72px clamp(18px, 5vw, 72px);
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      letter-spacing: 0;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .section-title.centered {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Etiqueta pequena que acompana titulos de seccion y da contexto visual. */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+
+    /* Tarjetas tipo cortina para explicar que hace un ingeniero multimedia.
+       Estado normal: las tres imagenes aparecen visibles como franjas verticales iguales.
+       Estado hover/focus: la imagen activa se expande hasta cubrir la tarjeta completa
+       y aparece el texto que explica esa imagen. La imagen activa cambia con clic. */
+    .curtain-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.09), transparent 34%),
+        linear-gradient(40deg, rgba(0, 184, 169, 0.08), transparent 42%),
+        #ffffff;
+    }
+
+    .curtain-section::before {
+      content: "";
+      position: absolute;
+      inset: 34px auto auto 8%;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      border-radius: 50%;
+    }
+
+    .curtain-section::after {
+      content: "";
+      position: absolute;
+      right: 6%;
+      bottom: 52px;
+      width: 240px;
+      height: 120px;
+      border: 1px dashed rgba(0, 184, 169, 0.25);
+      border-radius: 999px;
+      transform: rotate(-12deg);
+    }
+
+    .curtain-heading {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.82fr) minmax(280px, 1fr);
+      gap: clamp(20px, 5vw, 68px);
+      align-items: end;
+      max-width: 1120px;
+      margin: 0 auto 36px;
+    }
+
+    .curtain-heading h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .curtain-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+
+    .curtain-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: clamp(24px, 5vw, 64px);
+      max-width: 1040px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .curtain-card {
+      position: relative;
+      height: 390px;
+      border: 1px solid rgba(221, 227, 236, 0.96);
+      border-radius: 8px;
+      background: white;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow:
+        0 18px 45px rgba(17, 24, 39, 0.1),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .curtain-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .curtain-card:hover,
+    .curtain-card:focus-within {
+      transform: translateY(-6px);
+      border-color: rgba(37, 99, 235, 0.34);
+      box-shadow:
+        0 28px 70px rgba(17, 24, 39, 0.18),
+        0 0 0 5px rgba(37, 99, 235, 0.08);
+    }
+
+    .curtain-images {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      overflow: hidden;
+      background: var(--dark);
+      transition: grid-template-columns 360ms ease;
+    }
+
+    .curtain-card.active-0:hover .curtain-images,
+    .curtain-card.active-0:focus-within .curtain-images {
+      grid-template-columns: 1fr 0fr 0fr;
+    }
+
+    .curtain-card.active-1:hover .curtain-images,
+    .curtain-card.active-1:focus-within .curtain-images {
+      grid-template-columns: 0fr 1fr 0fr;
+    }
+
+    .curtain-card.active-2:hover .curtain-images,
+    .curtain-card.active-2:focus-within .curtain-images {
+      grid-template-columns: 0fr 0fr 1fr;
+    }
+
+    .curtain-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-width: 0;
+      filter: saturate(0.88);
+      opacity: 0.86;
+      transition: opacity 240ms ease, filter 240ms ease;
+    }
+
+    .curtain-images img.active {
+      opacity: 1;
+      filter: saturate(1.05);
+    }
+
+    .curtain-copy {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      min-height: 128px;
+      padding: 22px 22px 22px 56px;
+      color: white;
+      background:
+        linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.88) 24%, rgba(17, 24, 39, 0.97)),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.22), rgba(0, 184, 169, 0.18));
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    .curtain-card:hover .curtain-copy,
+    .curtain-card:focus-within .curtain-copy {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .curtain-copy h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+    }
+
+    .curtain-copy p {
+      margin: 0;
+      color: #e9eef7;
+      line-height: 1.55;
+    }
+
+    .sound-toggle {
+      position: absolute;
+      left: 16px;
+      bottom: 22px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* Rejilla de tarjetas para temas, areas o elementos. */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 10px 26px rgba(30, 44, 70, 0.08);
+    }
+
+    .card h3 {
+      margin: 14px 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-size: 28px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .card:hover .icon,
+    .tool:hover .tool-logo {
+      transform: scale(1.12) rotate(8deg);
+      background: var(--soft-teal);
+      color: var(--teal);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .visual-panel {
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.88)),
+        repeating-linear-gradient(135deg, #dbe7ff 0 10px, #f4f7fb 10px 20px);
+      overflow: hidden;
+    }
+
+    .flip-card {
+      width: min(360px, 86%);
+      height: 230px;
+      perspective: 1000px;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 600ms ease;
+    }
+
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      border-radius: 8px;
+      background: white;
+      box-shadow: var(--shadow);
+      backface-visibility: hidden;
+      text-align: center;
+      line-height: 1.55;
+      font-weight: 800;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      color: white;
+      background: var(--blue);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .era {
+      position: relative;
+      padding: 22px;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .era strong {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--blue);
+    }
+
+    .era p {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .tools-band {
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.18), transparent 35%),
+        linear-gradient(180deg, var(--dark), #162033);
+      color: white;
+    }
+
+    .tools-band .section-title p {
+      color: #ccd5df;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tool {
+      min-height: 180px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      cursor: help;
+    }
+
+    .tool-logo {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 30px;
+      transition: transform 180ms ease;
+    }
+
+    .tool h3 {
+      margin: 16px 0 8px;
+    }
+
+    .tool p {
+      color: #d9e1ea;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .branches {
+      display: grid;
+      place-items: center;
+      min-height: 430px;
+    }
+
+    .branch-map {
+      position: relative;
+      width: min(680px, 92vw);
+      aspect-ratio: 1.55;
+    }
+
+    .branch-center {
+      position: absolute;
+      inset: 34% 36%;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+    }
+
+    .branch-btn {
+      position: absolute;
+      width: 150px;
+      min-height: 52px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      color: var(--ink);
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(30, 44, 70, 0.08);
+    }
+
+    .branch-btn:hover,
+    .branch-btn.active {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .b1 { left: 6%; top: 10%; }
+    .b2 { right: 4%; top: 12%; }
+    .b3 { left: 0; bottom: 12%; }
+    .b4 { right: 0; bottom: 14%; }
+    .b5 { left: 39%; bottom: 0; }
+
+    .branch-info {
+      margin-top: 26px;
+      max-width: 680px;
+      min-height: 86px;
+      padding: 18px;
+      border-radius: 8px;
+      background: white;
+      border: 1px solid var(--line);
+      text-align: center;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .test-box {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .question {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      margin-bottom: 12px;
+    }
+
+    .question legend {
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      padding: 9px 0;
+      color: var(--muted);
+    }
+
+    .result-panel {
+      position: sticky;
+      top: 84px;
+      padding: 24px;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(0, 184, 169, 0.18), transparent 42%),
+        var(--dark);
+      color: white;
+    }
+
+    .result-panel p {
+      color: #d8e1ec;
+      line-height: 1.65;
+    }
+
+    .universities {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .uni {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+    }
+
+    .uni a {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 34px clamp(18px, 5vw, 72px);
+      background: var(--dark);
+      color: white;
+    }
+
+    footer p {
+      color: #c6ced8;
+      margin: 8px 0 0;
+    }
+
+    /* Ventanas emergentes reutilizadas para informacion y video. */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(17, 24, 39, 0.62);
+    }
+
+    .modal.open {
+      display: grid;
+    }
+
+    .modal-card {
+      width: min(620px, 100%);
+      border-radius: 8px;
+      background: white;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .modal-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      background: #dbe6f5;
+    }
+
+    .modal-content {
+      padding: 22px;
+    }
+
+    .modal-content p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .video-modal-card {
+      background: var(--dark);
+      color: white;
+    }
+
+    .video-modal-card .modal-content {
+      padding-bottom: 14px;
+    }
+
+    .video-modal-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #05070a;
+    }
+
+    .close {
+      float: right;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #eef3fb;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    /* Boton flotante para regresar al inicio despues de hacer scroll. */
+    .back-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--gold));
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @keyframes turn {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes counter {
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Responsive para tablet: reduce columnas y acomoda la portada. */
+    @media (max-width: 900px) {
+      .intro-grid,
+      .hero,
+      .split,
+      .test-box {
+        grid-template-columns: 1fr;
+      }
+
+      /* Portada principal: texto a la izquierda y animacion circular a la derecha. */
+    .home-layout {
+        min-height: auto;
+        padding-top: 44px;
+      }
+
+      .intro-text {
+        order: 1;
+      }
+
+      /* Animacion circular de multimedia en movimiento. */
+    .stage {
+        order: 2;
+        min-height: 330px;
+      }
+
+      .grid,
+      .curtain-grid,
+      .tools,
+      .timeline,
+      .universities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .curtain-heading {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      /* Animacion circular de multimedia en movimiento. */
+    .stage {
+        min-height: 340px;
+      }
+    }
+
+    /* Responsive para celular: menu, botones y animacion pasan a tamanos compactos. */
+    @media (max-width: 620px) {
+      /* Encabezado fijo con logo y menu principal. */
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+      }
+
+      /* Menu de navegacion. La clase active marca la seccion actual. */
+    nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      nav a {
+        flex: 1 1 120px;
+        padding: 9px 8px;
+        font-size: 13px;
+      }
+
+      .home-layout,
+      /* Espaciado general de cada seccion de contenido. */
+    section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .intro-text h1 {
+        font-size: clamp(2.15rem, 15vw, 3.8rem);
+      }
+
+      .intro-text p {
+        font-size: 1rem;
+      }
+
+      .hero-actions,
+      .inline-actions {
+        flex-direction: column;
+      }
+
+      /* Botones generales del sitio. La variante secondary invierte color/fondo. */
+    .button {
+        width: 100%;
+      }
+
+      .media-orbit {
+        width: min(285px, 76vw);
+      }
+
+      .center-chip {
+        width: 118px;
+        height: 118px;
+        font-size: 0.86rem;
+      }
+
+      .orb {
+        width: 64px;
+        height: 64px;
+      }
+
+      .orb span {
+        font-size: 25px;
+      }
+
+      .grid,
+      .curtain-grid,
+      .tools,
+      .timeline,
+      .universities {
+        grid-template-columns: 1fr;
+      }
+
+      .curtain-images {
+        height: 100%;
+      }
+
+      .curtain-card {
+        height: 340px;
+      }
+
+      .curtain-heading h2 {
+        font-size: clamp(1.9rem, 11vw, 3.2rem);
+      }
+
+      .curtain-card.active-0:hover .curtain-images,
+      .curtain-card.active-0:focus-within .curtain-images {
+        grid-template-columns: 1fr 0fr 0fr;
+      }
+
+      .curtain-card.active-1:hover .curtain-images,
+      .curtain-card.active-1:focus-within .curtain-images {
+        grid-template-columns: 0fr 1fr 0fr;
+      }
+
+      .curtain-card.active-2:hover .curtain-images,
+      .curtain-card.active-2:focus-within .curtain-images {
+        grid-template-columns: 0fr 0fr 1fr;
+      }
+
+      .branch-map {
+        aspect-ratio: auto;
+        display: grid;
+        gap: 10px;
+        padding-top: 90px;
+      }
+
+      .branch-center {
+        inset: 0 auto auto 50%;
+        width: 120px;
+        height: 120px;
+        transform: translateX(-50%);
+      }
+
+      .branch-btn {
+        position: static;
+        width: 100%;
+      }
+    }
+

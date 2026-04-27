@@ -1,0 +1,10 @@
+Ramas de la ingeniería: 
+La ingeniería es un campo muy amplio que abarca numerosas especialidades. Algunas de las más destacadas son:
+•	Ingeniería Civil: Se enfoca en la planificación, diseño y construcción de infraestructuras (puentes, carreteras, edificios).
+•	Ingeniería Mecánica: Centrada en el diseño y fabricación de sistemas mecánicos (motores, vehículos, maquinaria industrial).
+•	Ingeniería Industrial: Es la ingeniería de la eficiencia. Su objetivo es optimizar procesos, recursos humanos y materiales para que las fábricas y empresas produzcan más con menos errores y menor costo.
+•	Ingeniería de Sistemas: Es la arquitectura del software y la información. Se encarga de crear, programar y administrar los sistemas complejos y redes que permiten que el mundo digital y el internet funcionen correctamente.
+•	Ingeniería Multimedia: Una rama más moderna que integra creatividad, diseño y tecnología para crear contenido digital interactivo.
+•	Ingeniería Química: Utiliza la química, la física y la biología para transformar materias primas en productos útiles. Gracias a ella tenemos combustibles, medicamentos, alimentos procesados y plásticos.
+•	Ingeniería Forense: Es el "CSI" de la ingeniería. Cuando un edificio se cae, un avión se accidenta o una máquina explota sin explicación, estos ingenieros entran a la escena para aplicar ingeniería inversa. Su trabajo es deducir, mediante leyes físicas y análisis de materiales, el momento exacto y la razón por la que algo falló. Son detectives de estructuras.
+•	Ingeniería de Tejidos (o Tisular): Es la rama que busca "fabricar" piezas del cuerpo humano. No usan metal ni plástico, sino células vivas y andamios biológicos para cultivar piel, cartílagos o incluso mini-órganos en laboratorios. Su objetivo final es que en el futuro no necesitemos donantes, sino que podamos "imprimir" o cultivar el repuesto que necesites.

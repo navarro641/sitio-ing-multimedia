@@ -1,0 +1,103 @@
+UN VIAJE EN EL TIEMPO
+HISTORIA DE LA INGENERÍA 
+La ingeniería es el uso practico de la ciencia y las matemáticas para resolver problemas que 
+acontecen al ser humano o entornos de su interés en pro de su veneficio.
+•	2,5 millones a.C. — Paleolítico (Ingeniería de Superviviencia)
+-Herramientas de piedra tallada
+-Control de fuego
+-Refugios primitivos 
+-Ingeniería basada en experiencia empirica y adaptacion al entorno 
+•	10.000 a.C. -Revolución Neolitica (Nace la ingenieria hidraulica basica)
+-Agricultura
+-Canales de irrigación primitivos 
+-Domesticación animal 
+•	3.000 a.C. – Mesopotamia (Primer Urbanismo Planificado)
+-Invención de la rueda
+-Zigurats
+-Uso de ladrillo cocido
+
+•	2.700 - 2.500 a.C. – Egipto (Organizacion tecnica sin ciencia formal)
+-Pirámides de Giza
+-Sistemas de medición geométrica
+-Ingeniería funeraria Monumental
+-Transporte masivo de materiales
+•	800 - 146 a.C. – Grecia (Inicia la fusión de la ingeniería y la ciencia)
+-Geometría de Euclides
+-Principios de Arquímedes
+-Bases de física aplicada
+•	500 a.C. - 478 d.C. Imperio Romano (Ingeniería practica a gran escala)
+-Acueductos
+-Puentes y calzadas
+-Concreto romano
+-Infraestructura urbana avanzada
+•	500 - 1400 - Edad Media (Surge el termino derivado del latin Ingenium (Ingenio))
+-Castillos fortificados
+-Molinos de agua y viento
+-Ingenieria militar
+•	1400 - 1600 – renacimiento (Inicio de la ingenieria cientifica moderna)
+-Leonardo da Vinci
+-Estudios mecánicos
+-Integración arte-ciencia-técnica 
+•	1747 - Nacimiento oficial del Ingeniero Civil (Inicio de la ingenieria como profesion moderna)
+-Jon Smeaton funda la Society of Civil Engineers 
+-Se toma formalmente el termino “Civil Engineer” para diferenciar a los ingenieros militares
+•	1760 - 1840 1era Revolucion Industrial (Surge la ingenieria mecanica moderna)
+-Maquina de vapor
+-Fabricas textiles mecanizadas
+-Ferrocarriles 
+•	1870-1914 2da Revolucion Industrial (Nacen ramas como: ing electrica, ing industrial, ing mecanica avanzada)
+-Producción de acero
+-Electricidad aplicada
+-Motor de combustión interna
+-Bombilla Eléctrica
+-Teléfono y telégrafo
+-Automóvil
+-Avión
+•	1861- Fundacion del MIT (La ingenieria ingresa completamente al ambito universitario cientificao)
+-William Barton Rogers inaugura el MIT
+-Formación basada en ciencia aplicada
+-Educación con alto componente practico
+•	Final siglo XIX (Ingeniera Moderna)
+-Aplicación de principios científicos sistemáticamente
+-Los ingenieros dejan de apoyarse solamente en la experiencia empírica
+-Surgen especializaciones 
+•	1915-1940 Ing Cientifica y de sistemas (Nace la ing industrial moderna)
+-Modelo económico de lote
+-Control estadístico de calidad
+-Ingeniería de métodos 
+-Teoría del muestreo
+•	1945- Energia Nuclear (Transformación del panorama energetico y tecnologico mundial)
+-Primera bomba atómica
+-Uso de energía atómica
+-Impacto ético y social profundo
+•	1948 – Cibernética (Origen de la inteligencia Artificial)
+-Norbert Wiener
+-Sistemas de control y comunicación
+-Bases de automatización e IA
+•	1950-1960 Era de la Computacion (Ingenieria basada en modelos matematicos)
+-Aparición del computador
+-Planeación de proyectos PERT-CPM
+-Programación lineal
+-Simulación Monte Carlo
+•	1957-1969 Carrera espacial (La Guerra Fría)
+-Satelites
+-Materiales avanzados
+-Eelctronica miniaturizada
+-Saitemas de navegacion
+•	1960-1970- Robotica e Informatica (Inicio de la automatización moderna y la era digital)
+-Automatización industrial
+-Desarrollo informático
+-Avances en Alemania, Japón y E.E. U.U.
+•	1970-1990 Globalizacion y Telecomunicaciones (Ingenieria vinculada a la economia global)
+-Telemática
+-Empresas traslacionales
+-Miniaturización electrónica
+•	1990-2000 Internet (El mundo se vuelve “aldea global”)
+-Acceso global a la información
+-Comunicación instantánea
+-Sociedad de la información
+•	siglo XXI - Ingenieria digital (Conciderada la 3era Revolucion Industrial)
+-Realidad virtual
+-Modelos matemáticos interactivos
+-Simulación digital
+-Transformación del trabajo y consumo
