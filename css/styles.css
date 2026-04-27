@@ -542,7 +542,7 @@
 
     .areas-cloud {
       position: relative;
-      min-height: 620px;
+      min-height: 500px;
       max-width: 1120px;
       margin: 0 auto;
       border: 1px solid rgba(221, 227, 236, 0.9);
@@ -602,14 +602,14 @@
       pointer-events: none;
     }
 
-    .area-bubble-a { left: 7%; top: 56px; animation-delay: 0s; }
-    .area-bubble-b { left: 29%; top: 88px; animation-delay: -1.2s; }
-    .area-bubble-c { right: 29%; top: 68px; animation-delay: -2.1s; }
-    .area-bubble-d { right: 7%; top: 56px; animation-delay: -3s; }
-    .area-bubble-e { left: 16%; top: 285px; animation-delay: -0.8s; }
-    .area-bubble-f { left: 44%; top: 250px; animation-delay: -2.5s; }
-    .area-bubble-g { right: 16%; top: 285px; animation-delay: -1.7s; }
-    .area-bubble-h { right: 7%; bottom: 54px; animation-delay: -3.5s; }
+    .area-bubble-a { left: 7%; top: 54px; animation-delay: 0s; }
+    .area-bubble-b { left: 31%; top: 90px; animation-delay: -1.2s; }
+    .area-bubble-c { left: 56%; top: 54px; animation-delay: -2.1s; }
+    .area-bubble-d { right: 7%; top: 90px; animation-delay: -3s; }
+    .area-bubble-e { left: 13%; top: 294px; animation-delay: -0.8s; }
+    .area-bubble-f { left: 37%; top: 250px; animation-delay: -2.5s; }
+    .area-bubble-g { left: 61%; top: 294px; animation-delay: -1.7s; }
+    .area-bubble-h { right: 8%; top: 250px; animation-delay: -3.5s; }
 
     /* Rejilla de tarjetas para temas, areas o elementos. */
     .grid {

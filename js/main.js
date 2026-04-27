@@ -79,6 +79,47 @@ const curtainCardData = [
       ]
     ];
 
+// Crea un sonido corto tipo "pop" sin depender de un archivo externo.
+// Web Audio solo puede activarse despues de una accion del usuario, por eso se llama dentro del click.
+function playBubblePopSound() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+
+      const audioContext = new AudioContext();
+      const now = audioContext.currentTime;
+      const output = audioContext.createGain();
+      output.gain.setValueAtTime(0.0001, now);
+      output.gain.exponentialRampToValueAtTime(0.25, now + 0.01);
+      output.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+      output.connect(audioContext.destination);
+
+      const popTone = audioContext.createOscillator();
+      popTone.type = "sine";
+      popTone.frequency.setValueAtTime(420, now);
+      popTone.frequency.exponentialRampToValueAtTime(120, now + 0.12);
+      popTone.connect(output);
+      popTone.start(now);
+      popTone.stop(now + 0.16);
+
+      const noiseBuffer = audioContext.createBuffer(1, audioContext.sampleRate * 0.08, audioContext.sampleRate);
+      const samples = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < samples.length; i += 1) {
+        samples[i] = (Math.random() * 2 - 1) * (1 - i / samples.length);
+      }
+
+      const noise = audioContext.createBufferSource();
+      const filter = audioContext.createBiquadFilter();
+      filter.type = "highpass";
+      filter.frequency.value = 900;
+      noise.buffer = noiseBuffer;
+      noise.connect(filter);
+      filter.connect(output);
+      noise.start(now);
+      noise.stop(now + 0.08);
+
+      window.setTimeout(() => audioContext.close(), 260);
+    }
+
     // Detecta las opciones del menu y las secciones a las que apuntan.
     const sectionLinks = Array.from(document.querySelectorAll("nav a[href^='#']"));
     const mainSections = sectionLinks
@@ -198,6 +239,7 @@ const curtainCardData = [
     // Cuando la animacion termina, se quita la clase para permitir repetir el efecto.
     document.querySelectorAll(".area-bubble").forEach((bubble) => {
       bubble.addEventListener("click", () => {
+        playBubblePopSound();
         bubble.classList.remove("popping");
         void bubble.offsetWidth;
         bubble.classList.add("popping");
