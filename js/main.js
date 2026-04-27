@@ -111,6 +111,43 @@ function playBubblePopSound() {
       window.setTimeout(() => audioContext.close(), 260);
     }
 
+// Crea un sonido breve tipo goteo para los puntos de la historia.
+// Se genera con Web Audio para no depender de archivos externos.
+function playHistoryDropSound() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+
+      const audioContext = new AudioContext();
+      const now = audioContext.currentTime;
+      const output = audioContext.createGain();
+      output.gain.setValueAtTime(0.0001, now);
+      output.gain.exponentialRampToValueAtTime(0.18, now + 0.012);
+      output.gain.exponentialRampToValueAtTime(0.0001, now + 0.24);
+      output.connect(audioContext.destination);
+
+      const dropTone = audioContext.createOscillator();
+      dropTone.type = "sine";
+      dropTone.frequency.setValueAtTime(820, now);
+      dropTone.frequency.exponentialRampToValueAtTime(260, now + 0.18);
+      dropTone.connect(output);
+      dropTone.start(now);
+      dropTone.stop(now + 0.22);
+
+      const echo = audioContext.createOscillator();
+      const echoGain = audioContext.createGain();
+      echo.type = "triangle";
+      echo.frequency.setValueAtTime(520, now + 0.06);
+      echoGain.gain.setValueAtTime(0.0001, now);
+      echoGain.gain.exponentialRampToValueAtTime(0.05, now + 0.07);
+      echoGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.23);
+      echo.connect(echoGain);
+      echoGain.connect(output);
+      echo.start(now + 0.04);
+      echo.stop(now + 0.24);
+
+      window.setTimeout(() => audioContext.close(), 320);
+    }
+
     const currentPage = document.body.dataset.page || "ingenieria-multimedia";
 
     // Detecta las opciones del menu que apuntan a secciones internas.
@@ -417,6 +454,7 @@ function playBubblePopSound() {
     historyPoints.forEach((point) => {
       point.addEventListener("click", () => {
         if (!historyDetail) return;
+        playHistoryDropSound();
 
         const image = historyDetail.querySelector("img");
         const year = historyDetail.querySelector(".mini-label");
