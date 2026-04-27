@@ -37,15 +37,6 @@ const modalData = {
       }
     };
 
-// Textos que aparecen al seleccionar una rama de la ingenieria.
-const branches = {
-      software: "Software: crea aplicaciones, paginas web, sistemas interactivos y soluciones digitales.",
-      audiovisual: "Audiovisual: produce video, sonido, guiones, contenido educativo y narrativas visuales.",
-      ux: "UX/UI: disena experiencias claras, accesibles y faciles de usar para personas reales.",
-      videojuegos: "Videojuegos: une programacion, arte, interaccion, sonido y reglas para crear experiencias jugables.",
-      datos: "Datos: transforma informacion en visualizaciones, tableros, contenidos interactivos y decisiones."
-    };
-
 // Textos de cada imagen en las tarjetas tipo cortina.
 // Cada arreglo interno corresponde a una tarjeta y cada objeto corresponde a una imagen.
 const curtainCardData = [
@@ -247,15 +238,6 @@ function playBubblePopSound() {
 
       bubble.addEventListener("animationend", () => {
         bubble.classList.remove("popping");
-      });
-    });
-
-    // Cambia la descripcion de ramas al pulsar cada boton del mapa.
-    document.querySelectorAll("[data-branch]").forEach((button) => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll("[data-branch]").forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-        document.querySelector("#branchInfo").textContent = branches[button.dataset.branch];
       });
     });
 

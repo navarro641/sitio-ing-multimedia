@@ -979,9 +979,24 @@
 
     .innovation-stage {
       position: relative;
-      min-height: 760px;
+      min-height: 790px;
       max-width: 1180px;
       margin: 0 auto;
+    }
+
+    .innovation-heading {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .innovation-heading h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4.6vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: 0;
     }
 
     .gear-system {
@@ -1021,11 +1036,11 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 230px;
-      height: 230px;
+      width: 300px;
+      height: 300px;
       display: grid;
       place-items: center;
-      padding: 34px;
+      padding: 48px;
       color: white;
       text-align: center;
       background:
@@ -1041,18 +1056,21 @@
       display: block;
       transform: rotate(0deg);
       animation: centerTextCounter 18s linear infinite;
+      max-width: 170px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .gear-center span {
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 800;
-      line-height: 1.2;
+      line-height: 1.16;
     }
 
     .gear-center strong {
       margin-top: 8px;
-      font-size: 2.4rem;
+      font-size: 2.7rem;
       line-height: 1;
     }
 
@@ -1060,11 +1078,14 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      border: 0;
-      padding: 16px;
-      background: white;
+      border: 3px solid rgba(17, 24, 39, 0.72);
+      padding: 15px;
+      background:
+        linear-gradient(135deg, #ffffff, #dfe8f8);
       cursor: pointer;
-      box-shadow: 0 18px 42px rgba(17, 24, 39, 0.15);
+      box-shadow:
+        0 18px 42px rgba(17, 24, 39, 0.2),
+        0 0 0 6px rgba(255, 255, 255, 0.86);
       animation: orbitGearTurn 9s linear infinite;
     }
 
@@ -1099,8 +1120,10 @@
       padding: 18px;
       border: 1px solid rgba(221, 227, 236, 0.9);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.78);
-      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.1);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow:
+        0 20px 48px rgba(17, 24, 39, 0.16),
+        0 0 0 4px rgba(37, 99, 235, 0.06);
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 220ms ease, transform 220ms ease;
@@ -1114,7 +1137,8 @@
 
     .innovation-note h3 {
       margin: 0 0 8px;
-      font-size: 1.02rem;
+      color: var(--blue);
+      font-size: 1.08rem;
     }
 
     .innovation-note p {
@@ -1665,11 +1689,11 @@
       }
 
       .innovation-stage {
-        min-height: 980px;
+        min-height: 1020px;
       }
 
       .gear-system {
-        top: 42%;
+        top: 43%;
         width: min(500px, 86vw);
       }
 
@@ -1833,17 +1857,18 @@
       }
 
       .gear-center {
-        width: 150px;
-        height: 150px;
-        padding: 24px;
+        width: 190px;
+        height: 190px;
+        padding: 28px;
       }
 
       .gear-center span {
+        max-width: 116px;
         font-size: 0.78rem;
       }
 
       .gear-center strong {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .future-gear {
