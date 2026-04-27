@@ -193,6 +193,21 @@ const curtainCardData = [
       card.addEventListener("click", () => setActiveImage(activeIndex + 1));
     });
 
+    // Activa el efecto de "globo que explota" en las areas de desempeno.
+    // Al hacer clic, la clase popping dispara la animacion CSS bubblePop.
+    // Cuando la animacion termina, se quita la clase para permitir repetir el efecto.
+    document.querySelectorAll(".area-bubble").forEach((bubble) => {
+      bubble.addEventListener("click", () => {
+        bubble.classList.remove("popping");
+        void bubble.offsetWidth;
+        bubble.classList.add("popping");
+      });
+
+      bubble.addEventListener("animationend", () => {
+        bubble.classList.remove("popping");
+      });
+    });
+
     // Cambia la descripcion de ramas al pulsar cada boton del mapa.
     document.querySelectorAll("[data-branch]").forEach((button) => {
       button.addEventListener("click", () => {
