@@ -117,11 +117,19 @@ function playBubblePopSound() {
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    // Actualiza el resaltado del menu segun la seccion visible en pantalla.
-    function updateActiveNav() {
+    // Devuelve la seccion principal mas cercana a la parte superior de la pantalla.
+    // Se reutiliza para resaltar el menu y para decidir que botones flotantes se ven.
+    function getCurrentMainSection() {
       const current = mainSections
         .filter((section) => section.getBoundingClientRect().top <= 120)
         .at(-1) || mainSections[0];
+
+      return current;
+    }
+
+    // Actualiza el resaltado del menu segun la seccion visible en pantalla.
+    function updateActiveNav() {
+      const current = getCurrentMainSection();
 
       sectionLinks.forEach((link) => {
         link.classList.toggle("active", link.getAttribute("href") === `#${current.id}`);
@@ -391,6 +399,7 @@ function playBubblePopSound() {
     // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
     // Se calcula con todas las secciones directas del main, no solo con el menu.
     const backTop = document.querySelector("#backTop");
+    const floatingActions = document.querySelector(".floating-actions");
     const pageSections = Array.from(document.querySelectorAll("main > section"));
 
     function getCurrentSectionIndex() {
@@ -405,6 +414,11 @@ function playBubblePopSound() {
     function updatePreviousButton() {
       const currentIndex = getCurrentSectionIndex();
       backTop.classList.toggle("show", currentIndex > 0);
+
+      // En la pestana/seccion de Ingenieria solo debe verse el boton Anterior.
+      // Los accesos a test, universidades y herramientas se ocultan temporalmente.
+      const currentMainSection = getCurrentMainSection();
+      floatingActions?.classList.toggle("hide", currentMainSection?.id === "ingenieria");
     }
 
     window.addEventListener("scroll", updatePreviousButton);
