@@ -542,7 +542,7 @@
 
     .areas-cloud {
       position: relative;
-      min-height: 560px;
+      min-height: 620px;
       max-width: 1120px;
       margin: 0 auto;
       border: 1px solid rgba(221, 227, 236, 0.9);
@@ -553,19 +553,6 @@
         linear-gradient(180deg, #ffffff, #f7faff);
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
-    }
-
-    .areas-cloud::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 38px;
-      width: 180px;
-      height: 18px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
-      opacity: 0.32;
-      transform: translateX(-50%);
     }
 
     .area-bubble {
@@ -610,11 +597,6 @@
       outline: none;
     }
 
-    .area-bubble-h:hover,
-    .area-bubble-h:focus-visible {
-      transform: translateX(-50%) translateY(-8px) scale(1.04);
-    }
-
     .area-bubble.popping {
       animation: bubblePop 520ms ease both;
       pointer-events: none;
@@ -627,7 +609,7 @@
     .area-bubble-e { left: 16%; top: 285px; animation-delay: -0.8s; }
     .area-bubble-f { left: 44%; top: 250px; animation-delay: -2.5s; }
     .area-bubble-g { right: 16%; top: 285px; animation-delay: -1.7s; }
-    .area-bubble-h { left: 50%; bottom: 72px; transform: translateX(-50%); animation-delay: -3.5s; }
+    .area-bubble-h { right: 7%; bottom: 54px; animation-delay: -3.5s; }
 
     /* Rejilla de tarjetas para temas, areas o elementos. */
     .grid {
@@ -1196,10 +1178,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px 12px;
         padding: 28px 16px 70px;
-      }
-
-      .areas-cloud::after {
-        bottom: 28px;
       }
 
       .area-bubble {
