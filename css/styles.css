@@ -802,6 +802,163 @@
       line-height: 1.5;
     }
 
+    /* Habilidades y competencias.
+       Usa dos paneles comparativos en vez de tarjetas repetidas:
+       - Tecnicas: fondo de imagen tecnica e iconos de engranaje.
+       - Creativas/blandas: fondo de imagen creativa e iconos tipo pincel.
+       Las capas oscuras mejoran la lectura del texto sobre las imagenes. */
+    .skills-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 38%),
+        linear-gradient(225deg, rgba(255, 107, 95, 0.08), transparent 42%),
+        var(--bg);
+    }
+
+    .skills-section::before {
+      content: "";
+      position: absolute;
+      inset: 34px 7% auto auto;
+      width: 240px;
+      height: 240px;
+      border: 1px dashed rgba(37, 99, 235, 0.18);
+      border-radius: 50%;
+    }
+
+    .skills-heading {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .skills-heading h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .skills-heading p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.04rem;
+    }
+
+    .skills-panels {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: clamp(22px, 4vw, 42px);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .skill-panel {
+      position: relative;
+      min-height: 560px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(221, 227, 236, 0.9);
+      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.16);
+      background: var(--dark);
+    }
+
+    .skill-panel-bg {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.03);
+      transition: transform 360ms ease, filter 360ms ease;
+    }
+
+    .skill-panel-tech .skill-panel-bg {
+      background-image:
+        linear-gradient(180deg, rgba(17, 24, 39, 0.22), rgba(17, 24, 39, 0.84)),
+        url("../assets/img/ingenieria-multimedia/habilidades-tecnicas.jpg");
+    }
+
+    .skill-panel-soft .skill-panel-bg {
+      background-image:
+        linear-gradient(180deg, rgba(17, 24, 39, 0.18), rgba(17, 24, 39, 0.84)),
+        url("../assets/img/ingenieria-multimedia/habilidades-blandas.jpg");
+    }
+
+    .skill-panel:hover .skill-panel-bg {
+      transform: scale(1.08);
+      filter: saturate(1.08);
+    }
+
+    .skill-panel-content {
+      position: absolute;
+      inset: auto 24px 24px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 8px;
+      background: rgba(17, 24, 39, 0.72);
+      color: white;
+      backdrop-filter: blur(12px);
+    }
+
+    .skill-panel-content h3 {
+      margin: 0 0 18px;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.1;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .skill-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #edf4ff;
+      font-weight: 700;
+      line-height: 1.45;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+
+    .skill-list li:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(4px);
+    }
+
+    .skill-icon {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      font-weight: 900;
+    }
+
+    .skill-icon.gear {
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      animation: gearSpin 6s linear infinite;
+    }
+
+    .skill-icon.brush {
+      background: linear-gradient(135deg, var(--coral), var(--gold));
+      animation: brushStroke 3.2s ease-in-out infinite;
+    }
+
     /* Rejilla de tarjetas para temas, areas o elementos. */
     .grid {
       display: grid;
@@ -1252,6 +1409,15 @@
       }
     }
 
+    @keyframes gearSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes brushStroke {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(3px, -4px) rotate(-12deg); }
+    }
+
     /* Responsive para tablet: reduce columnas y acomoda la portada. */
     @media (max-width: 900px) {
       .intro-grid,
@@ -1299,6 +1465,14 @@
 
       .profile-panel-egresado .profile-image-wrap {
         order: -1;
+      }
+
+      .skills-panels {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-panel {
+        min-height: 500px;
       }
 
       /* Animacion circular de multimedia en movimiento. */
@@ -1420,6 +1594,20 @@
 
       .profile-trait {
         min-height: auto;
+      }
+
+      .skill-panel {
+        min-height: 560px;
+      }
+
+      .skill-panel-content {
+        inset: auto 14px 14px;
+        padding: 18px;
+      }
+
+      .skill-list li {
+        grid-template-columns: 30px 1fr;
+        font-size: 0.92rem;
       }
 
       .curtain-images {
