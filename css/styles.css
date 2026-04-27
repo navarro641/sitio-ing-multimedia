@@ -996,7 +996,7 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: min(560px, 86vw);
+      width: min(620px, 88vw);
       aspect-ratio: 1;
       border: 2px solid rgba(37, 99, 235, 0.18);
       border-radius: 50%;
@@ -1029,8 +1029,8 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 350px;
-      height: 350px;
+      width: 370px;
+      height: 370px;
       display: grid;
       place-items: center;
       padding: 58px;
@@ -1046,27 +1046,39 @@
       animation: centerGearTurn 18s linear infinite;
     }
 
-    .gear-center span,
-    .gear-center strong {
+    .gear-center span {
       display: block;
+      position: relative;
+      z-index: 2;
       transform: rotate(0deg);
       animation: centerTextCounter 18s linear infinite;
       max-width: 205px;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    .gear-center span {
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-size: 1.38rem;
       font-weight: 900;
       line-height: 1.08;
     }
 
-    .gear-center strong {
-      margin-top: 10px;
-      font-size: 2.15rem;
+    .orbit-year {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      font-size: 1.12rem;
       line-height: 1;
+      background: linear-gradient(135deg, #ffffff, #f8c43a);
+      box-shadow:
+        0 16px 34px rgba(17, 24, 39, 0.22),
+        0 0 0 5px rgba(255, 255, 255, 0.2);
+      animation: orbitYear 9s linear infinite;
     }
 
     .future-gear {
@@ -1094,14 +1106,17 @@
       animation: imageCounterTurn 9s linear infinite reverse;
     }
 
-    .future-gear-ia { left: -8%; top: 33%; animation-duration: 8s; }
-    .future-gear-gen { right: 0; top: -6%; animation-duration: 10s; }
-    .future-gear-col { left: 6%; bottom: -4%; animation-duration: 11s; }
-    .future-gear-xr { right: 2%; bottom: -3%; animation-duration: 9s; }
+    /* Ubicacion de los cuatro engranajes pequenos en puntos cardinales.
+       La propiedad translate centra cada pieza sin interferir con la rotacion
+       de la animacion, porque la animacion usa transform. */
+    .future-gear-ia { left: 50%; top: -9%; translate: -50% 0; animation-duration: 8s; }
+    .future-gear-gen { right: -9%; top: 50%; translate: 0 -50%; animation-duration: 10s; }
+    .future-gear-col { left: 50%; bottom: -9%; translate: -50% 0; animation-duration: 11s; }
+    .future-gear-xr { left: -9%; top: 50%; translate: 0 -50%; animation-duration: 9s; }
 
     .innovation-section:hover .gear-center,
     .innovation-section:hover .gear-center span,
-    .innovation-section:hover .gear-center strong,
+    .innovation-section:hover .orbit-year,
     .innovation-section:hover .future-gear,
     .innovation-section:hover .future-gear img,
     .innovation-section:hover .gear-system::before,
@@ -1604,6 +1619,16 @@
       to { transform: rotate(360deg); }
     }
 
+    @keyframes orbitYear {
+      from { transform: translate(-50%, -50%) rotate(0deg) translateX(132px) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg) translateX(132px) rotate(-360deg); }
+    }
+
+    @keyframes orbitYearMobile {
+      from { transform: translate(-50%, -50%) rotate(0deg) translateX(82px) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg) translateX(82px) rotate(-360deg); }
+    }
+
     @keyframes brushStroke {
       0%, 100% { transform: translate(0, 0) rotate(0deg); }
       50% { transform: translate(3px, -4px) rotate(-12deg); }
@@ -1690,7 +1715,7 @@
 
       .gear-system {
         top: 43%;
-        width: min(500px, 86vw);
+        width: min(540px, 86vw);
       }
 
       .innovation-note {
@@ -1847,14 +1872,14 @@
         position: relative;
         left: auto;
         top: auto;
-        width: min(360px, 86vw);
+        width: min(380px, 88vw);
         margin: 0 auto;
         transform: none;
       }
 
       .gear-center {
-        width: 210px;
-        height: 210px;
+        width: 220px;
+        height: 220px;
         padding: 34px;
       }
 
@@ -1863,8 +1888,11 @@
         font-size: 0.9rem;
       }
 
-      .gear-center strong {
-        font-size: 1.7rem;
+      .orbit-year {
+        width: 58px;
+        height: 58px;
+        font-size: 0.9rem;
+        animation-name: orbitYearMobile;
       }
 
       .future-gear {
@@ -1873,10 +1901,10 @@
         padding: 10px;
       }
 
-      .future-gear-ia { left: -4%; top: 34%; }
-      .future-gear-gen { right: -2%; top: -5%; }
-      .future-gear-col { left: 6%; bottom: -5%; }
-      .future-gear-xr { right: 4%; bottom: -4%; }
+      .future-gear-ia { left: 50%; top: -8%; translate: -50% 0; }
+      .future-gear-gen { right: -8%; top: 50%; translate: 0 -50%; }
+      .future-gear-col { left: 50%; bottom: -8%; translate: -50% 0; }
+      .future-gear-xr { left: -8%; top: 50%; translate: 0 -50%; }
 
       .innovation-note {
         position: static;
