@@ -241,10 +241,161 @@ function playBubblePopSound() {
       });
     });
 
-    // Muestra el boton de volver arriba cuando el usuario baja por la pagina.
-    const backTop = document.querySelector("#backTop");
-    window.addEventListener("scroll", () => {
-      backTop.classList.toggle("show", window.scrollY > 500);
+    // Datos de resultados del test.
+    // La clave A, B, C o D coincide con el valor de cada radio del formulario.
+    const testProfiles = {
+      A: {
+        title: "El Creador de Mundos",
+        subtitle: "Ingenieria de videojuegos",
+        text: "Te enfocas en desarrollo de videojuegos, simulacion y entretenimiento interactivo.",
+        video: "assets/video/ingenieria-multimedia/creador-de-mundos.mp4"
+      },
+      B: {
+        title: "El Estratega Digital",
+        subtitle: "Diseno y marketing digital",
+        text: "Tu fuerte es la creacion de contenido visual, diseno de interfaces y publicidad interactiva.",
+        video: "assets/video/ingenieria-multimedia/estratega-digital.mp4"
+      },
+      C: {
+        title: "El Productor Audiovisual",
+        subtitle: "Animacion y postproduccion",
+        text: "Te apasiona la produccion de cine, animacion 2D/3D, efectos visuales y contenido audiovisual.",
+        video: "assets/video/ingenieria-multimedia/productor-audiovisual.mp4"
+      },
+      D: {
+        title: "El Innovador Tecnologico",
+        subtitle: "Desarrollo y aplicaciones",
+        text: "Te mueve la programacion, la inteligencia artificial, el analisis de datos y la creacion de software multimedia.",
+        video: "assets/video/ingenieria-multimedia/innovador-tec.mp4"
+      }
+    };
+
+    // Abre un modal por id. Tambien marca aria-hidden para accesibilidad.
+    function openActionModal(modalId) {
+      const actionModal = document.querySelector(`#${modalId}`);
+      if (!actionModal) return;
+
+      if (modalId === "testModal") {
+        resetTest();
+      }
+
+      actionModal.classList.add("open");
+      actionModal.setAttribute("aria-hidden", "false");
+    }
+
+    // Cierra un modal por id y pausa cualquier video que haya dentro.
+    function closeActionModal(modalId) {
+      const actionModal = document.querySelector(`#${modalId}`);
+      if (!actionModal) return;
+
+      actionModal.querySelectorAll("video").forEach((video) => video.pause());
+      actionModal.classList.remove("open");
+      actionModal.setAttribute("aria-hidden", "true");
+    }
+
+    // Reinicia el test cada vez que se abre la ventana.
+    function resetTest() {
+      const testForm = document.querySelector("#profileTest");
+      const testResult = document.querySelector("#testResult");
+      const testWarning = document.querySelector("#testWarning");
+      if (!testForm || !testResult || !testWarning) return;
+
+      testForm.reset();
+      testWarning.textContent = "";
+      testResult.classList.remove("show");
+      testResult.innerHTML = "";
+    }
+
+    // Calcula el perfil ganador. En caso de empate, toma la primera letra
+    // que alcance la puntuacion mas alta siguiendo el orden A, B, C, D.
+    function getWinningProfile(formData) {
+      const scores = { A: 0, B: 0, C: 0, D: 0 };
+      ["q1", "q2", "q3"].forEach((questionName) => {
+        scores[formData.get(questionName)] += 1;
+      });
+
+      return Object.keys(scores).reduce((winner, key) => (
+        scores[key] > scores[winner] ? key : winner
+      ), "A");
+    }
+
+    // Conecta los botones flotantes con su modal correspondiente.
+    document.querySelectorAll("[data-action-modal]").forEach((button) => {
+      button.addEventListener("click", () => openActionModal(button.dataset.actionModal));
     });
-    backTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // Botones X o cerrar dentro de modales nuevos.
+    document.querySelectorAll("[data-close-modal]").forEach((button) => {
+      button.addEventListener("click", () => closeActionModal(button.dataset.closeModal));
+    });
+
+    // Los modales marcados como dismissible se cierran al tocar el fondo.
+    // El modal del test no tiene esta clase para no perder respuestas por accidente.
+    document.querySelectorAll(".action-modal.dismissible").forEach((actionModal) => {
+      actionModal.addEventListener("click", (event) => {
+        if (event.target === actionModal) {
+          closeActionModal(actionModal.id);
+        }
+      });
+    });
+
+    // Procesa el test solo cuando las tres preguntas tienen respuesta.
+    document.querySelector("#profileTest")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const testWarning = document.querySelector("#testWarning");
+      const testResult = document.querySelector("#testResult");
+
+      if (!formData.get("q1") || !formData.get("q2") || !formData.get("q3")) {
+        testWarning.textContent = "Responde las tres preguntas antes de ver el resultado.";
+        testResult.classList.remove("show");
+        return;
+      }
+
+      const profile = testProfiles[getWinningProfile(formData)];
+      testWarning.textContent = "";
+      testResult.innerHTML = `
+        <video controls>
+          <source src="${profile.video}" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+        <div>
+          <span class="section-kicker">Resultado</span>
+          <h3>${profile.title}</h3>
+          <strong>${profile.subtitle}</strong>
+          <p>${profile.text}</p>
+        </div>
+      `;
+      testResult.classList.add("show");
+      testResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
+    // Se calcula con todas las secciones directas del main, no solo con el menu.
+    const backTop = document.querySelector("#backTop");
+    const pageSections = Array.from(document.querySelectorAll("main > section"));
+
+    function getCurrentSectionIndex() {
+      const marker = window.innerHeight * 0.42;
+      const current = pageSections
+        .filter((section) => section.getBoundingClientRect().top <= marker)
+        .at(-1) || pageSections[0];
+
+      return Math.max(0, pageSections.indexOf(current));
+    }
+
+    function updatePreviousButton() {
+      const currentIndex = getCurrentSectionIndex();
+      backTop.classList.toggle("show", currentIndex > 0);
+    }
+
+    window.addEventListener("scroll", updatePreviousButton);
+    window.addEventListener("resize", updatePreviousButton);
+    updatePreviousButton();
+
+    backTop.addEventListener("click", () => {
+      const previousSection = pageSections[Math.max(0, getCurrentSectionIndex() - 1)];
+      previousSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
 

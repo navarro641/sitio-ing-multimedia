@@ -1535,6 +1535,187 @@
       background: #05070a;
     }
 
+    /* Modales de acciones flotantes.
+       Estos modales son mas amplios porque contienen formularios, logos y enlaces.
+       El max-height evita que se salgan de pantalla; si el contenido crece, se puede
+       desplazar dentro de la ventana sin mover la pagina principal. */
+    .action-card {
+      position: relative;
+      width: min(980px, 100%);
+      max-height: min(86vh, 820px);
+      padding: clamp(20px, 3vw, 34px);
+      overflow: auto;
+      border: 1px solid rgba(221, 227, 236, 0.86);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(0, 184, 169, 0.12), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(255, 107, 95, 0.12), transparent 24%),
+        linear-gradient(135deg, #ffffff, #f5f8fc);
+    }
+
+    .action-card .close {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      float: right;
+    }
+
+    .action-card-head {
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .action-card-head h2 {
+      margin: 10px 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+    }
+
+    .action-card-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 650;
+    }
+
+    /* Formulario del test.
+       Cada fieldset funciona como una tarjeta de pregunta. Los radios quedan
+       sin seleccionar en HTML; JavaScript solo calcula el resultado cuando el
+       usuario presiona el boton. */
+    .test-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .test-form fieldset {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 18px;
+      border: 1px solid rgba(221, 227, 236, 0.9);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06), transparent),
+        rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
+    }
+
+    .test-form legend {
+      padding: 0 8px;
+      color: var(--ink);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 800;
+    }
+
+    .test-form label {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-weight: 650;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .test-form label:hover,
+    .test-form label:has(input:checked) {
+      color: var(--ink);
+      background: rgba(0, 184, 169, 0.12);
+    }
+
+    .test-warning {
+      min-height: 24px;
+      margin: 0;
+      color: #b42318;
+      font-weight: 800;
+    }
+
+    .test-result {
+      display: none;
+      grid-template-columns: minmax(220px, 42%) 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 8px;
+      background: var(--dark);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .test-result.show {
+      display: grid;
+    }
+
+    .test-result h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+    }
+
+    .test-result p {
+      color: #d8e2ef;
+      line-height: 1.65;
+    }
+
+    .test-result video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      background: #05070a;
+    }
+
+    .modal-close-action {
+      margin-top: 18px;
+    }
+
+    /* Rejillas de enlaces para universidades y herramientas.
+       Los logos se tratan como botones visuales: tienen profundidad, etiqueta y
+       abren en pestana nueva gracias a target blank en el HTML. */
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .link-grid a {
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid rgba(221, 227, 236, 0.9);
+      border-radius: 8px;
+      color: var(--ink);
+      text-align: center;
+      text-decoration: none;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .link-grid a:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 184, 169, 0.52);
+      box-shadow: 0 22px 48px rgba(17, 24, 39, 0.14);
+    }
+
+    .link-grid img {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
+    }
+
+    .tools-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .close {
       float: right;
       width: 38px;
@@ -1546,26 +1727,66 @@
       font-weight: 900;
     }
 
-    /* Boton flotante para regresar al inicio despues de hacer scroll. */
-    .back-top {
+    /* Panel flotante de acciones.
+       Permanece a la derecha con accesos rapidos: test, universidades,
+       herramientas y navegacion hacia la seccion anterior. */
+    .floating-actions {
       position: fixed;
       right: 18px;
-      bottom: 18px;
-      width: 46px;
-      height: 46px;
+      top: 50%;
+      z-index: 18;
+      display: grid;
+      gap: 10px;
+      transform: translateY(-50%);
+    }
+
+    .float-action {
+      width: 70px;
+      min-height: 66px;
       border: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--coral), var(--gold));
-      color: white;
-      font-size: 22px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      padding: 8px 6px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
       cursor: pointer;
-      box-shadow: var(--shadow);
+      box-shadow: 0 16px 38px rgba(17, 24, 39, 0.16);
+      backdrop-filter: blur(10px);
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .float-action span {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white;
+      font-size: 18px;
+    }
+
+    .float-action small {
+      font-size: 0.68rem;
+      line-height: 1;
+    }
+
+    .float-action:hover {
+      transform: translateX(-5px);
+      background: white;
+    }
+
+    .previous-action {
       opacity: 0;
       pointer-events: none;
       transition: opacity 160ms ease;
     }
 
-    .back-top.show {
+    .previous-action.show {
       opacity: 1;
       pointer-events: auto;
     }
@@ -1684,6 +1905,15 @@
       .timeline,
       .universities {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .link-grid,
+      .tools-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .test-result {
+        grid-template-columns: 1fr;
       }
 
       .curtain-heading {
@@ -1805,6 +2035,65 @@
       .timeline,
       .universities {
         grid-template-columns: 1fr;
+      }
+
+      .action-modal {
+        padding: 12px;
+      }
+
+      .action-card {
+        max-height: 88vh;
+        padding: 18px;
+      }
+
+      .action-card-head h2 {
+        font-size: 2rem;
+      }
+
+      .link-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .link-grid a {
+        min-height: 132px;
+        grid-template-columns: 72px 1fr;
+        justify-items: start;
+        text-align: left;
+      }
+
+      .link-grid img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .floating-actions {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 10px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        transform: none;
+      }
+
+      .float-action {
+        width: auto;
+        min-height: 58px;
+      }
+
+      .float-action span {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+      }
+
+      .float-action small {
+        font-size: 0.62rem;
+      }
+
+      body {
+        padding-bottom: 82px;
       }
 
       .areas-cloud {

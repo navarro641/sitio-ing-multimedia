@@ -324,8 +324,119 @@
     </article>
   </div>
 
-  <!-- Boton flotante que aparece al bajar y devuelve al inicio. -->
-  <button class="back-top" type="button" id="backTop" aria-label="Volver arriba">↑</button>
+  <!-- Modal del test: no se cierra al tocar el fondo para que el usuario no pierda sus respuestas. -->
+  <div class="modal action-modal" id="testModal" aria-hidden="true">
+    <article class="modal-card action-card test-card" role="dialog" aria-modal="true" aria-labelledby="testTitle">
+      <button class="close" type="button" data-close-modal="testModal" aria-label="Cerrar">X</button>
+      <div class="action-card-head">
+        <span class="section-kicker">Test vocacional</span>
+        <h2 id="testTitle">Descubre tu perfil multimedia</h2>
+        <p>Responde las tres preguntas y luego revisa el resultado. Ninguna opcion aparece marcada por defecto.</p>
+      </div>
+
+      <form class="test-form" id="profileTest">
+        <fieldset>
+          <legend>1. Que actividad te llama mas la atencion?</legend>
+          <label><input type="radio" name="q1" value="A"> Disenar personajes y mundos para un videojuego.</label>
+          <label><input type="radio" name="q1" value="B"> Crear contenido llamativo para redes sociales o publicidad.</label>
+          <label><input type="radio" name="q1" value="C"> Producir un cortometraje o una pieza audiovisual.</label>
+          <label><input type="radio" name="q1" value="D"> Desarrollar una app o una pagina web interactiva.</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Que herramienta te gustaria dominar?</legend>
+          <label><input type="radio" name="q2" value="A"> Un motor de videojuegos como Unity o Unreal Engine.</label>
+          <label><input type="radio" name="q2" value="B"> Software de diseno como Photoshop, Illustrator o Figma.</label>
+          <label><input type="radio" name="q2" value="C"> Programas de edicion de video como Premiere Pro o After Effects.</label>
+          <label><input type="radio" name="q2" value="D"> Lenguajes de programacion como Python o JavaScript.</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Cual es tu objetivo profesional ideal?</legend>
+          <label><input type="radio" name="q3" value="A"> Ser parte de un estudio de desarrollo de juegos.</label>
+          <label><input type="radio" name="q3" value="B"> Dirigir el arte digital y la estrategia de marca de una empresa.</label>
+          <label><input type="radio" name="q3" value="C"> Trabajar en postproduccion de peliculas y series.</label>
+          <label><input type="radio" name="q3" value="D"> Liderar proyectos de innovacion tecnologica en una compania.</label>
+        </fieldset>
+
+        <p class="test-warning" id="testWarning" aria-live="polite"></p>
+        <button class="button" type="submit">Ver resultado</button>
+      </form>
+
+      <section class="test-result" id="testResult" aria-live="polite"></section>
+      <button class="button secondary modal-close-action" type="button" data-close-modal="testModal">Cerrar</button>
+    </article>
+  </div>
+
+  <!-- Modal de universidades: el fondo tambien sirve para cerrar la ventana. -->
+  <div class="modal action-modal dismissible" id="studyModal" aria-hidden="true">
+    <article class="modal-card action-card study-card" role="dialog" aria-modal="true" aria-labelledby="studyTitle">
+      <button class="close" type="button" data-close-modal="studyModal" aria-label="Cerrar">X</button>
+      <div class="action-card-head">
+        <span class="section-kicker">Colombia</span>
+        <h2 id="studyTitle">Donde estudiar Ingenieria Multimedia</h2>
+        <p>Haz clic en un logo para abrir el programa en una nueva pestana.</p>
+      </div>
+      <div class="link-grid university-grid">
+        <a href="https://uninpahu.edu.co/oferta-academica/ingenieria-multimedia/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/unipahu.jpg" alt="UNINPAHU">
+          <span>UNINPAHU</span>
+        </a>
+        <a href="https://unisimon.edu.co/pregrados/ingenieria-multimedia/barranquilla" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/Universidad-Simon-Bolivar.jpg" alt="Universidad Simon Bolivar">
+          <span>Universidad Simon Bolivar</span>
+        </a>
+        <a href="https://umng.edu.co/programa/ingenieria-en-multimedia/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/u-militar-nueva-granada.png" alt="Universidad Militar Nueva Granada">
+          <span>U. Militar Nueva Granada</span>
+        </a>
+        <a href="https://www.uao.edu.co/programa/ingenieria-multimedia/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/universidad-autonoma-de-occidente.png" alt="Universidad Autonoma de Occidente">
+          <span>U. Autonoma de Occidente</span>
+        </a>
+        <a href="https://estudios.unad.edu.co/ingenieria-multimedia" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/unad.png" alt="UNAD">
+          <span>UNAD</span>
+        </a>
+        <a href="https://unimayor.edu.co/web/oferta-academica/programas-profesionales/ingenieria-multimedia" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/logos/colegio-mayor-del-cauca.png" alt="Colegio Mayor del Cauca">
+          <span>Colegio Mayor del Cauca</span>
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Modal de herramientas gratuitas: logos con enlaces oficiales en nueva pestana. -->
+  <div class="modal action-modal dismissible" id="toolsModal" aria-hidden="true">
+    <article class="modal-card action-card tools-card" role="dialog" aria-modal="true" aria-labelledby="toolsTitle">
+      <button class="close" type="button" data-close-modal="toolsModal" aria-label="Cerrar">X</button>
+      <div class="action-card-head">
+        <span class="section-kicker">Recursos gratis</span>
+        <h2 id="toolsTitle">Herramientas para crear contenido multimedia</h2>
+        <p>Selecciona una herramienta para visitar su sitio oficial o pagina principal.</p>
+      </div>
+      <div class="link-grid tools-grid">
+        <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/canva.jpg" alt="Canva"><span>Canva</span></a>
+        <a href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/gimp.jpg" alt="GIMP"><span>GIMP</span></a>
+        <a href="https://krita.org/en/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/krita.jpg" alt="Krita"><span>Krita</span></a>
+        <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Blender.jpg" alt="Blender"><span>Blender</span></a>
+        <a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Audacity.jpg" alt="Audacity"><span>Audacity</span></a>
+        <a href="https://www.blackmagicdesign.com/products/davinciresolve/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/DaVinci-Resolve.jpg" alt="DaVinci Resolve"><span>DaVinci Resolve</span></a>
+        <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/CapCut.jpg" alt="CapCut"><span>CapCut</span></a>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Visual-Studio-Code.jpg" alt="Visual Studio Code"><span>VS Code</span></a>
+        <a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Scratch.jpg" alt="Scratch"><span>Scratch</span></a>
+      </div>
+    </article>
+  </div>
+
+  <!-- Botones flotantes: accesos rapidos y navegacion hacia la seccion anterior. -->
+  <div class="floating-actions" aria-label="Accesos rapidos">
+    <button class="float-action" type="button" data-action-modal="testModal" aria-label="Abrir test"><span>?</span><small>Test</small></button>
+    <button class="float-action" type="button" data-action-modal="studyModal" aria-label="Donde estudiar"><span>⌂</span><small>Estudiar</small></button>
+    <button class="float-action" type="button" data-action-modal="toolsModal" aria-label="Herramientas gratis"><span>✦</span><small>Gratis</small></button>
+    <button class="float-action previous-action" type="button" id="backTop" aria-label="Ir a la seccion anterior"><span>↑</span><small>Anterior</small></button>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
