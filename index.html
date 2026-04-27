@@ -364,6 +364,7 @@
       </form>
 
       <section class="test-result" id="testResult" aria-live="polite"></section>
+      <button class="button secondary retake-test" type="button" id="retakeTest">Volver a realizar el test</button>
       <button class="button secondary modal-close-action" type="button" data-close-modal="testModal">Cerrar</button>
     </article>
   </div>
@@ -415,16 +416,45 @@
         <h2 id="toolsTitle">Herramientas para crear contenido multimedia</h2>
         <p>Selecciona una herramienta para visitar su sitio oficial o pagina principal.</p>
       </div>
-      <div class="link-grid tools-grid">
-        <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/canva.jpg" alt="Canva"><span>Canva</span></a>
-        <a href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/gimp.jpg" alt="GIMP"><span>GIMP</span></a>
-        <a href="https://krita.org/en/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/krita.jpg" alt="Krita"><span>Krita</span></a>
-        <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Blender.jpg" alt="Blender"><span>Blender</span></a>
-        <a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Audacity.jpg" alt="Audacity"><span>Audacity</span></a>
-        <a href="https://www.blackmagicdesign.com/products/davinciresolve/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/DaVinci-Resolve.jpg" alt="DaVinci Resolve"><span>DaVinci Resolve</span></a>
-        <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/CapCut.jpg" alt="CapCut"><span>CapCut</span></a>
-        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Visual-Studio-Code.jpg" alt="Visual Studio Code"><span>VS Code</span></a>
-        <a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Scratch.jpg" alt="Scratch"><span>Scratch</span></a>
+      <div class="tool-categories">
+        <section class="tool-category">
+          <h3>Diseno grafico e ilustracion</h3>
+          <div class="link-grid tools-grid">
+            <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/canva.jpg" alt="Canva"><span>Canva</span></a>
+            <a href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/gimp.jpg" alt="GIMP"><span>GIMP</span></a>
+            <a href="https://krita.org/en/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/krita.jpg" alt="Krita"><span>Krita</span></a>
+          </div>
+        </section>
+
+        <section class="tool-category">
+          <h3>Animacion y modelado 3D</h3>
+          <div class="link-grid tools-grid">
+            <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Blender.jpg" alt="Blender"><span>Blender</span></a>
+          </div>
+        </section>
+
+        <section class="tool-category">
+          <h3>Edicion de audio</h3>
+          <div class="link-grid tools-grid">
+            <a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Audacity.jpg" alt="Audacity"><span>Audacity</span></a>
+          </div>
+        </section>
+
+        <section class="tool-category">
+          <h3>Edicion de video</h3>
+          <div class="link-grid tools-grid">
+            <a href="https://www.blackmagicdesign.com/products/davinciresolve/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/DaVinci-Resolve.jpg" alt="DaVinci Resolve"><span>DaVinci Resolve</span></a>
+            <a href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/CapCut.jpg" alt="CapCut"><span>CapCut</span></a>
+          </div>
+        </section>
+
+        <section class="tool-category">
+          <h3>Desarrollo y programacion</h3>
+          <div class="link-grid tools-grid">
+            <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Visual-Studio-Code.jpg" alt="Visual Studio Code"><span>VS Code</span></a>
+            <a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer"><img src="assets/img/logos/Scratch.jpg" alt="Scratch"><span>Scratch</span></a>
+          </div>
+        </section>
       </div>
     </article>
   </div>
@@ -434,8 +464,8 @@
     <button class="float-action" type="button" data-action-modal="testModal" aria-label="Abrir test"><span>?</span><small>Test</small></button>
     <button class="float-action" type="button" data-action-modal="studyModal" aria-label="Donde estudiar"><span>⌂</span><small>Estudiar</small></button>
     <button class="float-action" type="button" data-action-modal="toolsModal" aria-label="Herramientas gratis"><span>✦</span><small>Gratis</small></button>
-    <button class="float-action previous-action" type="button" id="backTop" aria-label="Ir a la seccion anterior"><span>↑</span><small>Anterior</small></button>
   </div>
+  <button class="previous-action" type="button" id="backTop" aria-label="Ir a la seccion anterior">↑</button>
 
   <script src="js/main.js"></script>
 </body>

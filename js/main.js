@@ -298,12 +298,14 @@ function playBubblePopSound() {
       const testForm = document.querySelector("#profileTest");
       const testResult = document.querySelector("#testResult");
       const testWarning = document.querySelector("#testWarning");
+      const retakeButton = document.querySelector("#retakeTest");
       if (!testForm || !testResult || !testWarning) return;
 
       testForm.reset();
       testWarning.textContent = "";
       testResult.classList.remove("show");
       testResult.innerHTML = "";
+      retakeButton?.classList.remove("show");
     }
 
     // Calcula el perfil ganador. En caso de empate, toma la primera letra
@@ -346,17 +348,19 @@ function playBubblePopSound() {
       const formData = new FormData(form);
       const testWarning = document.querySelector("#testWarning");
       const testResult = document.querySelector("#testResult");
+      const retakeButton = document.querySelector("#retakeTest");
 
       if (!formData.get("q1") || !formData.get("q2") || !formData.get("q3")) {
         testWarning.textContent = "Responde las tres preguntas antes de ver el resultado.";
         testResult.classList.remove("show");
+        retakeButton?.classList.remove("show");
         return;
       }
 
       const profile = testProfiles[getWinningProfile(formData)];
       testWarning.textContent = "";
       testResult.innerHTML = `
-        <video controls>
+        <video controls autoplay muted playsinline>
           <source src="${profile.video}" type="video/mp4">
           Tu navegador no puede reproducir este video.
         </video>
@@ -368,7 +372,20 @@ function playBubblePopSound() {
         </div>
       `;
       testResult.classList.add("show");
+      retakeButton?.classList.add("show");
       testResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      const resultVideo = testResult.querySelector("video");
+      resultVideo?.play().catch(() => {
+        // Algunos navegadores bloquean el autoplay. El video queda visible
+        // con controles para que el usuario lo pueda iniciar manualmente.
+      });
+    });
+
+    // Permite repetir el test sin cerrar la ventana emergente.
+    document.querySelector("#retakeTest")?.addEventListener("click", () => {
+      resetTest();
+      document.querySelector("#profileTest")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
