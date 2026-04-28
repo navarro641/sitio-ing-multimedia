@@ -4581,3 +4581,59 @@
         0 16px 34px rgba(0, 0, 0, 0.24),
         inset 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
+
+    /* Test: preguntas amplias y sin recortes.
+       El legend se comporta como bloque interno para que las preguntas largas
+       no queden cortadas por el borde del fieldset. */
+    .test-card {
+      width: min(1120px, calc(100vw - 28px));
+      max-height: min(92vh, 900px);
+    }
+
+    .test-form {
+      gap: 22px;
+    }
+
+    .test-form fieldset {
+      min-width: 0;
+      padding: 22px;
+      border-color: rgba(0, 184, 169, 0.28);
+      background: rgba(7, 17, 31, 0.72);
+    }
+
+    .test-form legend {
+      display: block;
+      float: left;
+      width: 100%;
+      margin: 0 0 14px;
+      padding: 0;
+      color: #f8fbff;
+      white-space: normal;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .test-form legend + label {
+      clear: both;
+    }
+
+    .test-form label {
+      min-width: 0;
+      color: #d9e7f7;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      line-height: 1.45;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .test-form input {
+      margin-top: 4px;
+    }
+
+    .test-form label:hover,
+    .test-form label:has(input:checked) {
+      color: #f8fbff;
+      background: rgba(0, 184, 169, 0.16);
+      border-color: rgba(0, 184, 169, 0.34);
+    }
