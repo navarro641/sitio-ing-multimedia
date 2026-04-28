@@ -484,9 +484,8 @@ function playHistoryDropSound() {
     function resetBranchCenter() {
       if (!branchCenter) return;
       branchCenter.classList.remove("showing-definition");
-      branchCenter.querySelector(".branches-state-label").textContent = "Selecciona una rama";
-      branchCenter.querySelector("h3").textContent = "Ramas de la ingenieria";
-      branchCenter.querySelector("p").textContent = "Elige un boton lateral para leer la definicion de cada area.";
+      branchCenter.querySelector("h3").textContent = "";
+      branchCenter.querySelector("p").textContent = "Ramas de la ingenieria";
       branchButtons.forEach((button) => button.classList.remove("active"));
     }
 
@@ -498,7 +497,6 @@ function playHistoryDropSound() {
         branchButtons.forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
         branchCenter.classList.add("showing-definition");
-        branchCenter.querySelector(".branches-state-label").textContent = "Rama seleccionada";
         branchCenter.querySelector("h3").textContent = button.dataset.title;
         branchCenter.querySelector("p").textContent = button.dataset.text;
 
