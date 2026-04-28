@@ -1,18 +1,18 @@
 ﻿// Datos que se muestran dentro del modal informativo reutilizable.
 const modalData = {
       intro: {
-        title: "Que es la ingenieria multimedia",
-        text: "Es una disciplina que integra tecnologia, diseno, narrativa, sonido, imagen e interactividad para crear experiencias digitales.",
+        title: "Qué es la ingeniería multimedia",
+        text: "Es una disciplina que integra tecnología, diseño, narrativa, sonido, imagen e interactividad para crear experiencias digitales.",
         color: "#2366d1"
       },
       perfil: {
         title: "Perfil del aspirante",
-        text: "Curiosidad por la tecnologia, gusto por crear, interes por diseno, comunicacion, programacion y trabajo en equipo.",
+        text: "Curiosidad por la tecnología, gusto por crear, interés por diseño, comunicación, programación y trabajo en equipo.",
         color: "#02a896"
       },
       habilidades: {
         title: "Habilidades y competencias",
-        text: "Pensamiento creativo, solucion de problemas, manejo de herramientas digitales, logica de programacion y sensibilidad visual.",
+        text: "Pensamiento creativo, solución de problemas, manejo de herramientas digitales, lógica de programación y sensibilidad visual.",
         color: "#f0695f"
       },
       era80: {
@@ -27,12 +27,12 @@ const modalData = {
       },
       era2020: {
         title: "Experiencias conectadas",
-        text: "El usuario interactua con plataformas, apps, videojuegos, streaming, contenido social y productos digitales complejos.",
+        text: "El usuario interactúa con plataformas, apps, videojuegos, streaming, contenido social y productos digitales complejos.",
         color: "#02a896"
       },
       era2030: {
-        title: "Innovacion y proyeccion",
-        text: "La inteligencia artificial, la realidad mixta y los sistemas adaptativos amplian lo que puede crear un profesional multimedia.",
+        title: "Innovación y proyección",
+        text: "La inteligencia artificial, la realidad mixta y los sistemas adaptativos amplían lo que puede crear un profesional multimedia.",
         color: "#f0695f"
       }
     };
@@ -42,15 +42,15 @@ const modalData = {
 const curtainCardData = [
       [
         {
-          title: "Diseno y produccion multimedia",
-          text: "Crear graficos, animaciones, videos y audio para proyectos digitales."
+          title: "Diseño y producción multimedia",
+          text: "Crear gráficos, animaciones, videos y audio para proyectos digitales."
         },
         {
           title: "Contenido visual",
           text: "Organizar imagen, sonido, movimiento y texto para comunicar una idea con claridad."
         },
         {
-          title: "Integracion de tecnologias",
+          title: "Integración de tecnologías",
           text: "Combinar texto, audio, video y recursos interactivos en una misma experiencia."
         }
       ],
@@ -65,13 +65,13 @@ const curtainCardData = [
         },
         {
           title: "Experiencias inmersivas",
-          text: "Integrar medios con tecnologias como realidad aumentada y realidad virtual."
+          text: "Integrar medios con tecnologías como realidad aumentada y realidad virtual."
         }
       ]
     ];
 
 // Crea un sonido corto tipo "pop" sin depender de un archivo externo.
-// Web Audio solo puede activarse despues de una accion del usuario, por eso se llama dentro del click.
+// Web Audio solo puede activarse después de una acción del usuario, por eso se llama dentro del click.
 function playBubblePopSound() {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (!AudioContext) return;
@@ -150,16 +150,16 @@ function playHistoryDropSound() {
 
     const currentPage = document.body.dataset.page || "ingenieria-multimedia";
 
-    // Detecta las opciones del menu que apuntan a secciones internas.
-    // En las paginas separadas el menu apunta a archivos HTML, por eso este
+    // Detecta las opciones del menú que apuntan a secciones internas.
+    // En las páginas separadas el menú apunta a archivos HTML, por eso este
     // arreglo puede quedar vacio y el codigo debe seguir funcionando.
     const sectionLinks = Array.from(document.querySelectorAll("nav a[href^='#']"));
     const mainSections = sectionLinks
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
 
-    // Devuelve la seccion principal mas cercana a la parte superior de la pantalla.
-    // Se reutiliza para resaltar el menu y para decidir que botones flotantes se ven.
+    // Devuelve la sección principal más cercana a la parte superior de la pantalla.
+    // Se reutiliza para resaltar el menú y para decidir qué botones flotantes se ven.
     function getCurrentMainSection() {
       const current = mainSections
         .filter((section) => section.getBoundingClientRect().top <= 120)
@@ -168,7 +168,7 @@ function playHistoryDropSound() {
       return current;
     }
 
-    // Actualiza el resaltado del menu segun la seccion visible en pantalla.
+    // Actualiza el resaltado del menú según la sección visible en pantalla.
     function updateActiveNav() {
       if (!sectionLinks.length) return;
       const current = getCurrentMainSection();
@@ -182,7 +182,7 @@ function playHistoryDropSound() {
     updateActiveNav();
     window.addEventListener("scroll", updateActiveNav);
 
-    // Referencias al modal general de informacion y al modal de video.
+    // Referencias al modal general de información y al modal de video.
     const modal = document.querySelector("#modal");
     const modalTitle = document.querySelector("#modalTitle");
     const modalText = document.querySelector("#modalText");
@@ -197,7 +197,7 @@ function playHistoryDropSound() {
       videoModal.setAttribute("aria-hidden", "false");
     }
 
-    // Cierra el modal del video y pausa la reproduccion.
+    // Cierra el modal del video y pausa la reproducción.
     function closeVideoModal() {
       if (!videoModal) return;
       videoModal.classList.remove("open");
@@ -251,9 +251,9 @@ function playHistoryDropSound() {
     });
 
     // Prepara las tarjetas tipo cortina.
-    // Estado normal: CSS muestra las tres imagenes como franjas iguales.
-    // Hover/focus: CSS expande la imagen activa segun active-0, active-1 o active-2.
-    // Click: JavaScript cambia la imagen activa y actualiza el titulo/texto correspondiente.
+    // Estado normal: CSS muestra las tres imágenes como franjas iguales.
+    // Hover/focus: CSS expande la imagen activa según active-0, active-1 o active-2.
+    // Click: JavaScript cambia la imagen activa y actualiza el título/texto correspondiente.
     document.querySelectorAll(".curtain-card").forEach((card, cardIndex) => {
       const images = Array.from(card.querySelectorAll(".curtain-images img"));
       const title = card.querySelector(".curtain-copy h3");
@@ -278,9 +278,9 @@ function playHistoryDropSound() {
       card.addEventListener("click", () => setActiveImage(activeIndex + 1));
     });
 
-    // Activa el efecto de "globo que explota" en las areas de desempeno.
-    // Al hacer clic, la clase popping dispara la animacion CSS bubblePop.
-    // Cuando la animacion termina, se quita la clase para permitir repetir el efecto.
+    // Activa el efecto de "globo que explota" en las áreas de desempeño.
+    // Al hacer clic, la clase popping dispara la animación CSS bubblePop.
+    // Cuando la animación termina, se quita la clase para permitir repetir el efecto.
     document.querySelectorAll(".area-bubble").forEach((bubble) => {
       bubble.addEventListener("click", () => {
         playBubblePopSound();
@@ -299,26 +299,26 @@ function playHistoryDropSound() {
     const testProfiles = {
       A: {
         title: "El Creador de Mundos",
-        subtitle: "Ingenieria de videojuegos",
-        text: "Te enfocas en desarrollo de videojuegos, simulacion y entretenimiento interactivo.",
+        subtitle: "Ingeniería de videojuegos",
+        text: "Te enfocas en desarrollo de videojuegos, simulación y entretenimiento interactivo.",
         video: "assets/video/ingenieria-multimedia/creador-de-mundos.mp4"
       },
       B: {
         title: "El Estratega Digital",
-        subtitle: "Diseno y marketing digital",
-        text: "Tu fuerte es la creacion de contenido visual, diseno de interfaces y publicidad interactiva.",
+        subtitle: "Diseño y marketing digital",
+        text: "Tu fuerte es la creación de contenido visual, diseño de interfaces y publicidad interactiva.",
         video: "assets/video/ingenieria-multimedia/estratega-digital.mp4"
       },
       C: {
         title: "El Productor Audiovisual",
-        subtitle: "Animacion y postproduccion",
-        text: "Te apasiona la produccion de cine, animacion 2D/3D, efectos visuales y contenido audiovisual.",
+        subtitle: "Animación y postproducción",
+        text: "Te apasiona la producción de cine, animación 2D/3D, efectos visuales y contenido audiovisual.",
         video: "assets/video/ingenieria-multimedia/productor-audiovisual.mp4"
       },
       D: {
         title: "El Innovador Tecnologico",
         subtitle: "Desarrollo y aplicaciones",
-        text: "Te mueve la programacion, la inteligencia artificial, el analisis de datos y la creacion de software multimedia.",
+        text: "Te mueve la programación, la inteligencia artificial, el análisis de datos y la creación de software multimedia.",
         video: "assets/video/ingenieria-multimedia/innovador-tec.mp4"
       }
     };
@@ -362,7 +362,7 @@ function playHistoryDropSound() {
     }
 
     // Calcula el perfil ganador. En caso de empate, toma la primera letra
-    // que alcance la puntuacion mas alta siguiendo el orden A, B, C, D.
+    // que alcance la puntuación más alta siguiendo el orden A, B, C, D.
     function getWinningProfile(formData) {
       const scores = { A: 0, B: 0, C: 0, D: 0 };
       ["q1", "q2", "q3"].forEach((questionName) => {
@@ -441,7 +441,7 @@ function playHistoryDropSound() {
       document.querySelector("#profileTest")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
-    // Historia de la ingenieria: cada punto trae sus datos en atributos data-*.
+    // Historia de la ingeniería: cada punto trae sus datos en atributos data-*.
     // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
     const historyDetail = document.querySelector("#historyDetail");
     const historyPoints = Array.from(document.querySelectorAll(".history-point"));
@@ -475,8 +475,8 @@ function playHistoryDropSound() {
 
     document.querySelector(".history-close")?.addEventListener("click", closeHistoryDetail);
 
-    // Ramas de la ingenieria: al seleccionar una rama, el circulo central
-    // muestra su definicion unos segundos y luego vuelve al titulo de la seccion.
+    // Ramas de la ingeniería: al seleccionar una rama, el círculo central
+    // muestra su definición unos segundos y luego vuelve al título de la sección.
     const branchCenter = document.querySelector("#branchCenter");
     const branchButtons = Array.from(document.querySelectorAll(".branch-button"));
     let branchResetTimer;
@@ -485,7 +485,7 @@ function playHistoryDropSound() {
       if (!branchCenter) return;
       branchCenter.classList.remove("showing-definition");
       branchCenter.querySelector("h3").textContent = "";
-      branchCenter.querySelector("p").textContent = "Ramas de la ingenieria";
+      branchCenter.querySelector("p").textContent = "Ramas de la ingeniería";
       branchButtons.forEach((button) => button.classList.remove("active"));
     }
 
@@ -504,8 +504,8 @@ function playHistoryDropSound() {
       });
     });
 
-    // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
-    // Se calcula con todas las secciones directas del main, no solo con el menu.
+    // El antiguo botón de "volver arriba" ahora funciona como "sección anterior".
+    // Se calcula con todas las secciones directas del main, no solo con el menú.
     const backTop = document.querySelector("#backTop");
     const floatingActions = document.querySelector(".floating-actions");
     const pageSections = Array.from(document.querySelectorAll("main > section"));
