@@ -4513,3 +4513,25 @@
         0 0 0 7px rgba(0, 184, 169, 0.16),
         0 0 28px rgba(0, 184, 169, 0.42);
     }
+
+    /* Correcciones de contraste en tema oscuro. */
+    .branches-center h3 {
+      color: #f8fbff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.34);
+    }
+
+    .branches-center.showing-definition p {
+      color: #cfe0f3;
+    }
+
+    .branches-center:not(.showing-definition) p {
+      color: #f8fbff;
+    }
+
+    .engineer-cards-heading p,
+    .media-elements-title p {
+      color: #d9e7f7;
+      background: rgba(15, 23, 42, 0.72);
+      border-color: var(--teal);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+    }
