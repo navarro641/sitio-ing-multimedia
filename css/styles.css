@@ -1548,6 +1548,168 @@
       letter-spacing: 0.03em;
     }
 
+    /* Pilares y tipos de multimedia.
+       La composicion respeta el boceto de dos columnas: una lista conceptual a
+       la izquierda y tarjetas con imagen a la derecha. La linea central ayuda a
+       que se lea como dos temas relacionados, pero separados. */
+    .pillars-types-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(0, 184, 169, 0.11), transparent 24%),
+        radial-gradient(circle at 84% 78%, rgba(37, 99, 235, 0.12), transparent 28%),
+        linear-gradient(120deg, transparent 0 48%, rgba(255, 199, 60, 0.09) 48% 52%, transparent 52% 100%),
+        repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.026) 0 1px, transparent 1px 48px),
+        linear-gradient(180deg, #ffffff, #f8fbff);
+    }
+
+    .pillars-types-section::before {
+      content: "";
+      position: absolute;
+      inset: 44px 50% 44px auto;
+      width: 1px;
+      background: linear-gradient(transparent, rgba(17, 24, 39, 0.2), transparent);
+      pointer-events: none;
+    }
+
+    .pillars-types-section::after {
+      content: "";
+      position: absolute;
+      left: 9%;
+      top: 78px;
+      width: 180px;
+      height: 52px;
+      opacity: 0.46;
+      background:
+        repeating-linear-gradient(135deg, transparent 0 10px, rgba(0, 184, 169, 0.3) 10px 12px, transparent 12px 22px);
+      pointer-events: none;
+    }
+
+    .pillars-types-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.88fr) minmax(360px, 1.12fr);
+      gap: clamp(36px, 7vw, 92px);
+      align-items: start;
+    }
+
+    .pillars-panel,
+    .types-panel {
+      position: relative;
+    }
+
+    .pillars-panel h2,
+    .types-panel h2 {
+      margin: 0 0 26px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1;
+    }
+
+    .pillar-list {
+      list-style: none;
+      margin: 0;
+      padding: 8px 0 0;
+      display: grid;
+      gap: 20px;
+    }
+
+    .pillar-list li {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 16px 18px;
+      border: 1px solid rgba(221, 227, 236, 0.86);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 16px 34px rgba(17, 24, 39, 0.08);
+      animation: branchFloat 4.6s ease-in-out infinite;
+    }
+
+    .pillar-list li:nth-child(even) {
+      margin-left: clamp(20px, 5vw, 72px);
+      animation-delay: -1.4s;
+    }
+
+    .pillar-list li:nth-child(3) {
+      animation-delay: -2.2s;
+    }
+
+    .pillar-list span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      background: var(--teal);
+      box-shadow: 0 12px 24px rgba(0, 184, 169, 0.22);
+    }
+
+    .pillar-list p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .types-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .type-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 122px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid rgba(221, 227, 236, 0.9);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 42px rgba(17, 24, 39, 0.09);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .type-card.reverse {
+      grid-template-columns: 1fr 122px;
+      margin-left: clamp(12px, 4vw, 56px);
+    }
+
+    .type-card.reverse img {
+      order: 2;
+    }
+
+    .type-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 58px rgba(37, 99, 235, 0.16);
+    }
+
+    .type-card img {
+      width: 122px;
+      height: 108px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 14px 28px rgba(17, 24, 39, 0.13);
+    }
+
+    .type-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .type-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 0.94rem;
+    }
+
     .section-title {
       max-width: 760px;
       margin: 0 0 28px;
@@ -3414,6 +3576,22 @@
         width: auto;
       }
 
+      .pillars-types-shell {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .pillars-types-section::before {
+        inset: auto 24px 50% 24px;
+        width: auto;
+        height: 1px;
+      }
+
+      .pillar-list li:nth-child(even),
+      .type-card.reverse {
+        margin-left: 0;
+      }
+
       .curtain-heading {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -3605,6 +3783,31 @@
 
       .media-elements-section::after {
         width: 150px;
+      }
+
+      .pillar-list li {
+        grid-template-columns: 34px 1fr;
+        padding: 14px;
+      }
+
+      .pillar-list span {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+      }
+
+      .type-card,
+      .type-card.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .type-card.reverse img {
+        order: 0;
+      }
+
+      .type-card img {
+        width: 100%;
+        height: 160px;
       }
 
       .engineering-section {
