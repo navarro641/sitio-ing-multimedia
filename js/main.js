@@ -521,13 +521,13 @@ function playHistoryDropSound() {
 
     function updatePreviousButton() {
       if (!backTop) return;
+      const currentIndex = getCurrentSectionIndex();
       if (currentPage !== "ingenieria-multimedia") {
-        backTop.classList.toggle("show", pageSections.length > 1);
+        backTop.classList.toggle("show", currentIndex > 0);
         floatingActions?.classList.add("hide");
         return;
       }
 
-      const currentIndex = getCurrentSectionIndex();
       backTop.classList.toggle("show", currentIndex > 0);
       floatingActions?.classList.remove("hide");
     }
