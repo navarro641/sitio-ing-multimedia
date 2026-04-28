@@ -522,7 +522,7 @@ function playHistoryDropSound() {
     function updatePreviousButton() {
       if (!backTop) return;
       if (currentPage !== "ingenieria-multimedia") {
-        backTop.classList.add("show");
+        backTop.classList.toggle("show", pageSections.length > 1);
         floatingActions?.classList.add("hide");
         return;
       }
@@ -538,10 +538,11 @@ function playHistoryDropSound() {
 
     backTop?.addEventListener("click", () => {
       if (currentPage !== "ingenieria-multimedia") {
-        const fallback = backTop.dataset.fallback || "index.html";
-        if (window.history.length > 1) {
-          window.history.back();
+        const currentIndex = getCurrentSectionIndex();
+        if (currentIndex > 0) {
+          pageSections[currentIndex - 1].scrollIntoView({ behavior: "smooth", block: "start" });
         } else {
+          const fallback = backTop.dataset.fallback || "index.html";
           window.location.href = fallback;
         }
         return;
