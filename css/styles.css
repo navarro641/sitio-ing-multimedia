@@ -648,8 +648,9 @@
         linear-gradient(135deg, rgba(255, 255, 255, 0.62) 25%, transparent 25%) 0 0 / 28px 28px,
         linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px) 0 0 / 92px 92px,
         linear-gradient(180deg, rgba(0, 184, 169, 0.045) 1px, transparent 1px) 0 0 / 92px 92px,
-        radial-gradient(circle at 50% 44%, rgba(37, 99, 235, 0.1), transparent 34%),
-        radial-gradient(circle at 16% 70%, rgba(255, 107, 95, 0.08), transparent 24%),
+        radial-gradient(circle at 50% 44%, rgba(37, 99, 235, 0.16), transparent 34%),
+        radial-gradient(circle at 16% 70%, rgba(255, 107, 95, 0.12), transparent 24%),
+        radial-gradient(circle at 86% 24%, rgba(246, 195, 67, 0.16), transparent 22%),
         linear-gradient(180deg, #f8fbff, #ffffff);
     }
 
@@ -721,7 +722,8 @@
       border: 1px solid rgba(17, 24, 39, 0.32);
       border-radius: 8px;
       color: var(--ink);
-      background: rgba(255, 255, 255, 0.9);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(238, 245, 255, 0.86));
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
       cursor: pointer;
@@ -730,10 +732,22 @@
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
+    .branches-left .branch-button:nth-child(1) { border-color: rgba(37, 99, 235, 0.42); box-shadow: 0 10px 24px rgba(37, 99, 235, 0.13); }
+    .branches-left .branch-button:nth-child(2) { border-color: rgba(0, 184, 169, 0.42); box-shadow: 0 10px 24px rgba(0, 184, 169, 0.13); }
+    .branches-left .branch-button:nth-child(3) { border-color: rgba(255, 107, 95, 0.42); box-shadow: 0 10px 24px rgba(255, 107, 95, 0.13); }
+    .branches-left .branch-button:nth-child(4) { border-color: rgba(246, 195, 67, 0.5); box-shadow: 0 10px 24px rgba(246, 195, 67, 0.15); }
+
+    .branches-right .branch-button:nth-child(1) { border-color: rgba(0, 184, 169, 0.42); box-shadow: 0 10px 24px rgba(0, 184, 169, 0.13); }
+    .branches-right .branch-button:nth-child(2) { border-color: rgba(246, 195, 67, 0.5); box-shadow: 0 10px 24px rgba(246, 195, 67, 0.15); }
+    .branches-right .branch-button:nth-child(3) { border-color: rgba(255, 107, 95, 0.42); box-shadow: 0 10px 24px rgba(255, 107, 95, 0.13); }
+    .branches-right .branch-button:nth-child(4) { border-color: rgba(37, 99, 235, 0.42); box-shadow: 0 10px 24px rgba(37, 99, 235, 0.13); }
+
     .branch-button:hover,
     .branch-button.active {
       border-color: var(--blue);
-      background: var(--soft-blue);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.14), rgba(0, 184, 169, 0.12)),
+        white;
       transform: translateY(-3px);
     }
 
@@ -743,7 +757,7 @@
       position: absolute;
       top: 50%;
       width: clamp(36px, 5vw, 76px);
-      border-top: 2px solid rgba(17, 24, 39, 0.34);
+      border-top: 2px solid rgba(37, 99, 235, 0.34);
       pointer-events: none;
     }
 
@@ -776,11 +790,15 @@
       border: 3px solid rgba(17, 24, 39, 0.76);
       border-radius: 50%;
       background:
+        radial-gradient(circle at 30% 24%, rgba(0, 184, 169, 0.18), transparent 27%),
+        radial-gradient(circle at 72% 76%, rgba(255, 107, 95, 0.12), transparent 24%),
         radial-gradient(circle, rgba(255, 255, 255, 0.96), rgba(238, 245, 255, 0.92));
       box-shadow:
         var(--shadow),
-        inset 0 0 0 18px rgba(37, 99, 235, 0.08),
-        0 0 0 12px rgba(0, 184, 169, 0.08);
+        inset 0 0 0 18px rgba(37, 99, 235, 0.1),
+        inset 0 0 50px rgba(0, 184, 169, 0.08),
+        0 0 0 12px rgba(0, 184, 169, 0.08),
+        0 0 0 22px rgba(246, 195, 67, 0.06);
       text-align: center;
       animation: centerBreath 5s ease-in-out infinite;
     }
@@ -789,8 +807,9 @@
       content: "";
       position: absolute;
       inset: 24px;
-      border: 1px solid rgba(37, 99, 235, 0.24);
+      border: 1px solid rgba(37, 99, 235, 0.28);
       border-radius: 50%;
+      box-shadow: inset 0 0 0 10px rgba(0, 184, 169, 0.045);
     }
 
     .branches-center-inner {
@@ -826,6 +845,11 @@
 
     .branches-center.showing-definition {
       border-color: var(--blue);
+      box-shadow:
+        var(--shadow),
+        inset 0 0 0 18px rgba(0, 184, 169, 0.12),
+        0 0 0 12px rgba(37, 99, 235, 0.1),
+        0 0 0 22px rgba(255, 107, 95, 0.07);
     }
 
     .single-topic-page {
