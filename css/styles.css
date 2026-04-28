@@ -279,6 +279,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
+      padding: 18px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -286,6 +287,7 @@
       box-shadow: var(--shadow);
       text-align: center;
       font-weight: 900;
+      line-height: 1.12;
       animation: float 4s ease-in-out infinite;
     }
 
@@ -306,6 +308,7 @@
 
     .orb span {
       font-size: 34px;
+      line-height: 1;
     }
 
     .orb.audio { top: -20px; left: 42%; background: var(--coral); }
@@ -438,6 +441,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
+      padding: 18px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -445,6 +449,7 @@
       text-align: center;
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
+      line-height: 1.12;
       background: var(--panel);
       box-shadow: var(--shadow);
       animation: float 4s ease-in-out infinite;
@@ -469,6 +474,7 @@
       font-size: 31px;
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
+      line-height: 1;
     }
 
     .eng-orb.play {
@@ -1301,6 +1307,7 @@
       position: absolute;
       width: 150px;
       height: 150px;
+      padding: 18px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -1308,6 +1315,7 @@
       text-align: center;
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
+      line-height: 1.12;
       background: rgba(255, 255, 255, 0.94);
       box-shadow: var(--shadow);
       animation: float 5s ease-in-out infinite;
@@ -1331,6 +1339,7 @@
       font-size: 31px;
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
+      line-height: 1;
     }
 
     .multi-orb.play {
