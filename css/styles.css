@@ -2471,7 +2471,7 @@
 
     .innovation-stage {
       position: relative;
-      min-height: 790px;
+      min-height: 830px;
       max-width: 1180px;
       margin: 0 auto;
     }
@@ -2610,9 +2610,9 @@
 
     .innovation-note {
       position: absolute;
-      z-index: 2;
-      max-width: 285px;
-      padding: 18px;
+      z-index: 4;
+      max-width: 255px;
+      padding: 16px;
       border: 1px solid rgba(221, 227, 236, 0.74);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.92);
@@ -2623,6 +2623,7 @@
       transform: translateY(16px);
       transition: opacity 220ms ease, transform 220ms ease;
       backdrop-filter: blur(10px);
+      pointer-events: none;
     }
 
     .innovation-section:hover .innovation-note {
@@ -2639,43 +2640,33 @@
     .innovation-note p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.55;
-      font-size: 0.92rem;
+      line-height: 1.48;
+      font-size: 0.86rem;
       font-weight: 650;
     }
 
     .innovation-note-left {
-      left: 22%;
-      top: 58px;
-      transform: translate(-50%, 16px);
+      left: 14%;
+      top: 88px;
+      transform: translateY(16px);
     }
 
     .innovation-note-right-top {
-      right: 2%;
-      top: 50%;
-      transform: translateY(calc(-50% + 16px));
+      right: 0;
+      top: 190px;
+      transform: translateY(16px);
     }
 
     .innovation-note-left-bottom {
-      left: 50%;
-      bottom: 30px;
-      transform: translate(-50%, 16px);
+      right: 9%;
+      bottom: 92px;
+      transform: translateY(16px);
     }
 
     .innovation-note-right-bottom {
-      left: 2%;
-      top: 50%;
-      transform: translateY(calc(-50% + 16px));
-    }
-
-    .innovation-section:hover .innovation-note-left,
-    .innovation-section:hover .innovation-note-left-bottom {
-      transform: translate(-50%, 0);
-    }
-
-    .innovation-section:hover .innovation-note-right-top,
-    .innovation-section:hover .innovation-note-right-bottom {
-      transform: translateY(-50%);
+      left: 0;
+      bottom: 210px;
+      transform: translateY(16px);
     }
 
     /* Rejilla de tarjetas para temas, areas o elementos. */
