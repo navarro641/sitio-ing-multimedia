@@ -167,22 +167,28 @@
     /* Rejilla de portada. En escritorio usa dos columnas; en movil pasa a una. */
     .intro-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.92fr);
       align-items: center;
-      gap: 34px;
+      gap: clamp(18px, 3vw, 42px);
       width: 100%;
+    }
+
+    /* Acerca el bloque textual al orbe sin perder la lectura alineada a la izquierda. */
+    .intro-text {
+      justify-self: end;
+      max-width: 720px;
     }
 
     .intro-text h1 {
       margin: 0 0 16px;
-      max-width: 780px;
+      max-width: 680px;
       font-size: clamp(2.3rem, 7vw, 5.8rem);
       line-height: 0.98;
       letter-spacing: 0;
     }
 
     .intro-text p {
-      max-width: 680px;
+      max-width: 640px;
       color: var(--muted);
       font-size: 1.12rem;
       line-height: 1.7;
@@ -3616,6 +3622,7 @@
 
       .intro-text {
         order: 1;
+        justify-self: start;
       }
 
       .engineering-hero-grid {
