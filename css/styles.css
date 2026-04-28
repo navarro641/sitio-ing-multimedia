@@ -1152,6 +1152,158 @@
     .video-node { left: -12px; top: 38%; background: var(--gold); color: #231b00; animation-delay: -2s; }
     .interaction-node { right: 13%; bottom: 13%; background: var(--dark); animation-delay: -2.8s; }
 
+    /* Nueva portada de Multimedia.
+       Este bloque deja el video dentro de un modal y usa el espacio inicial
+       para una composicion mas cercana a la portada de Ingenieria Multimedia. */
+    .multimedia-page {
+      background:
+        radial-gradient(circle at 14% 68%, rgba(255, 107, 95, 0.12), transparent 24%),
+        radial-gradient(circle at 80% 48%, rgba(0, 184, 169, 0.16), transparent 30%),
+        radial-gradient(circle at 50% 8%, rgba(37, 99, 235, 0.1), transparent 30%),
+        repeating-linear-gradient(135deg, rgba(0, 184, 169, 0.045) 0 8px, transparent 8px 24px),
+        linear-gradient(180deg, #ffffff, #eefbf8);
+    }
+
+    .multimedia-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), transparent 82%);
+    }
+
+    .multimedia-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    .multimedia-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr);
+      gap: clamp(64px, 10vw, 150px);
+      align-items: center;
+    }
+
+    .multimedia-heading {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .multimedia-heading p {
+      font-size: 1.12rem;
+    }
+
+    .multimedia-stage {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+    }
+
+    .multimedia-stage::before,
+    .multimedia-stage::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .multimedia-stage::before {
+      width: 118px;
+      height: 118px;
+      left: 2%;
+      bottom: 12%;
+      border: 1px solid rgba(255, 107, 95, 0.28);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .multimedia-stage::after {
+      width: 72px;
+      height: 72px;
+      right: 6%;
+      top: 12%;
+      background: rgba(0, 184, 169, 0.12);
+      box-shadow: 0 0 0 18px rgba(37, 99, 235, 0.035);
+      animation: float 4.2s ease-in-out infinite reverse;
+    }
+
+    .multimedia-media-orbit {
+      position: relative;
+      width: min(420px, 82vw);
+      aspect-ratio: 1;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.8) 0 34%, transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(0, 184, 169, 0.1), transparent 62%);
+      box-shadow: 0 28px 54px rgba(17, 24, 39, 0.1);
+      animation: turn 22s linear infinite;
+    }
+
+    .multimedia-media-orbit::before {
+      content: "";
+      position: absolute;
+      inset: 15%;
+      border: 1px dashed rgba(0, 184, 169, 0.34);
+      border-radius: 50%;
+    }
+
+    .multimedia-center-chip {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      text-align: center;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .multi-orb {
+      position: absolute;
+      width: 84px;
+      height: 84px;
+      border: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      box-shadow: 0 16px 34px rgba(17, 24, 39, 0.15);
+      animation: counter 22s linear infinite;
+      cursor: default;
+    }
+
+    .multi-orb span {
+      font-size: 31px;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
+    }
+
+    .multi-orb.play {
+      left: -18px;
+      top: 40%;
+      background: var(--blue);
+      cursor: pointer;
+    }
+
+    .multi-orb.text { top: -20px; left: 42%; background: var(--teal); }
+    .multi-orb.image { right: -18px; top: 40%; background: var(--gold); color: #231b00; }
+    .multi-orb.audio { bottom: -20px; left: 42%; background: var(--coral); }
+
+    .multi-orb:hover {
+      filter: brightness(1.05);
+      transform: scale(1.04);
+    }
+
     .section-title {
       max-width: 760px;
       margin: 0 0 28px;
@@ -2874,6 +3026,7 @@
     @media (max-width: 900px) {
       .intro-grid,
       .engineering-hero-grid,
+      .multimedia-hero-grid,
       .multimedia-layout,
       .hero,
       .split,
@@ -2892,6 +3045,10 @@
       }
 
       .engineering-hero-grid {
+        gap: 28px;
+      }
+
+      .multimedia-hero-grid {
         gap: 28px;
       }
 
@@ -3173,6 +3330,10 @@
         min-height: 340px;
       }
 
+      .multimedia-stage {
+        min-height: 340px;
+      }
+
       .engineering-section::after {
         left: 12px;
         bottom: 40px;
@@ -3194,6 +3355,25 @@
         width: 124px;
         height: 124px;
         font-size: 0.88rem;
+      }
+
+      .multimedia-media-orbit {
+        width: min(330px, 82vw);
+      }
+
+      .multimedia-center-chip {
+        width: 124px;
+        height: 124px;
+        font-size: 0.88rem;
+      }
+
+      .multi-orb {
+        width: 72px;
+        height: 72px;
+      }
+
+      .multi-orb span {
+        font-size: 25px;
       }
 
       .action-modal {

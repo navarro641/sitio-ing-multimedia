@@ -25,35 +25,35 @@
   </header>
 
   <main id="inicio">
-    <!-- Multimedia: pagina propia con video, definicion y composicion visual. -->
+    <!-- Multimedia: portada propia con la misma distribucion general del inicio.
+         El video no queda incrustado: se abre desde los botones para conservar
+         una primera vista mas limpia y parecida a Ingenieria Multimedia. -->
     <section class="multimedia-page single-topic-page" id="multimedia">
       <div class="multimedia-shell">
-        <div class="multimedia-heading">
-          <span class="section-kicker">Lenguaje digital</span>
-          <h1>Multimedia</h1>
-          <p>
-            La multimedia integra texto, imagen, audio, video, animacion e
-            interactividad en un solo sistema para comunicar informacion de
-            forma mas atractiva, clara y efectiva.
-          </p>
-        </div>
+        <div class="multimedia-hero-grid">
+          <div class="multimedia-heading">
+            <h1>Multimedia</h1>
+            <p>
+              La multimedia integra texto, imagen, audio, video, animacion e
+              interactividad en un solo sistema para comunicar informacion de
+              forma mas atractiva, clara y efectiva.
+            </p>
+            <div class="hero-actions">
+              <button class="button" type="button" id="openVideo">Ver video</button>
+            </div>
+          </div>
 
-        <div class="multimedia-layout">
-          <article class="multimedia-video-card">
-            <video controls>
-              <source src="assets/video/multimedia/Que-es-la-multimedia.mp4" type="video/mp4">
-              Tu navegador no puede reproducir este video.
-            </video>
-          </article>
-
-          <aside class="multimedia-composition" aria-label="Elementos principales de multimedia">
-            <div class="media-node text-node">Texto</div>
-            <div class="media-node image-node">Imagen</div>
-            <div class="media-node audio-node">Audio</div>
-            <div class="media-node video-node">Video</div>
-            <div class="media-node interaction-node">Interaccion</div>
-            <div class="media-core">Medios conectados</div>
-          </aside>
+          <!-- Orbe visual: cada elemento representa un medio que participa en la multimedia.
+               El boton azul reutiliza el mismo modal de video controlado desde main.js. -->
+          <div class="multimedia-stage" aria-label="Multimedia en movimiento">
+            <div class="multimedia-media-orbit">
+              <button class="multi-orb play" type="button" id="openVideoOrbit" aria-label="Reproducir video"><span>▶</span></button>
+              <div class="multi-orb text"><span>T</span></div>
+              <div class="multi-orb image"><span>✦</span></div>
+              <div class="multi-orb audio"><span>♪</span></div>
+            </div>
+            <div class="multimedia-center-chip">Medios<br>conectados</div>
+          </div>
         </div>
       </div>
     </section>
@@ -64,8 +64,22 @@
     <p>Seccion dedicada al concepto general de multimedia.</p>
   </footer>
 
+  <!-- Modal especifico para reproducir el video de multimedia. -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <article class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+      <div class="modal-content">
+        <button class="close" type="button" id="closeVideo" aria-label="Cerrar">X</button>
+        <h2 id="videoTitle">Video de multimedia</h2>
+      </div>
+      <video id="introVideo" controls>
+        <source src="assets/video/multimedia/Que-es-la-multimedia.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+    </article>
+  </div>
+
   <!-- En esta pagina solo aparece el boton Anterior, sin accesos a test o herramientas. -->
-  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestana anterior"><span>↑</span><small>Anterior</small></button>
+  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestana anterior"><span>&uarr;</span><small>Anterior</small></button>
   <script src="js/main.js"></script>
 </body>
 </html>
