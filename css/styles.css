@@ -277,9 +277,9 @@
 
     .center-chip {
       position: absolute;
-      width: 150px;
-      height: 150px;
-      padding: 18px;
+      width: 170px;
+      height: 170px;
+      padding: 20px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -439,9 +439,9 @@
 
     .engineering-center-chip {
       position: absolute;
-      width: 150px;
-      height: 150px;
-      padding: 18px;
+      width: 170px;
+      height: 170px;
+      padding: 20px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -1305,9 +1305,9 @@
 
     .multimedia-center-chip {
       position: absolute;
-      width: 150px;
-      height: 150px;
-      padding: 18px;
+      width: 170px;
+      height: 170px;
+      padding: 20px;
       display: grid;
       place-items: center;
       border-radius: 50%;
@@ -3887,8 +3887,8 @@
       }
 
       .center-chip {
-        width: 118px;
-        height: 118px;
+        width: 136px;
+        height: 136px;
         font-size: 0.86rem;
       }
 
@@ -4055,8 +4055,8 @@
       }
 
       .multimedia-center-chip {
-        width: 124px;
-        height: 124px;
+        width: 136px;
+        height: 136px;
         font-size: 0.88rem;
       }
 
@@ -4447,6 +4447,9 @@
     .multimedia-center-chip,
     .engineering-center-chip,
     .center-chip,
+    .multimedia-center-chip span,
+    .engineering-center-chip span,
+    .center-chip span,
     .media-element-card h3,
     .branch-display,
     .history-detail,
@@ -4454,6 +4457,15 @@
     .action-card {
       color: #edf4ff;
       background: rgba(15, 23, 42, 0.9);
+    }
+
+    .multimedia-center-chip,
+    .engineering-center-chip,
+    .center-chip {
+      border: 1px solid rgba(0, 184, 169, 0.18);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.28),
+        inset 0 0 32px rgba(37, 99, 235, 0.08);
     }
 
     .button.secondary,
