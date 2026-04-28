@@ -1255,43 +1255,14 @@
       place-items: center;
     }
 
-    .multimedia-stage::before,
-    .multimedia-stage::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .multimedia-stage::before {
-      width: 118px;
-      height: 118px;
-      left: 2%;
-      bottom: 12%;
-      border: 1px solid rgba(255, 107, 95, 0.28);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .multimedia-stage::after {
-      width: 72px;
-      height: 72px;
-      right: 6%;
-      top: 12%;
-      background: rgba(0, 184, 169, 0.12);
-      box-shadow: 0 0 0 18px rgba(37, 99, 235, 0.035);
-      animation: float 4.2s ease-in-out infinite reverse;
-    }
-
     .multimedia-media-orbit {
       position: relative;
       width: min(420px, 82vw);
       aspect-ratio: 1;
       border: 1px solid rgba(37, 99, 235, 0.16);
       border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(255, 255, 255, 0.8) 0 34%, transparent 35%),
-        radial-gradient(circle at 50% 50%, rgba(0, 184, 169, 0.1), transparent 62%);
-      box-shadow: 0 28px 54px rgba(17, 24, 39, 0.1);
+      background: transparent;
+      box-shadow: none;
       animation: turn 22s linear infinite;
     }
 
@@ -1311,13 +1282,15 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      color: var(--ink);
+      color: #edf4ff;
       text-align: center;
       font-family: "Poppins", "Segoe UI", Arial, sans-serif;
       font-weight: 900;
       line-height: 1.12;
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: var(--shadow);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.28),
+        inset 0 0 32px rgba(37, 99, 235, 0.08);
       animation: float 5s ease-in-out infinite;
     }
 
