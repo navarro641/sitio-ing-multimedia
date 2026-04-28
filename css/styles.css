@@ -645,9 +645,39 @@
       position: relative;
       overflow: hidden;
       background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.62) 25%, transparent 25%) 0 0 / 28px 28px,
+        linear-gradient(90deg, rgba(37, 99, 235, 0.055) 1px, transparent 1px) 0 0 / 92px 92px,
+        linear-gradient(180deg, rgba(0, 184, 169, 0.045) 1px, transparent 1px) 0 0 / 92px 92px,
         radial-gradient(circle at 50% 44%, rgba(37, 99, 235, 0.1), transparent 34%),
         radial-gradient(circle at 16% 70%, rgba(255, 107, 95, 0.08), transparent 24%),
         linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .engineering-branches-section::before {
+      content: "";
+      position: absolute;
+      right: 8%;
+      top: 72px;
+      width: 180px;
+      aspect-ratio: 1;
+      border: 1px dashed rgba(0, 184, 169, 0.28);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: turn 24s linear infinite;
+    }
+
+    .engineering-branches-section::after {
+      content: "";
+      position: absolute;
+      left: 6%;
+      bottom: 62px;
+      width: 220px;
+      height: 78px;
+      background:
+        repeating-radial-gradient(ellipse at center, transparent 0 12px, rgba(37, 99, 235, 0.22) 13px 14px, transparent 15px 27px);
+      mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+      opacity: 0.55;
+      pointer-events: none;
     }
 
     .branches-heading {
@@ -784,6 +814,14 @@
       color: var(--muted);
       line-height: 1.55;
       font-weight: 700;
+    }
+
+    .branches-center:not(.showing-definition) p {
+      color: var(--ink);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: clamp(2.15rem, 4vw, 3.45rem);
+      line-height: 0.98;
+      font-weight: 900;
     }
 
     .branches-center.showing-definition {
