@@ -852,6 +852,166 @@
         0 0 0 22px rgba(255, 107, 95, 0.07);
     }
 
+    /* Que es un ingeniero.
+       Tres tarjetas verticales tipo flip: el frente muestra imagen y titulo,
+       el reverso revela el texto cuando el usuario pasa el cursor o enfoca
+       la tarjeta con teclado. */
+    .engineer-cards-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 14% 20%, rgba(0, 184, 169, 0.12), transparent 26%),
+        radial-gradient(circle at 86% 70%, rgba(255, 107, 95, 0.1), transparent 24%),
+        repeating-linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0 8px, transparent 8px 22px),
+        linear-gradient(180deg, #ffffff, #f6f8fb);
+    }
+
+    .engineer-cards-section::before {
+      content: "";
+      position: absolute;
+      right: 8%;
+      top: 62px;
+      width: 160px;
+      aspect-ratio: 1;
+      border: 1px dashed rgba(37, 99, 235, 0.24);
+      border-radius: 50%;
+      animation: turn 22s linear infinite;
+      pointer-events: none;
+    }
+
+    .engineer-cards-heading {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .engineer-cards-heading h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1;
+    }
+
+    .engineer-cards-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
+    .engineer-card-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(18px, 3vw, 34px);
+      max-width: 1180px;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    .engineer-flip-card {
+      min-height: 520px;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .engineer-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .engineer-flip-card:hover .engineer-flip-inner,
+    .engineer-flip-card:focus-within .engineer-flip-inner,
+    .engineer-flip-card:focus .engineer-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .engineer-card-face {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border: 1px solid rgba(221, 227, 236, 0.88);
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
+      backface-visibility: hidden;
+    }
+
+    .engineer-card-front {
+      background: var(--dark);
+    }
+
+    .engineer-card-front img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: saturate(0.9) contrast(1.05);
+    }
+
+    .engineer-card-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(17, 24, 39, 0.12), rgba(17, 24, 39, 0.84)),
+        radial-gradient(circle at 20% 20%, rgba(0, 184, 169, 0.22), transparent 30%);
+    }
+
+    .engineer-front-copy {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 24px;
+      z-index: 1;
+      color: white;
+    }
+
+    .engineer-front-copy span {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #d9fff9;
+      background: rgba(0, 184, 169, 0.22);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .engineer-front-copy h3,
+    .engineer-card-back h3 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.02;
+    }
+
+    .engineer-card-back {
+      display: grid;
+      align-content: center;
+      gap: 16px;
+      padding: 28px;
+      color: white;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(0, 184, 169, 0.22), transparent 28%),
+        radial-gradient(circle at 86% 84%, rgba(246, 195, 67, 0.16), transparent 24%),
+        linear-gradient(135deg, #111827, #17202a);
+      transform: rotateY(180deg);
+    }
+
+    .engineer-card-back p {
+      margin: 0;
+      color: #d8e2ef;
+      line-height: 1.68;
+      font-weight: 650;
+    }
+
     .single-topic-page {
       min-height: calc(100vh - 64px);
     }
@@ -2795,6 +2955,16 @@
         margin: 0 auto;
       }
 
+      .engineer-card-grid {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+      }
+
+      .engineer-flip-card,
+      .engineer-flip-inner {
+        min-height: 430px;
+      }
+
       .curtain-heading {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2961,6 +3131,15 @@
 
       .branches-center {
         width: min(330px, 86vw);
+      }
+
+      .engineer-cards-heading {
+        text-align: left;
+      }
+
+      .engineer-flip-card,
+      .engineer-flip-inner {
+        min-height: 380px;
       }
 
       .engineering-section {
