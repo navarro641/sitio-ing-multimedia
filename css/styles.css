@@ -638,6 +638,184 @@
     .p21 { left: 91%; top: 51%; animation-delay: -2.5s; }
     .p22 { left: 95%; top: 24%; animation-delay: -3.2s; }
 
+    /* Ramas de la ingenieria.
+       El circulo central actua como pantalla temporal: muestra el titulo de la
+       seccion por defecto y cambia a la definicion de la rama seleccionada. */
+    .engineering-branches-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(37, 99, 235, 0.1), transparent 34%),
+        radial-gradient(circle at 16% 70%, rgba(255, 107, 95, 0.08), transparent 24%),
+        linear-gradient(180deg, #f8fbff, #ffffff);
+    }
+
+    .branches-heading {
+      max-width: 780px;
+      margin: 0 auto 34px;
+      text-align: center;
+    }
+
+    .branches-heading h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1;
+    }
+
+    .branches-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 650;
+    }
+
+    .branches-board {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(170px, 1fr) minmax(300px, 420px) minmax(170px, 1fr);
+      gap: clamp(18px, 4vw, 56px);
+      align-items: center;
+      max-width: 1180px;
+      min-height: 500px;
+      margin: 0 auto;
+    }
+
+    .branches-board::before {
+      content: "";
+      position: absolute;
+      inset: 50% 11% auto;
+      border-top: 1px dashed rgba(37, 99, 235, 0.2);
+      pointer-events: none;
+    }
+
+    .branches-side {
+      display: grid;
+      gap: 24px;
+    }
+
+    .branches-left {
+      justify-items: end;
+    }
+
+    .branches-right {
+      justify-items: start;
+    }
+
+    .branch-button {
+      position: relative;
+      width: min(190px, 100%);
+      min-height: 38px;
+      border: 1px solid rgba(17, 24, 39, 0.32);
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.9);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.09);
+      animation: branchFloat 4.6s ease-in-out infinite;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .branch-button:hover,
+    .branch-button.active {
+      border-color: var(--blue);
+      background: var(--soft-blue);
+      transform: translateY(-3px);
+    }
+
+    .branches-left .branch-button::after,
+    .branches-right .branch-button::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: clamp(48px, 8vw, 116px);
+      border-top: 2px solid rgba(17, 24, 39, 0.34);
+      pointer-events: none;
+    }
+
+    .branches-left .branch-button::after {
+      left: calc(100% + 10px);
+      transform: rotate(12deg);
+      transform-origin: left center;
+    }
+
+    .branches-right .branch-button::before {
+      right: calc(100% + 10px);
+      transform: rotate(-12deg);
+      transform-origin: right center;
+    }
+
+    .branches-left .branch-button:nth-child(even)::after {
+      transform: rotate(-10deg);
+    }
+
+    .branches-right .branch-button:nth-child(even)::before {
+      transform: rotate(10deg);
+    }
+
+    .branches-center {
+      position: relative;
+      width: min(420px, 76vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 3px solid rgba(17, 24, 39, 0.76);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.96), rgba(238, 245, 255, 0.92));
+      box-shadow:
+        var(--shadow),
+        inset 0 0 0 18px rgba(37, 99, 235, 0.08),
+        0 0 0 12px rgba(0, 184, 169, 0.08);
+      text-align: center;
+      animation: centerBreath 5s ease-in-out infinite;
+    }
+
+    .branches-center::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(37, 99, 235, 0.24);
+      border-radius: 50%;
+    }
+
+    .branches-center-inner {
+      position: relative;
+      z-index: 1;
+      width: 78%;
+    }
+
+    .branches-state-label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(37, 99, 235, 0.1);
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .branches-center h3 {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      line-height: 1.06;
+    }
+
+    .branches-center p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .branches-center.showing-definition {
+      border-color: var(--blue);
+    }
+
     .single-topic-page {
       min-height: calc(100vh - 64px);
     }
@@ -2409,6 +2587,16 @@
       50% { translate: 0 -8px; }
     }
 
+    @keyframes branchFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -5px; }
+    }
+
+    @keyframes centerBreath {
+      0%, 100% { scale: 1; }
+      50% { scale: 1.018; }
+    }
+
     @keyframes areaFloat {
       0%, 100% { translate: 0 0; }
       50% { translate: 0 -14px; }
@@ -2542,6 +2730,33 @@
 
       .history-detail img {
         max-height: 220px;
+      }
+
+      .branches-board {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .branches-board::before,
+      .branches-left .branch-button::after,
+      .branches-right .branch-button::before {
+        display: none;
+      }
+
+      .branches-side,
+      .branches-left,
+      .branches-right {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: stretch;
+      }
+
+      .branch-button {
+        width: 100%;
+      }
+
+      .branches-center {
+        order: -1;
+        margin: 0 auto;
       }
 
       .curtain-heading {
@@ -2696,6 +2911,20 @@
 
       .history-detail.open {
         transform: none;
+      }
+
+      .branches-heading {
+        text-align: left;
+      }
+
+      .branches-side,
+      .branches-left,
+      .branches-right {
+        grid-template-columns: 1fr;
+      }
+
+      .branches-center {
+        width: min(330px, 86vw);
       }
 
       .engineering-section {

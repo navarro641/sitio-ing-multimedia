@@ -475,6 +475,37 @@ function playHistoryDropSound() {
 
     document.querySelector(".history-close")?.addEventListener("click", closeHistoryDetail);
 
+    // Ramas de la ingenieria: al seleccionar una rama, el circulo central
+    // muestra su definicion unos segundos y luego vuelve al titulo de la seccion.
+    const branchCenter = document.querySelector("#branchCenter");
+    const branchButtons = Array.from(document.querySelectorAll(".branch-button"));
+    let branchResetTimer;
+
+    function resetBranchCenter() {
+      if (!branchCenter) return;
+      branchCenter.classList.remove("showing-definition");
+      branchCenter.querySelector(".branches-state-label").textContent = "Selecciona una rama";
+      branchCenter.querySelector("h3").textContent = "Ramas de la ingenieria";
+      branchCenter.querySelector("p").textContent = "Elige un boton lateral para leer la definicion de cada area.";
+      branchButtons.forEach((button) => button.classList.remove("active"));
+    }
+
+    branchButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!branchCenter) return;
+        window.clearTimeout(branchResetTimer);
+
+        branchButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        branchCenter.classList.add("showing-definition");
+        branchCenter.querySelector(".branches-state-label").textContent = "Rama seleccionada";
+        branchCenter.querySelector("h3").textContent = button.dataset.title;
+        branchCenter.querySelector("p").textContent = button.dataset.text;
+
+        branchResetTimer = window.setTimeout(resetBranchCenter, 9000);
+      });
+    });
+
     // El antiguo boton de "volver arriba" ahora funciona como "seccion anterior".
     // Se calcula con todas las secciones directas del main, no solo con el menu.
     const backTop = document.querySelector("#backTop");
