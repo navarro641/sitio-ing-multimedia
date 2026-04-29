@@ -250,6 +250,44 @@ function playHistoryDropSound() {
       }
     });
 
+    // Explosion de simbolos en la portada de Ingenieria Multimedia.
+    // Cada orbe no-video genera una lluvia breve con su propio icono/texto.
+    function createIconBurst(orb) {
+      const symbol = orb.dataset.burstSymbol || orb.textContent.trim();
+      const rect = orb.getBoundingClientRect();
+      const startX = rect.left + rect.width / 2;
+      const startY = rect.top + rect.height / 2;
+      const color = window.getComputedStyle(orb).backgroundColor;
+      const particleCount = 18;
+
+      for (let index = 0; index < particleCount; index += 1) {
+        const particle = document.createElement("span");
+        const angle = (Math.PI * 2 * index) / particleCount;
+        const distance = 42 + Math.random() * 70;
+        const drift = -18 + Math.random() * 36;
+
+        particle.className = "burst-particle";
+        particle.textContent = symbol;
+        particle.style.left = `${startX}px`;
+        particle.style.top = `${startY}px`;
+        particle.style.setProperty("--burst-color", color);
+        particle.style.setProperty("--burst-x", `${Math.cos(angle) * distance + drift}px`);
+        particle.style.setProperty("--burst-y", `${Math.sin(angle) * distance + drift}px`);
+        particle.style.setProperty("--burst-rotate", `${-70 + Math.random() * 140}deg`);
+
+        document.body.appendChild(particle);
+        particle.addEventListener("animationend", () => particle.remove(), { once: true });
+      }
+    }
+
+    document.querySelectorAll(".burst-orb").forEach((orb) => {
+      orb.addEventListener("click", () => {
+        orb.classList.add("bursting");
+        createIconBurst(orb);
+        window.setTimeout(() => orb.classList.remove("bursting"), 420);
+      });
+    });
+
     // Orbes interactivos de Ingeniería: los iconos no abren ventanas, cambian
     // temporalmente el mensaje central para explicar el concepto que representan.
     const engineeringCenter = document.querySelector(".engineering-center-chip");
