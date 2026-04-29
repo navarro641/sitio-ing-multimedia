@@ -99,6 +99,17 @@
       backdrop-filter: blur(12px);
     }
 
+    .topbar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold), var(--coral));
+      opacity: 0.86;
+    }
+
     .topbar,
     nav,
     .hero-actions,
@@ -3050,20 +3061,6 @@
       margin: 0 auto 28px;
       padding-bottom: 22px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .footer-kicker {
-      display: inline-flex;
-      margin-bottom: 10px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      color: #07111f;
-      background: #7df4e8;
-      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     .footer-brand strong {
