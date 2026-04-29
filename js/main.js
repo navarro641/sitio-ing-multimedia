@@ -275,41 +275,28 @@ function playHistoryDropSound() {
       });
     });
 
-    // Mezclador multimedia: cada orbe agrega o quita una capa del mensaje central.
+    // Microanimaciones de Multimedia: cada medio activa un gesto breve e independiente.
     const multimediaCenter = document.querySelector(".multimedia-center-chip");
     const multimediaCenterText = multimediaCenter?.querySelector("span");
-    const multimediaOrbs = Array.from(document.querySelectorAll(".multi-orb[data-media-layer]"));
-    const activeMediaLayers = new Set();
+    const multimediaOrbs = Array.from(document.querySelectorAll(".multi-orb[data-media-effect]"));
+    let multimediaEffectTimer;
 
-    function updateMultimediaMixer() {
+    function resetMultimediaEffect() {
       if (!multimediaCenter || !multimediaCenterText) return;
-      const selectedWords = multimediaOrbs
-        .filter((orb) => activeMediaLayers.has(orb.dataset.mediaLayer))
-        .map((orb) => orb.dataset.mediaWord);
-
-      multimediaCenter.classList.toggle("mixing", selectedWords.length > 0);
-      multimediaCenter.classList.toggle("complete", selectedWords.length === multimediaOrbs.length);
-
-      if (selectedWords.length === 0) {
-        multimediaCenterText.textContent = multimediaCenter.dataset.defaultText || "Comunicar con medios conectados";
-      } else if (selectedWords.length === multimediaOrbs.length) {
-        multimediaCenterText.textContent = "Multimedia = mensaje + imagen + sonido";
-      } else {
-        multimediaCenterText.textContent = selectedWords.join(" + ");
-      }
+      multimediaCenterText.textContent = multimediaCenter.dataset.defaultText || "Comunicar con medios conectados";
+      multimediaCenter.classList.remove("media-effect", "effect-text", "effect-image", "effect-audio");
+      multimediaOrbs.forEach((orb) => orb.classList.remove("active"));
     }
 
     multimediaOrbs.forEach((orb) => {
       orb.addEventListener("click", () => {
-        const layer = orb.dataset.mediaLayer;
-        if (activeMediaLayers.has(layer)) {
-          activeMediaLayers.delete(layer);
-          orb.classList.remove("active");
-        } else {
-          activeMediaLayers.add(layer);
-          orb.classList.add("active");
-        }
-        updateMultimediaMixer();
+        if (!multimediaCenter || !multimediaCenterText) return;
+        window.clearTimeout(multimediaEffectTimer);
+        resetMultimediaEffect();
+        multimediaCenterText.textContent = orb.dataset.mediaText;
+        multimediaCenter.classList.add("media-effect", `effect-${orb.dataset.mediaEffect}`);
+        orb.classList.add("active");
+        multimediaEffectTimer = window.setTimeout(resetMultimediaEffect, 2800);
       });
     });
 

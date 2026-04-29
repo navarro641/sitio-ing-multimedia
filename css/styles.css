@@ -1408,18 +1408,11 @@
       filter: brightness(1.08);
     }
 
-    .multimedia-center-chip.mixing {
+    .multimedia-center-chip.media-effect {
       border-color: rgba(0, 184, 169, 0.42);
       box-shadow:
         0 22px 58px rgba(0, 0, 0, 0.34),
         inset 0 0 38px rgba(0, 184, 169, 0.13);
-    }
-
-    .multimedia-center-chip.complete {
-      border-color: rgba(246, 195, 67, 0.5);
-      box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.36),
-        inset 0 0 42px rgba(246, 195, 67, 0.16);
     }
 
     .multimedia-center-chip span {
@@ -1428,6 +1421,31 @@
       margin: 0 auto;
       font-size: 0.88rem;
       line-height: 1.12;
+    }
+
+    .multimedia-center-chip.effect-text span {
+      animation: typePulse 0.9s steps(2, end) both;
+    }
+
+    .multimedia-center-chip.effect-image {
+      border-color: rgba(246, 195, 67, 0.5);
+      background:
+        linear-gradient(135deg, rgba(246, 195, 67, 0.16), transparent 44%),
+        rgba(15, 23, 42, 0.9);
+    }
+
+    .multimedia-center-chip.effect-audio {
+      animation: float 5s ease-in-out infinite, soundPulse 0.82s ease-out 2;
+    }
+
+    .multimedia-center-chip.effect-audio::after {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      border: 1px solid rgba(255, 107, 95, 0.38);
+      border-radius: 50%;
+      animation: soundRing 0.9s ease-out 2;
+      pointer-events: none;
     }
 
     /* Elementos Multimedia.
@@ -3706,6 +3724,22 @@
 
     @keyframes imageCounterTurn {
       to { transform: rotate(-360deg); }
+    }
+
+    @keyframes typePulse {
+      0% { opacity: 0; transform: translateY(5px); }
+      45% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes soundPulse {
+      0%, 100% { scale: 1; }
+      45% { scale: 1.05; }
+    }
+
+    @keyframes soundRing {
+      from { opacity: 0.72; transform: scale(0.82); }
+      to { opacity: 0; transform: scale(1.24); }
     }
 
     /* Responsive para tablet: reduce columnas y acomoda la portada. */
