@@ -275,6 +275,44 @@ function playHistoryDropSound() {
       });
     });
 
+    // Mezclador multimedia: cada orbe agrega o quita una capa del mensaje central.
+    const multimediaCenter = document.querySelector(".multimedia-center-chip");
+    const multimediaCenterText = multimediaCenter?.querySelector("span");
+    const multimediaOrbs = Array.from(document.querySelectorAll(".multi-orb[data-media-layer]"));
+    const activeMediaLayers = new Set();
+
+    function updateMultimediaMixer() {
+      if (!multimediaCenter || !multimediaCenterText) return;
+      const selectedWords = multimediaOrbs
+        .filter((orb) => activeMediaLayers.has(orb.dataset.mediaLayer))
+        .map((orb) => orb.dataset.mediaWord);
+
+      multimediaCenter.classList.toggle("mixing", selectedWords.length > 0);
+      multimediaCenter.classList.toggle("complete", selectedWords.length === multimediaOrbs.length);
+
+      if (selectedWords.length === 0) {
+        multimediaCenterText.textContent = multimediaCenter.dataset.defaultText || "Comunicar con medios conectados";
+      } else if (selectedWords.length === multimediaOrbs.length) {
+        multimediaCenterText.textContent = "Multimedia = mensaje + imagen + sonido";
+      } else {
+        multimediaCenterText.textContent = selectedWords.join(" + ");
+      }
+    }
+
+    multimediaOrbs.forEach((orb) => {
+      orb.addEventListener("click", () => {
+        const layer = orb.dataset.mediaLayer;
+        if (activeMediaLayers.has(layer)) {
+          activeMediaLayers.delete(layer);
+          orb.classList.remove("active");
+        } else {
+          activeMediaLayers.add(layer);
+          orb.classList.add("active");
+        }
+        updateMultimediaMixer();
+      });
+    });
+
     // Prepara las tarjetas tipo cortina.
     // Estado normal: CSS muestra las tres imágenes como franjas iguales.
     // Hover/focus: CSS expande la imagen activa según active-0, active-1 o active-2.

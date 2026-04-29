@@ -1376,7 +1376,7 @@
       color: white;
       box-shadow: 0 16px 34px rgba(17, 24, 39, 0.15);
       animation: counter 22s linear infinite;
-      cursor: default;
+      cursor: pointer;
     }
 
     .multi-orb span {
@@ -1400,6 +1400,34 @@
     .multi-orb:hover {
       filter: brightness(1.05);
       transform: scale(1.04);
+    }
+
+    .multi-orb.active {
+      outline: 3px solid rgba(255, 255, 255, 0.48);
+      outline-offset: 5px;
+      filter: brightness(1.08);
+    }
+
+    .multimedia-center-chip.mixing {
+      border-color: rgba(0, 184, 169, 0.42);
+      box-shadow:
+        0 22px 58px rgba(0, 0, 0, 0.34),
+        inset 0 0 38px rgba(0, 184, 169, 0.13);
+    }
+
+    .multimedia-center-chip.complete {
+      border-color: rgba(246, 195, 67, 0.5);
+      box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.36),
+        inset 0 0 42px rgba(246, 195, 67, 0.16);
+    }
+
+    .multimedia-center-chip span {
+      display: block;
+      max-width: 116px;
+      margin: 0 auto;
+      font-size: 0.88rem;
+      line-height: 1.12;
     }
 
     /* Elementos Multimedia.
