@@ -443,13 +443,28 @@ function playHistoryDropSound() {
 
     // Historia de la ingeniería: cada punto trae sus datos en atributos data-*.
     // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
+    const historyField = document.querySelector(".history-field");
     const historyDetail = document.querySelector("#historyDetail");
+    const historyHint = document.querySelector(".history-hint");
     const historyPoints = Array.from(document.querySelectorAll(".history-point"));
+    let historyHintTimer;
 
     function closeHistoryDetail() {
       historyDetail?.classList.remove("open");
       historyPoints.forEach((point) => point.classList.remove("active"));
     }
+
+    function showHistoryHint() {
+      if (!historyHint) return;
+      window.clearTimeout(historyHintTimer);
+      historyHint.classList.add("show");
+      historyHintTimer = window.setTimeout(() => {
+        historyHint.classList.remove("show");
+      }, 3400);
+    }
+
+    historyField?.addEventListener("mouseenter", showHistoryHint);
+    historyField?.addEventListener("focusin", showHistoryHint);
 
     historyPoints.forEach((point) => {
       point.addEventListener("click", () => {
