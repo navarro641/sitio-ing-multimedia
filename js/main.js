@@ -441,30 +441,32 @@ function playHistoryDropSound() {
       document.querySelector("#profileTest")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
+    // Leyendas flotantes: aparecen brevemente al entrar a una sección interactiva.
+    document.querySelectorAll(".section-hint").forEach((hint) => {
+      const area = hint.closest("section") || hint.parentElement;
+      let hintTimer;
+
+      function showSectionHint() {
+        window.clearTimeout(hintTimer);
+        hint.classList.add("show");
+        hintTimer = window.setTimeout(() => {
+          hint.classList.remove("show");
+        }, 3400);
+      }
+
+      area?.addEventListener("mouseenter", showSectionHint);
+      area?.addEventListener("focusin", showSectionHint);
+    });
+
     // Historia de la ingeniería: cada punto trae sus datos en atributos data-*.
     // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
-    const historyField = document.querySelector(".history-field");
     const historyDetail = document.querySelector("#historyDetail");
-    const historyHint = document.querySelector(".history-hint");
     const historyPoints = Array.from(document.querySelectorAll(".history-point"));
-    let historyHintTimer;
 
     function closeHistoryDetail() {
       historyDetail?.classList.remove("open");
       historyPoints.forEach((point) => point.classList.remove("active"));
     }
-
-    function showHistoryHint() {
-      if (!historyHint) return;
-      window.clearTimeout(historyHintTimer);
-      historyHint.classList.add("show");
-      historyHintTimer = window.setTimeout(() => {
-        historyHint.classList.remove("show");
-      }, 3400);
-    }
-
-    historyField?.addEventListener("mouseenter", showHistoryHint);
-    historyField?.addEventListener("focusin", showHistoryHint);
 
     historyPoints.forEach((point) => {
       point.addEventListener("click", () => {
