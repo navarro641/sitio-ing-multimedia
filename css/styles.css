@@ -3023,12 +3023,26 @@
        Funciona como mapa del sitio: cada columna enlaza a una pagina principal
        y debajo muestra las secciones internas de esa pagina. */
     .site-footer {
+      position: relative;
       padding: clamp(32px, 5vw, 56px) clamp(18px, 5vw, 72px);
+      margin-top: clamp(28px, 5vw, 64px);
       background:
         radial-gradient(circle at 12% 12%, rgba(37, 99, 235, 0.2), transparent 28%),
         radial-gradient(circle at 88% 78%, rgba(0, 184, 169, 0.16), transparent 26%),
         var(--dark);
+      border-top: 1px solid rgba(0, 184, 169, 0.34);
       color: white;
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold), var(--coral));
+      opacity: 0.86;
     }
 
     .footer-brand {
@@ -3036,6 +3050,20 @@
       margin: 0 auto 28px;
       padding-bottom: 22px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .footer-kicker {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: #07111f;
+      background: #7df4e8;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .footer-brand strong {
@@ -3063,7 +3091,7 @@
       padding: 18px;
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.045);
     }
 
     .footer-group h3 {
@@ -3416,6 +3444,10 @@
       margin: 0 0 14px;
       color: var(--ink);
       font-size: 1.05rem;
+    }
+
+    .tools-card .tool-category h3 {
+      color: #edf4ff;
     }
 
     .tool-category .tools-grid {
