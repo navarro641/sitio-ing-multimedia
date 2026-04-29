@@ -250,6 +250,31 @@ function playHistoryDropSound() {
       }
     });
 
+    // Orbes interactivos de Ingeniería: los iconos no abren ventanas, cambian
+    // temporalmente el mensaje central para explicar el concepto que representan.
+    const engineeringCenter = document.querySelector(".engineering-center-chip");
+    const engineeringCenterText = engineeringCenter?.querySelector("span");
+    const engineeringOrbs = Array.from(document.querySelectorAll(".eng-orb[data-orbit-text]"));
+    let engineeringOrbitTimer;
+
+    function resetEngineeringOrbit() {
+      if (!engineeringCenter || !engineeringCenterText) return;
+      engineeringCenterText.textContent = engineeringCenter.dataset.defaultText || "Ideas que se vuelven soluciones";
+      engineeringCenter.classList.remove("revealing");
+      engineeringOrbs.forEach((orb) => orb.classList.remove("active"));
+    }
+
+    engineeringOrbs.forEach((orb) => {
+      orb.addEventListener("click", () => {
+        if (!engineeringCenter || !engineeringCenterText) return;
+        window.clearTimeout(engineeringOrbitTimer);
+        engineeringCenterText.textContent = orb.dataset.orbitText;
+        engineeringCenter.classList.add("revealing");
+        engineeringOrbs.forEach((item) => item.classList.toggle("active", item === orb));
+        engineeringOrbitTimer = window.setTimeout(resetEngineeringOrbit, 5200);
+      });
+    });
+
     // Prepara las tarjetas tipo cortina.
     // Estado normal: CSS muestra las tres imágenes como franjas iguales.
     // Hover/focus: CSS expande la imagen activa según active-0, active-1 o active-2.

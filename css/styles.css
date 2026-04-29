@@ -481,7 +481,7 @@
       font-weight: 900;
       box-shadow: 0 16px 28px rgba(23, 32, 42, 0.16);
       animation: counter 22s linear infinite;
-      cursor: default;
+      cursor: pointer;
     }
 
     .eng-orb span {
@@ -506,6 +506,19 @@
     .eng-orb:hover {
       filter: brightness(1.05);
       transform: scale(1.04);
+    }
+
+    .eng-orb.active {
+      outline: 3px solid rgba(255, 255, 255, 0.46);
+      outline-offset: 5px;
+      filter: brightness(1.08);
+    }
+
+    .engineering-center-chip.revealing {
+      border-color: rgba(246, 195, 67, 0.42);
+      box-shadow:
+        0 22px 58px rgba(0, 0, 0, 0.34),
+        inset 0 0 38px rgba(246, 195, 67, 0.12);
     }
 
     /* Historia de la ingenieria.
