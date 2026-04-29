@@ -376,6 +376,7 @@
       max-width: 620px;
       margin: 0;
       align-self: center;
+      justify-self: start;
     }
 
     .engineering-heading p {
@@ -417,6 +418,7 @@
       min-height: 420px;
       display: grid;
       place-items: center;
+      justify-self: end;
     }
 
     .engineering-media-orbit {
@@ -1240,8 +1242,9 @@
     }
 
     .multimedia-heading {
-      max-width: 720px;
+      max-width: 620px;
       margin: 0;
+      justify-self: start;
     }
 
     .multimedia-heading p {
@@ -1253,6 +1256,7 @@
       min-height: 420px;
       display: grid;
       place-items: center;
+      justify-self: end;
     }
 
     .multimedia-media-orbit {
