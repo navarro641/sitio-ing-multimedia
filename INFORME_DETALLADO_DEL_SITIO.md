@@ -8,6 +8,16 @@ Este informe describe la estructura completa del sitio, sus archivos, sus seccio
 
 ---
 
+## Descripción breve del proyecto
+
+Este proyecto busca presentar de forma clara, visual e interactiva los fundamentos de la Ingeniería Multimedia, relacionando tres ejes principales: ingeniería, multimedia e ingeniería multimedia. La intención es que el usuario no solo lea información, sino que explore secciones, videos, tarjetas, orbes, ventanas emergentes y pequeñas interacciones que ayudan a comprender el contenido de manera más dinámica.
+
+## Sinopsis
+
+El sitio web funciona como una experiencia educativa sencilla sobre la Ingeniería Multimedia y sus bases. A través de tres páginas conectadas, el usuario puede conocer qué es la ingeniería, cómo ha evolucionado, cuáles son sus ramas, qué elementos componen la multimedia y cómo estos campos se integran en la formación y desempeño del ingeniero multimedia. El proyecto combina texto, video, imágenes, animaciones, test vocacional, enlaces de apoyo y herramientas gratuitas para ofrecer una navegación organizada, visual y comprensible.
+
+---
+
 ## 1. Estructura general del proyecto
 
 El sitio está dividido en tres páginas principales:
