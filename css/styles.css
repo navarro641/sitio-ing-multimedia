@@ -2450,26 +2450,43 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 38%),
-        linear-gradient(225deg, rgba(255, 107, 95, 0.08), transparent 42%),
-        var(--bg);
+        radial-gradient(circle at 13% 20%, rgba(0, 184, 169, 0.2), transparent 26%),
+        radial-gradient(circle at 88% 16%, rgba(255, 190, 63, 0.16), transparent 25%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(135deg, #101a28 0%, #132235 52%, #0d1522 100%);
+      background-size: auto, auto, 72px 72px, 72px 72px, auto;
     }
 
     .skills-section::before {
       content: "";
       position: absolute;
-      inset: 34px 7% auto auto;
-      width: 240px;
-      height: 240px;
-      border: 1px dashed rgba(37, 99, 235, 0.18);
+      inset: 44px auto auto -120px;
+      width: 360px;
+      height: 360px;
+      border: 1px dashed rgba(0, 184, 169, 0.28);
       border-radius: 50%;
+      opacity: 0.72;
+      animation: gearSpin 38s linear infinite;
+    }
+
+    .skills-section::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: 46px;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255, 190, 63, 0.24);
+      border-radius: 38% 62% 58% 42%;
+      transform: rotate(-16deg);
     }
 
     .skills-heading {
       position: relative;
       z-index: 1;
-      max-width: 920px;
-      margin: 0 auto 36px;
+      max-width: 860px;
+      margin: 0 auto 42px;
       text-align: center;
     }
 
@@ -2478,14 +2495,30 @@
       font-size: clamp(2rem, 5vw, 4.2rem);
       line-height: 1.02;
       letter-spacing: 0;
+      color: #f8fbff;
     }
 
     .skills-heading p {
       margin: 0 auto;
-      max-width: 760px;
-      color: var(--muted);
+      max-width: 640px;
+      color: #c6d3e4;
       line-height: 1.75;
       font-size: 1.04rem;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .skills-heading::after {
+      content: "";
+      display: block;
+      width: min(240px, 42vw);
+      height: 4px;
+      margin: 24px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--teal), var(--gold));
+      opacity: 0.95;
     }
 
     .skills-panels {
@@ -2493,67 +2526,85 @@
       z-index: 1;
       display: grid;
       grid-template-columns: repeat(2, minmax(280px, 1fr));
-      gap: clamp(22px, 4vw, 42px);
+      gap: clamp(24px, 4vw, 46px);
       max-width: 1120px;
       margin: 0 auto;
     }
 
     .skill-panel {
       position: relative;
-      min-height: 560px;
+      min-height: 520px;
       border-radius: 8px;
       overflow: hidden;
-      border: 1px solid rgba(221, 227, 236, 0.9);
-      box-shadow: 0 24px 70px rgba(17, 24, 39, 0.16);
-      background: var(--dark);
+      border: 1px solid rgba(237, 244, 255, 0.18);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+        #111827;
+      isolation: isolate;
     }
 
     .skill-panel-bg {
       position: absolute;
-      inset: 0;
+      inset: 18px 18px auto;
+      height: 210px;
       background-position: center;
       background-size: cover;
-      transform: scale(1.03);
+      border-radius: 8px;
+      transform: scale(1);
+      filter: grayscale(0.18) saturate(1.05);
       transition: transform 360ms ease, filter 360ms ease;
+      clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
     }
 
     .skill-panel-tech .skill-panel-bg {
       background-image:
-        linear-gradient(180deg, rgba(17, 24, 39, 0.22), rgba(17, 24, 39, 0.84)),
+        linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(17, 24, 39, 0.62)),
         url("../assets/img/ingenieria-multimedia/habilidades-tecnicas.jpg");
     }
 
     .skill-panel-soft .skill-panel-bg {
       background-image:
-        linear-gradient(180deg, rgba(17, 24, 39, 0.18), rgba(17, 24, 39, 0.84)),
+        linear-gradient(135deg, rgba(255, 107, 95, 0.22), rgba(17, 24, 39, 0.62)),
         url("../assets/img/ingenieria-multimedia/habilidades-blandas.jpg");
     }
 
+    .skill-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(0, 184, 169, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 72%, rgba(255, 190, 63, 0.14), transparent 26%);
+    }
+
     .skill-panel:hover .skill-panel-bg {
-      transform: scale(1.08);
-      filter: saturate(1.08);
+      transform: scale(1.04) translateY(-4px);
+      filter: grayscale(0) saturate(1.16);
     }
 
     .skill-panel-content {
-      position: absolute;
-      inset: auto 24px 24px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: 8px;
-      background: rgba(17, 24, 39, 0.72);
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 258px 24px 24px;
       color: white;
-      backdrop-filter: blur(12px);
     }
 
     .skill-panel-content h3 {
       margin: 0 0 18px;
       font-size: clamp(1.45rem, 3vw, 2.1rem);
       line-height: 1.1;
+      max-width: 360px;
     }
 
     .skill-list {
       display: grid;
-      gap: 12px;
+      gap: 10px;
       padding: 0;
       margin: 0;
       list-style: none;
@@ -2563,19 +2614,22 @@
       display: grid;
       grid-template-columns: 34px 1fr;
       gap: 12px;
-      align-items: start;
-      padding: 12px;
+      align-items: center;
+      padding: 11px 12px;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.075);
       color: #edf4ff;
       font-weight: 700;
       line-height: 1.45;
-      transition: background 180ms ease, transform 180ms ease;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
     }
 
     .skill-list li:hover {
-      background: rgba(255, 255, 255, 0.18);
-      transform: translateX(4px);
+      border-color: rgba(0, 184, 169, 0.45);
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateX(6px);
     }
 
     .skill-icon {
@@ -3974,6 +4028,10 @@
         grid-template-columns: 1fr;
       }
 
+      .skills-heading p {
+        margin-inline: auto;
+      }
+
       .skill-panel {
         min-height: 500px;
       }
@@ -4346,12 +4404,11 @@
       }
 
       .skill-panel {
-        min-height: 560px;
+        min-height: auto;
       }
 
       .skill-panel-content {
-        inset: auto 14px 14px;
-        padding: 18px;
+        padding: 238px 16px 18px;
       }
 
       .skill-list li {
