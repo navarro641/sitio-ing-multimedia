@@ -149,6 +149,32 @@ function playHistoryDropSound() {
     }
 
     const currentPage = document.body.dataset.page || "ingenieria-multimedia";
+    const themeToggle = document.querySelector(".theme-toggle");
+    const themeToggleText = themeToggle?.querySelector(".theme-toggle-text");
+    const themeToggleIcon = themeToggle?.querySelector(".theme-toggle-icon");
+    const savedTheme = localStorage.getItem("site-theme");
+
+    function updateThemeToggle(isLightMode) {
+      if (!themeToggle || !themeToggleText || !themeToggleIcon) return;
+      themeToggle.setAttribute("aria-pressed", String(isLightMode));
+      themeToggleText.textContent = isLightMode ? "Oscuro" : "Claro";
+      themeToggleIcon.textContent = isLightMode ? "☾" : "☀";
+      themeToggle.title = isLightMode ? "Cambiar a modo oscuro" : "Cambiar a modo claro";
+      themeToggle.setAttribute("aria-label", themeToggle.title);
+    }
+
+    function setTheme(theme) {
+      const isLightMode = theme === "light";
+      document.body.classList.toggle("light-mode", isLightMode);
+      localStorage.setItem("site-theme", isLightMode ? "light" : "dark");
+      updateThemeToggle(isLightMode);
+    }
+
+    setTheme(savedTheme === "light" ? "light" : "dark");
+
+    themeToggle?.addEventListener("click", () => {
+      setTheme(document.body.classList.contains("light-mode") ? "dark" : "light");
+    });
 
     // Detecta las opciones del menú que apuntan a secciones internas.
     // En las páginas separadas el menú apunta a archivos HTML, por eso este

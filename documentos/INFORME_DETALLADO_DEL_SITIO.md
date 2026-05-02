@@ -59,6 +59,7 @@ Contiene:
 - Modal de dónde estudiar.
 - Modal de herramientas gratuitas.
 - Botones flotantes de test, estudiar, herramientas y anterior.
+- Botón flotante de modo claro/oscuro.
 
 ### 2.2. `ingenieria.html`
 
@@ -74,6 +75,7 @@ Contiene:
 - Pie de página global.
 - Modal de video.
 - Botón flotante Anterior.
+- Botón flotante de modo claro/oscuro.
 
 En esta página no aparecen los botones flotantes de test, dónde estudiar ni herramientas gratuitas.
 
@@ -90,6 +92,7 @@ Contiene:
 - Pie de página global.
 - Modal de video.
 - Botón flotante Anterior.
+- Botón flotante de modo claro/oscuro.
 
 En esta página tampoco aparecen los botones flotantes de test, dónde estudiar ni herramientas gratuitas.
 
@@ -113,6 +116,8 @@ Define:
 - Animaciones.
 - Estados al pasar el cursor.
 - Estados activos después de hacer clic.
+- Modo oscuro y modo claro mediante la clase `light-mode`.
+- Reglas de contraste específicas para textos, botones, tarjetas y modales en modo claro.
 
 ### 2.5. `js/main.js`
 
@@ -134,6 +139,8 @@ Controla:
 - Línea del tiempo de historia.
 - Ramas de la ingeniería.
 - Botón Anterior.
+- Cambio entre modo oscuro y modo claro.
+- Guardado de la preferencia visual en `localStorage`.
 
 ---
 
@@ -522,6 +529,39 @@ Funcionamiento del botón `Anterior`:
 - Si el usuario está en Innovación 2030, vuelve a Habilidades y competencias.
 - Si está en Habilidades, vuelve a Perfil.
 - Y así sucesivamente.
+
+---
+
+### 4.9. Modo claro y modo oscuro
+
+El sitio cuenta con un botón flotante para cambiar entre modo oscuro y modo claro. Este control aparece en las tres páginas y permite adaptar la lectura según el gusto del usuario o las condiciones de presentación.
+
+Ubicación y comportamiento:
+
+- El botón se muestra como control flotante en la parte superior derecha, separado del menú principal.
+- En pantallas pequeñas se conserva como botón compacto para no ocupar demasiado espacio.
+- Al hacer clic, el sitio alterna entre la apariencia oscura y la apariencia clara.
+- JavaScript agrega o quita la clase `light-mode` en el `body`.
+- La preferencia se guarda en `localStorage` con la clave `site-theme`.
+- Si el usuario recarga la página, el sitio recuerda el último modo seleccionado.
+
+Elementos que cambian en modo claro:
+
+- Fondo general del sitio.
+- Texturas y patrones de las secciones.
+- Encabezado y navegación.
+- Botones, tarjetas, modales y formularios.
+- Textos de apoyo, títulos y subtítulos.
+- Footer y elementos flotantes.
+
+Se realizaron ajustes de contraste para que los textos sigan siendo legibles en modo claro, especialmente en:
+
+- Habilidades y competencias.
+- Modal del test.
+- Botón `Volver a realizar el test`.
+- Recuadros de historia.
+- Categorías de herramientas gratuitas.
+- Tarjetas y paneles informativos.
 
 ---
 
@@ -1087,6 +1127,7 @@ El CSS incluye reglas responsive para:
 - Adaptar modales.
 - Reacomodar botones flotantes.
 - Hacer más manejables las tarjetas en pantallas pequeñas.
+- Mantener visible y usable el botón de modo claro/oscuro sin cubrir el menú, el footer ni otros accesos flotantes.
 
 ---
 
@@ -1102,6 +1143,7 @@ El sitio incluye varias prácticas de accesibilidad:
 - `alt` en imágenes principales.
 - Botones reales para elementos clicables.
 - Algunas tarjetas tienen `tabindex="0"` para permitir enfoque con teclado.
+- El botón de modo claro/oscuro tiene `aria-label`, `aria-pressed` y texto interno actualizado según el estado visual.
 
 ---
 
@@ -1137,6 +1179,7 @@ El sitio no es solo una página con texto. Tiene:
 - Tarjetas tipo cortina.
 - Orbes con microinteracciones.
 - Botón Anterior por secciones.
+- Botón flotante de modo claro/oscuro con preferencia guardada.
 - Footer con mapa general del sitio.
 - Diseño responsive.
 - Organización de contenido y recursos por carpetas.
