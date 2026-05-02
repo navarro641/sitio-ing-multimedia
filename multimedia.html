@@ -39,7 +39,7 @@
               forma más atractiva, clara y efectiva.
             </p>
             <div class="hero-actions">
-              <button class="button" type="button" id="openVideo">Ver video</button>
+              <button class="button" type="button" id="openVideo" title="Ver video de multimedia">Ver video</button>
             </div>
           </div>
 
@@ -47,7 +47,7 @@
                El botón azul reutiliza el mismo modal de video controlado desde main.js. -->
           <div class="multimedia-stage" aria-label="Multimedia en movimiento">
             <div class="multimedia-media-orbit">
-              <button class="multi-orb play" type="button" id="openVideoOrbit" aria-label="Ver video de multimedia"><span>▶</span></button>
+              <button class="multi-orb play" type="button" id="openVideoOrbit" aria-label="Ver video de multimedia" title="Ver video de multimedia"><span>▶</span></button>
               <button class="multi-orb text" type="button" title="Texto" data-media-effect="text" data-media-text="mensaje + lectura"><span>T</span></button>
               <button class="multi-orb image" type="button" title="Imagen" data-media-effect="image" data-media-text="forma visual"><span>◩</span></button>
               <button class="multi-orb audio" type="button" title="Sonido" data-media-effect="audio" data-media-text="ritmo + emoción"><span>♪</span></button>
@@ -215,7 +215,7 @@
   <div class="modal" id="videoModal" aria-hidden="true">
     <article class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
       <div class="modal-content">
-        <button class="close" type="button" id="closeVideo" aria-label="Cerrar">X</button>
+        <button class="close" type="button" id="closeVideo" aria-label="Cerrar" title="Cerrar video">X</button>
         <h2 id="videoTitle">Video de multimedia</h2>
       </div>
       <video id="introVideo" controls>
@@ -226,7 +226,7 @@
   </div>
 
   <!-- En esta página solo aparece el botón Anterior, sin accesos a test o herramientas. -->
-  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestaña anterior"><span>&uarr;</span><small>Anterior</small></button>
+  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestaña anterior" title="Ir a la sección anterior"><span>&uarr;</span><small>Anterior</small></button>
   <script src="js/main.js"></script>
 </body>
 </html>

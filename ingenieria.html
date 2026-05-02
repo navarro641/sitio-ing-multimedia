@@ -37,13 +37,13 @@
               tangibles que transforman la vida cotidiana.
             </p>
             <div class="hero-actions">
-              <button class="button" type="button" id="openVideo">Ver video</button>
+              <button class="button" type="button" id="openVideo" title="Ver video de ingeniería">Ver video</button>
             </div>
           </div>
 
           <div class="engineering-stage" aria-label="Ingeniería en movimiento">
             <div class="engineering-media-orbit">
-              <button class="eng-orb play" type="button" id="openVideoOrbit" aria-label="Ver video de ingeniería"><span>▶</span></button>
+              <button class="eng-orb play" type="button" id="openVideoOrbit" aria-label="Ver video de ingeniería" title="Ver video de ingeniería"><span>▶</span></button>
               <button class="eng-orb math" type="button" title="Cálculo y ciencia" data-orbit-text="Ciencia y matemática para resolver."><span>Σ</span></button>
               <button class="eng-orb build" type="button" title="Mecanismos y sistemas" data-orbit-text="Sistemas que transforman ideas."><span>⚙</span></button>
               <button class="eng-orb plan" type="button" title="Estructuras e infraestructura" data-orbit-text="Diseñar es anticipar soluciones."><span>⌂</span></button>
@@ -90,7 +90,7 @@
         <button class="history-point p22" type="button" data-year="Siglo XXI" data-title="Ingeniería digital" data-image="assets/img/ingenieria/ingenieria-digital.jpg" data-text="Realidad virtual, simulación digital y modelos interactivos transforman el trabajo, el consumo y la creación."><span>Siglo XXI</span></button>
 
         <article class="history-detail" id="historyDetail" aria-live="polite">
-          <button class="history-close" type="button" aria-label="Cerrar información">X</button>
+          <button class="history-close" type="button" aria-label="Cerrar información" title="Cerrar información">X</button>
           <img src="assets/img/ingenieria/PALEOLITICO.jpg" alt="Paleolítico">
           <div>
             <span class="mini-label">2,5 millones a.C.</span>
@@ -107,12 +107,14 @@
         <span class="section-kicker">Especialidades</span>
       </div>
 
+      <div class="section-hint branches-hint" role="status" aria-live="polite">Haz clic en los botones laterales para ver la definición de cada rama.</div>
+
       <div class="branches-board" aria-label="Ramas interactivas de la ingeniería">
         <div class="branches-side branches-left">
-          <button class="branch-button" type="button" data-title="Ingeniería Civil" data-text="Se enfoca en la planificación, diseño y construcción de infraestructuras como puentes, carreteras y edificios.">Civil</button>
-          <button class="branch-button" type="button" data-title="Ingeniería Mecánica" data-text="Centrada en el diseño y fabricación de sistemas mecánicos como motores, vehículos y maquinaria industrial.">Mecánica</button>
-          <button class="branch-button" type="button" data-title="Ingeniería Industrial" data-text="Optimiza procesos, recursos humanos y materiales para que empresas y fábricas produzcan mejor, con menos errores y menor costo.">Industrial</button>
-          <button class="branch-button" type="button" data-title="Ingeniería de Sistemas" data-text="Crea, programa y administra sistemas complejos y redes que sostienen el mundo digital e internet.">Sistemas</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Civil" data-title="Ingeniería Civil" data-text="Se enfoca en la planificación, diseño y construcción de infraestructuras como puentes, carreteras y edificios.">Civil</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Mecánica" data-title="Ingeniería Mecánica" data-text="Centrada en el diseño y fabricación de sistemas mecánicos como motores, vehículos y maquinaria industrial.">Mecánica</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Industrial" data-title="Ingeniería Industrial" data-text="Optimiza procesos, recursos humanos y materiales para que empresas y fábricas produzcan mejor, con menos errores y menor costo.">Industrial</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería de Sistemas" data-title="Ingeniería de Sistemas" data-text="Crea, programa y administra sistemas complejos y redes que sostienen el mundo digital e internet.">Sistemas</button>
         </div>
 
         <div class="branches-center" id="branchCenter" aria-live="polite">
@@ -123,10 +125,10 @@
         </div>
 
         <div class="branches-side branches-right">
-          <button class="branch-button" type="button" data-title="Ingeniería Multimedia" data-text="Integra creatividad, diseño y tecnología para crear contenido digital interactivo y experiencias multimedia.">Multimedia</button>
-          <button class="branch-button" type="button" data-title="Ingeniería Química" data-text="Usa química, física y biología para transformar materias primas en combustibles, medicamentos, alimentos procesados y plásticos.">Química</button>
-          <button class="branch-button" type="button" data-title="Ingeniería Forense" data-text="Investiga fallas en estructuras, máquinas o accidentes aplicando leyes físicas, análisis de materiales e ingeniería inversa.">Forense</button>
-          <button class="branch-button" type="button" data-title="Ingeniería de Tejidos" data-text="Busca fabricar tejidos y piezas del cuerpo humano usando células vivas y andamios biológicos para medicina regenerativa.">Tejidos</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Multimedia" data-title="Ingeniería Multimedia" data-text="Integra creatividad, diseño y tecnología para crear contenido digital interactivo y experiencias multimedia.">Multimedia</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Química" data-title="Ingeniería Química" data-text="Usa química, física y biología para transformar materias primas en combustibles, medicamentos, alimentos procesados y plásticos.">Química</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería Forense" data-title="Ingeniería Forense" data-text="Investiga fallas en estructuras, máquinas o accidentes aplicando leyes físicas, análisis de materiales e ingeniería inversa.">Forense</button>
+          <button class="branch-button" type="button" title="Ver Ingeniería de Tejidos" data-title="Ingeniería de Tejidos" data-text="Busca fabricar tejidos y piezas del cuerpo humano usando células vivas y andamios biológicos para medicina regenerativa.">Tejidos</button>
         </div>
       </div>
     </section>
@@ -240,7 +242,7 @@
   <div class="modal" id="videoModal" aria-hidden="true">
     <article class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
       <div class="modal-content">
-        <button class="close" type="button" id="closeVideo" aria-label="Cerrar">X</button>
+        <button class="close" type="button" id="closeVideo" aria-label="Cerrar" title="Cerrar video">X</button>
         <h2 id="videoTitle">Video de ingeniería</h2>
       </div>
       <video id="introVideo" controls>
@@ -251,7 +253,7 @@
   </div>
 
   <!-- En esta página solo aparece el botón Anterior, sin accesos a test o herramientas. -->
-  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestaña anterior"><span>&uarr;</span><small>Anterior</small></button>
+  <button class="float-action previous-action" type="button" id="backTop" data-fallback="index.html" aria-label="Volver a la pestaña anterior" title="Ir a la sección anterior"><span>&uarr;</span><small>Anterior</small></button>
   <script src="js/main.js"></script>
 </body>
 </html>

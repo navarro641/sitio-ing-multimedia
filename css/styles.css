@@ -84,6 +84,36 @@
       outline-offset: 4px;
     }
 
+    /* Tooltip propio del sitio.
+       El atributo title existe en los botones, pero el aviso nativo del
+       navegador puede tardar en aparecer; esta capa lo muestra de inmediato
+       con un estilo consistente en todas las paginas. */
+    .site-tooltip {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 999;
+      max-width: min(240px, calc(100vw - 28px));
+      padding: 8px 10px;
+      border: 1px solid rgba(237, 244, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(17, 24, 39, 0.94);
+      color: #f8fbff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1.25;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, calc(-100% - 12px)) scale(0.96);
+      transition: opacity 120ms ease, transform 120ms ease;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
+    }
+
+    .site-tooltip.show {
+      opacity: 1;
+      transform: translate(-50%, calc(-100% - 12px)) scale(1);
+    }
+
     /* Encabezado fijo con logo y menu principal. */
     .topbar {
       position: sticky;
@@ -4251,6 +4281,7 @@
 
       .multimedia-stage {
         min-height: 340px;
+        justify-self: center;
         transform: none;
       }
 
@@ -4278,7 +4309,7 @@
       }
 
       .multimedia-media-orbit {
-        width: min(330px, 82vw);
+        width: min(285px, 76vw);
       }
 
       .multimedia-center-chip {
@@ -4288,8 +4319,8 @@
       }
 
       .multi-orb {
-        width: 72px;
-        height: 72px;
+        width: 64px;
+        height: 64px;
       }
 
       .multi-orb span {

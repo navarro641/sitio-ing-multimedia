@@ -190,6 +190,44 @@ function playHistoryDropSound() {
     const videoModal = document.querySelector("#videoModal");
     const introVideo = document.querySelector("#introVideo");
 
+    // Tooltips visibles para botones.
+    // Usa el texto del atributo title, pero lo muestra con una capa propia
+    // porque el tooltip nativo del navegador aparece tarde y no siempre se nota.
+    const tooltip = document.createElement("div");
+    tooltip.className = "site-tooltip";
+    tooltip.setAttribute("role", "tooltip");
+    document.body.appendChild(tooltip);
+
+    function placeTooltip(target) {
+      const rect = target.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const topY = rect.top;
+      const safeX = Math.min(Math.max(centerX, 120), window.innerWidth - 120);
+      const safeY = Math.max(topY, 42);
+
+      tooltip.style.left = `${safeX}px`;
+      tooltip.style.top = `${safeY}px`;
+    }
+
+    document.querySelectorAll("button[title]").forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        tooltip.textContent = button.getAttribute("title");
+        placeTooltip(button);
+        tooltip.classList.add("show");
+      });
+
+      button.addEventListener("mousemove", () => placeTooltip(button));
+      button.addEventListener("mouseleave", () => tooltip.classList.remove("show"));
+      button.addEventListener("focus", () => {
+        tooltip.textContent = button.getAttribute("title");
+        placeTooltip(button);
+        tooltip.classList.add("show");
+      });
+      button.addEventListener("blur", () => tooltip.classList.remove("show"));
+    });
+
+    window.addEventListener("scroll", () => tooltip.classList.remove("show"), { passive: true });
+
     // Abre el modal del video introductorio.
     function openVideoModal() {
       if (!videoModal) return;
