@@ -1072,7 +1072,18 @@ Las imágenes están separadas por carpetas:
 - `assets/img/multimedia/`: pilares y tipos de multimedia.
 - `assets/img/logos/`: universidades y herramientas.
 
-### 9.3. Logos
+### 9.3. Audio
+
+El sitio incluye audio como formato multimedia mediante efectos sonoros generados por JavaScript. No dependen de archivos `.mp3`, sino de la API Web Audio del navegador, por lo que el sonido se crea al momento de la interacción del usuario.
+
+Audio implementado:
+
+- En la sección `Áreas de desempeño`, al hacer clic en una burbuja se reproduce un efecto corto tipo `pop`, simulando la explosión visual de la burbuja.
+- En la sección `Historia de la ingeniería`, al hacer clic en un punto cronológico se reproduce un sonido breve tipo goteo, reforzando la interacción con la línea del tiempo.
+
+Este recurso permite evidenciar el uso de audio dentro del producto multimedia, junto con texto, imagen, video y animación.
+
+### 9.4. Logos
 
 Se usan en:
 
