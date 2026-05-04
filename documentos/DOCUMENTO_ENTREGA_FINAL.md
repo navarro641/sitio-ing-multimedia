@@ -10,6 +10,32 @@
 
 ---
 
+## Introducción general del documento
+
+Este documento reúne las evidencias principales del desarrollo del producto multimedia **Fundamentos de Ingeniería Multimedia**. En él se presenta la organización general de la entrega, el espacio correspondiente al Anexo 1, el enlace público del sitio web, el informe del proceso de creación y el cuestionario de reflexión sobre el trabajo realizado.
+
+La finalidad de este archivo es mostrar de manera ordenada cómo se planeó, produjo, implementó y revisó el sitio web educativo interactivo. Además, permite evidenciar las decisiones tomadas durante el proceso, los recursos multimedia utilizados y la forma en que el producto responde a los objetivos de la actividad.
+
+---
+
+## Objetivos del documento
+
+### Objetivo general
+
+Presentar de forma organizada las evidencias del producto multimedia desarrollado, integrando la información del proyecto, el enlace de acceso, el informe del proceso y las respuestas del cuestionario solicitado para la entrega.
+
+### Objetivos específicos
+
+- Identificar el producto multimedia desarrollado y su propósito educativo.
+- Registrar el espacio correspondiente al Anexo 1 - Matriz de preproducción y pruebas multimedia.
+- Incluir el enlace público del sitio web publicado para su revisión.
+- Describir las fases de preproducción, producción, implementación y postproducción del proyecto.
+- Evidenciar los formatos multimedia utilizados, como texto, imagen, video, audio, animación e hipervínculos.
+- Responder el cuestionario de reflexión sobre el funcionamiento, los cambios realizados y el proceso de construcción del producto.
+- Organizar la entrega en un solo documento claro, coherente y fácil de revisar.
+
+---
+
 ## Anexo 1 - Matriz de preproducción y pruebas multimedia
 
 **Nota:** En este espacio se debe anexar o adjuntar el archivo correspondiente al **Anexo 1 - Matriz de preproducción y pruebas multimedia**.
@@ -197,3 +223,13 @@ Si el trabajo se hubiera dividido entre varias personas, una podría enfocarse e
 Sin embargo, también considero que el trabajo en equipo puede ser un arma de doble filo. Puede funcionar muy bien si existe comunicación, responsabilidad, acuerdos claros y buena distribución de tareas; pero también puede dificultar el proceso si algunas personas no cumplen, si no hay coordinación o si cada integrante tiene una idea diferente del diseño. En un proyecto multimedia, donde todo debe sentirse integrado, la falta de organización podría provocar retrasos, inconsistencias visuales o decisiones contradictorias.
 
 Por eso creo que trabajar en equipo habría sido una ventaja si el grupo estuviera bien organizado. De lo contrario, el proyecto podría haberse vuelto más lento o complejo. Trabajar individualmente tomó más tiempo, pero también permitió tener una visión completa del proceso, desde la idea inicial hasta la publicación del sitio en línea.
+
+---
+
+## Conclusión general del documento
+
+Este documento permite reunir en una sola entrega los elementos principales del proyecto multimedia: la identificación del producto, el Anexo 1, el enlace público del sitio, el informe del proceso y el cuestionario final. Su estructura facilita comprender no solo el resultado obtenido, sino también el camino seguido para llegar a él.
+
+En conjunto, la evidencia presentada muestra que el producto fue desarrollado mediante un proceso organizado de planeación, diseño, implementación, prueba y ajuste. También demuestra que la creación de un contenido multimedia requiere integrar distintos formatos de información, cuidar la experiencia del usuario y realizar modificaciones cuando el funcionamiento real del producto lo exige.
+
+La entrega final evidencia que el sitio web cumple con el propósito de explicar los fundamentos de la Ingeniería Multimedia de forma interactiva, visual y accesible, utilizando recursos digitales que fortalecen la comprensión del tema.
