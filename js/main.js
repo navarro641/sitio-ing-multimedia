@@ -565,7 +565,7 @@ function playHistoryDropSound() {
       const profile = testProfiles[getWinningProfile(formData)];
       testWarning.textContent = "";
       testResult.innerHTML = `
-        <video controls autoplay muted playsinline>
+        <video controls autoplay muted playsinline preload="none">
           <source src="${profile.video}" type="video/mp4">
           Tu navegador no puede reproducir este video.
         </video>
