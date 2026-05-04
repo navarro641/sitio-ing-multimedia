@@ -614,6 +614,7 @@ function playHistoryDropSound() {
     // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
     const historyDetail = document.querySelector("#historyDetail");
     const historyPoints = Array.from(document.querySelectorAll(".history-point"));
+    let historyLoadToken = 0;
 
     function closeHistoryDetail() {
       historyDetail?.classList.remove("open");
@@ -624,21 +625,38 @@ function playHistoryDropSound() {
       point.addEventListener("click", () => {
         if (!historyDetail) return;
         playHistoryDropSound();
+        historyLoadToken += 1;
+        const currentToken = historyLoadToken;
 
         const image = historyDetail.querySelector("img");
         const year = historyDetail.querySelector(".mini-label");
         const title = historyDetail.querySelector("h3");
         const text = historyDetail.querySelector("p");
 
-        image.src = point.dataset.image;
-        image.alt = point.dataset.title;
+        // Se cierra mientras carga la nueva imagen para evitar que el usuario
+        // vea por un instante la imagen anterior dentro del recuadro.
+        historyDetail.classList.remove("open");
         year.textContent = point.dataset.year;
         title.textContent = point.dataset.title;
         text.textContent = point.dataset.text;
 
         historyPoints.forEach((item) => item.classList.remove("active"));
         point.classList.add("active");
-        historyDetail.classList.add("open");
+
+        const nextImage = new Image();
+        nextImage.onload = () => {
+          if (currentToken !== historyLoadToken) return;
+          image.src = point.dataset.image;
+          image.alt = point.dataset.title;
+          historyDetail.classList.add("open");
+        };
+        nextImage.onerror = () => {
+          if (currentToken !== historyLoadToken) return;
+          image.removeAttribute("src");
+          image.alt = "Imagen no disponible";
+          historyDetail.classList.add("open");
+        };
+        nextImage.src = point.dataset.image;
       });
     });
 
