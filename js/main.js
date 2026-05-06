@@ -711,12 +711,52 @@ function playMultimediaAudioSound() {
     // Al hacer clic, se actualiza el recuadro central con imagen, periodo y contexto.
     const historyDetail = document.querySelector("#historyDetail");
     const historyPoints = Array.from(document.querySelectorAll(".history-point"));
+    const historySection = document.querySelector("#historia-ingenieria");
+    const historyImageCache = new Map();
     let historyLoadToken = 0;
+    let historyImagesPreloaded = false;
 
     function closeHistoryDetail() {
       historyDetail?.classList.remove("open");
       historyPoints.forEach((point) => point.classList.remove("active"));
     }
+
+    // Precarga las imagenes de la linea del tiempo antes del clic.
+    // Asi el usuario no tiene que esperar a que la imagen descargue justo cuando abre un punto.
+    function preloadHistoryImages() {
+      if (historyImagesPreloaded || !historyPoints.length) return;
+      historyImagesPreloaded = true;
+
+      historyPoints.forEach((point) => {
+        const source = point.dataset.image;
+        if (!source || historyImageCache.has(source)) return;
+
+        const cachedImage = new Image();
+        cachedImage.decoding = "async";
+        cachedImage.src = source;
+        historyImageCache.set(source, cachedImage);
+      });
+    }
+
+    // Si el navegador soporta IntersectionObserver, la precarga inicia cuando
+    // la seccion de historia se acerca a la pantalla. Si no, se hace al cargar.
+    if (historySection && "IntersectionObserver" in window) {
+      const historyPreloadObserver = new IntersectionObserver((entries, observer) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          preloadHistoryImages();
+          observer.disconnect();
+        }
+      }, { rootMargin: "420px 0px" });
+
+      historyPreloadObserver.observe(historySection);
+    } else {
+      window.addEventListener("load", preloadHistoryImages, { once: true });
+    }
+
+    // Tambien se activa al entrar con el mouse o teclado a la seccion, por si
+    // el usuario llega rapido antes de que el observador termine de disparar.
+    historySection?.addEventListener("mouseenter", preloadHistoryImages, { once: true });
+    historySection?.addEventListener("focusin", preloadHistoryImages, { once: true });
 
     historyPoints.forEach((point) => {
       point.addEventListener("click", () => {
@@ -740,7 +780,8 @@ function playMultimediaAudioSound() {
         historyPoints.forEach((item) => item.classList.remove("active"));
         point.classList.add("active");
 
-        const nextImage = new Image();
+        const nextImage = historyImageCache.get(point.dataset.image) || new Image();
+        nextImage.decoding = "async";
         nextImage.onload = () => {
           if (currentToken !== historyLoadToken) return;
           image.src = point.dataset.image;
@@ -753,7 +794,15 @@ function playMultimediaAudioSound() {
           image.alt = "Imagen no disponible";
           historyDetail.classList.add("open");
         };
+        if (nextImage.complete) {
+          image.src = point.dataset.image;
+          image.alt = point.dataset.title;
+          historyDetail.classList.add("open");
+          return;
+        }
+
         nextImage.src = point.dataset.image;
+        historyImageCache.set(point.dataset.image, nextImage);
       });
     });
 
