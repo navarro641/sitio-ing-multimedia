@@ -120,11 +120,14 @@ Durante esta fase se implementaron los contenidos textuales, las imágenes repre
 - Burbujas de áreas de desempeño con efecto de explosión.
 - Sonidos generados con JavaScript.
 - Línea del tiempo de historia de la ingeniería.
+- Precarga de imágenes en la línea del tiempo para mejorar la respuesta al hacer clic.
 - Botones de ramas de la ingeniería.
+- Elementos multimedia interactivos con explicación temporal.
 - Ventanas emergentes para test, universidades y herramientas.
 - Test vocacional con resultado.
 - Botón de sección anterior.
 - Botón de modo claro/oscuro.
+- Favicon o icono de pestaña con el logo del sitio.
 
 En esta etapa también se hicieron ajustes visuales para mejorar la presentación del sitio, como cambios de color, texturas, profundidad en tarjetas, contraste de textos y diseño responsive para celular y tableta.
 
@@ -162,8 +165,12 @@ Algunos ajustes realizados fueron:
 - Ajustar la ubicación del botón de modo claro/oscuro.
 - Corregir el cambio de imágenes en la línea del tiempo de historia de la ingeniería.
 - Optimizar la carga de videos para que no se descargaran antes de abrirse.
+- Optimizar la carga de imágenes de Historia de la ingeniería mediante precarga al acercarse a la sección.
 - Mejorar el contraste de etiquetas en modo claro.
 - Revisar la navegación entre páginas.
+- Añadir icono de pestaña del navegador para reforzar la identidad visual del sitio.
+- Ajustar los elementos de Multimedia para que mostraran explicaciones temporales y efectos visuales sin saturar la sección.
+- Actualizar la lista de habilidades técnicas con lenguajes de programación reales: Python, Java, C#, C++ y JavaScript.
 - Actualizar documentos de soporte del proyecto.
 
 También se completó la matriz de preproducción y pruebas multimedia, indicando las secciones del sitio, los formatos multimedia implementados, las descripciones de funcionamiento y los casos de prueba correspondientes.

@@ -152,6 +152,7 @@ Está compuesto por:
 
 - Logo textual: `IM`.
 - Nombre del sitio: `Ing. Multimedia`.
+- Icono de pestaña del navegador: `assets/img/ui/favicon.svg`, basado en el logo `IM`.
 - Menú principal:
   - Ingeniería.
   - Multimedia.
@@ -329,7 +330,7 @@ Contiene:
 
 Habilidades técnicas:
 
-- Programación: HTML, CSS, JavaScript, Python.
+- Programación: Python, Java, C#, C++ y JavaScript.
 - Diseño gráfico: Photoshop, Illustrator, Figma.
 - Animación 2D/3D: After Effects, Blender, Autodesk Maya.
 - Edición de video y audio: Premiere Pro, Final Cut Pro, Audacity.
@@ -418,7 +419,7 @@ Identificador: `#testModal`
 Contiene:
 
 - Botón `X` para cerrar.
-- Título: `Descubre tu perfil multimedia`.
+- Título: `Encuentra tu área de interés`.
 - Introducción breve.
 - Formulario con tres preguntas.
 - Botón `Ver resultado`.
@@ -623,6 +624,8 @@ Funcionamiento:
   - Se muestra imagen, año, título y texto del suceso.
   - El punto seleccionado queda marcado como activo.
 - El recuadro tiene botón `X` para cerrarse.
+- Las imágenes de la línea del tiempo se precargan cuando la sección se acerca a la pantalla o cuando el usuario entra a ella, reduciendo la espera al hacer clic.
+- El código evita mostrar por error la imagen anterior mientras carga la nueva.
 
 Momentos incluidos:
 
@@ -756,6 +759,7 @@ Funcionamiento:
 - Al hacer clic en el orbe de audio:
   - El centro cambia a `ritmo + emoción`.
   - Se activa una microanimación sonora/visual.
+  - Se reproduce un sonido breve generado con Web Audio.
 - Después de unos segundos vuelve al texto inicial.
 
 Video:
@@ -786,6 +790,10 @@ Funcionamiento:
 - Es una sección visual con elementos flotantes.
 - Cada elemento tiene un icono y un nombre.
 - Refuerza la idea de que la multimedia une varios medios.
+- Una leyenda flotante indica que el usuario puede hacer clic en los elementos.
+- Al hacer clic en un elemento aparece temporalmente un recuadro con una explicación breve.
+- El recuadro desaparece automáticamente después de unos segundos para no saturar la sección.
+- Al hacer clic se activa una pequeña explosión visual del icono; en el elemento de audio también se reproduce un sonido.
 - El botón `Anterior` empieza a mostrarse al llegar a esta sección.
 
 ### 6.3. Sección: Pilares y tipos de multimedia
@@ -825,6 +833,7 @@ Funcionamiento:
 - Es principalmente una sección informativa.
 - Los pilares se presentan con viñetas visuales.
 - Los tipos se presentan con imagen, título y descripción.
+- Los pilares y los tipos tienen un resalto suave al pasar el cursor, mediante un ligero movimiento y sombra.
 - La distribución está pensada para equilibrar una columna con lista y otra con más texto e imágenes.
 
 ### 6.4. Botón flotante en Multimedia
@@ -1071,6 +1080,7 @@ Las imágenes están separadas por carpetas:
 - `assets/img/ingenieria-multimedia/`: áreas de desempeño, perfiles, habilidades, innovación y tarjetas.
 - `assets/img/multimedia/`: pilares y tipos de multimedia.
 - `assets/img/logos/`: universidades y herramientas.
+- `assets/img/ui/favicon.svg`: icono de pestaña del navegador con el logo `IM`.
 
 ### 9.3. Audio
 
