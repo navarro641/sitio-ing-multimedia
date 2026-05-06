@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Multimedia</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/ui/favicon.svg">
   <!-- Fuentes principales del sitio: Poppins para títulos e Inter para lectura. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,32 +78,35 @@
             explican, otros muestran, otros suenan y otros activan movimiento.
           </p>
         </div>
+        <div class="section-hint media-elements-hint" role="status" aria-live="polite">Haz clic en los elementos para ver como participa cada formato multimedia.</div>
 
         <div class="media-elements-field" aria-label="Elementos principales de la multimedia">
-          <article class="media-element-card text-element">
+          <article class="media-element-card text-element" tabindex="0" role="button" data-media-name="Texto" data-media-detail="Organiza ideas, instrucciones y conceptos para que el usuario entienda el mensaje.">
             <span class="media-element-icon" aria-hidden="true">&#128196;</span>
             <h3>Texto</h3>
           </article>
 
-          <article class="media-element-card image-element">
+          <article class="media-element-card image-element" tabindex="0" role="button" data-media-name="Imagen" data-media-detail="Convierte informacion en forma visual: fotografia, ilustracion, iconos, diagramas o composiciones.">
             <span class="media-element-icon" aria-hidden="true">&#9635;</span>
             <h3>Imagen</h3>
           </article>
 
-          <article class="media-element-card video-element">
+          <article class="media-element-card video-element" tabindex="0" role="button" data-media-name="Video" data-media-detail="Une imagen en movimiento, tiempo y narrativa para explicar procesos o presentar experiencias.">
             <span class="media-element-icon" aria-hidden="true">&#9654;</span>
             <h3>Video</h3>
           </article>
 
-          <article class="media-element-card audio-element">
+          <article class="media-element-card audio-element" tabindex="0" role="button" data-media-name="Audio" data-media-detail="Aporta ritmo, ambiente, voz, alerta o emocion para reforzar lo que el usuario percibe.">
             <span class="media-element-icon" aria-hidden="true">&#9835;</span>
             <h3>Audio</h3>
           </article>
 
-          <article class="media-element-card animation-element">
-            <span class="media-element-icon" aria-hidden="true">GIF</span>
+          <article class="media-element-card animation-element" tabindex="0" role="button" data-media-name="Animacion" data-media-detail="Da vida a elementos visuales mediante movimiento, transiciones, GIF, efectos o microinteracciones.">
+            <span class="media-element-icon" data-burst-color="#f6c343" aria-hidden="true">GIF</span>
             <h3>Animación</h3>
           </article>
+
+          <div class="media-element-detail" id="mediaElementDetail" aria-live="polite"></div>
         </div>
       </div>
     </section>

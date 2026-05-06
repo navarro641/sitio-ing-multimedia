@@ -148,6 +148,55 @@ function playHistoryDropSound() {
       window.setTimeout(() => audioContext.close(), 320);
     }
 
+// Crea un sonido breve para el orbe de audio en la página Multimedia.
+// Combina notas y un pulso grave para que el efecto sea claramente perceptible.
+function playMultimediaAudioSound() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+
+      const audioContext = new AudioContext();
+      const now = audioContext.currentTime;
+      const output = audioContext.createGain();
+      output.gain.setValueAtTime(0.0001, now);
+      output.gain.exponentialRampToValueAtTime(0.36, now + 0.02);
+      output.gain.exponentialRampToValueAtTime(0.0001, now + 0.9);
+      output.connect(audioContext.destination);
+
+      const notes = [392, 523.25, 659.25, 783.99];
+      notes.forEach((frequency, index) => {
+        const start = now + index * 0.13;
+        const noteGain = audioContext.createGain();
+        noteGain.gain.setValueAtTime(0.0001, start);
+        noteGain.gain.exponentialRampToValueAtTime(0.2, start + 0.012);
+        noteGain.gain.exponentialRampToValueAtTime(0.0001, start + 0.2);
+        noteGain.connect(output);
+
+        const note = audioContext.createOscillator();
+        note.type = "triangle";
+        note.frequency.setValueAtTime(frequency, start);
+        note.frequency.exponentialRampToValueAtTime(frequency * 1.12, start + 0.16);
+        note.connect(noteGain);
+        note.start(start);
+        note.stop(start + 0.22);
+      });
+
+      const pulseGain = audioContext.createGain();
+      pulseGain.gain.setValueAtTime(0.0001, now);
+      pulseGain.gain.exponentialRampToValueAtTime(0.18, now + 0.03);
+      pulseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.38);
+      pulseGain.connect(output);
+
+      const pulse = audioContext.createOscillator();
+      pulse.type = "sawtooth";
+      pulse.frequency.setValueAtTime(160, now);
+      pulse.frequency.exponentialRampToValueAtTime(80, now + 0.32);
+      pulse.connect(pulseGain);
+      pulse.start(now);
+      pulse.stop(now + 0.38);
+
+      window.setTimeout(() => audioContext.close(), 1000);
+    }
+
     const currentPage = document.body.dataset.page || "ingenieria-multimedia";
     const themeToggle = document.querySelector(".theme-toggle");
     const themeToggleText = themeToggle?.querySelector(".theme-toggle-text");
@@ -321,7 +370,7 @@ function playHistoryDropSound() {
       const rect = orb.getBoundingClientRect();
       const startX = rect.left + rect.width / 2;
       const startY = rect.top + rect.height / 2;
-      const color = window.getComputedStyle(orb).backgroundColor;
+      const color = orb.dataset.burstColor || window.getComputedStyle(orb).backgroundColor;
       const particleCount = 18;
 
       for (let index = 0; index < particleCount; index += 1) {
@@ -398,7 +447,55 @@ function playHistoryDropSound() {
         multimediaCenterText.textContent = orb.dataset.mediaText;
         multimediaCenter.classList.add("media-effect", `effect-${orb.dataset.mediaEffect}`);
         orb.classList.add("active");
+        if (orb.dataset.mediaEffect === "audio") {
+          playMultimediaAudioSound();
+        }
         multimediaEffectTimer = window.setTimeout(resetMultimediaEffect, 2800);
+      });
+    });
+
+    // Elementos Multimedia: cada tarjeta revela una descripcion breve.
+    // Esto convierte la seccion en una exploracion activa sin cambiar su estructura visual.
+    const mediaElementCards = Array.from(document.querySelectorAll(".media-element-card"));
+    const mediaElementDetail = document.querySelector("#mediaElementDetail");
+    let mediaElementTimer;
+
+    function resetMediaElementDetail() {
+      mediaElementCards.forEach((item) => item.classList.remove("active"));
+      if (!mediaElementDetail) return;
+      mediaElementDetail.classList.remove("show", "updating");
+      mediaElementDetail.innerHTML = "";
+    }
+
+    function activateMediaElement(card) {
+      if (!mediaElementDetail) return;
+      window.clearTimeout(mediaElementTimer);
+
+      mediaElementCards.forEach((item) => item.classList.toggle("active", item === card));
+      mediaElementDetail.innerHTML = `
+        <strong>${card.dataset.mediaName}</strong>
+        <p>${card.dataset.mediaDetail}</p>
+      `;
+      mediaElementDetail.classList.remove("show", "updating");
+      void mediaElementDetail.offsetWidth;
+      mediaElementDetail.classList.add("show", "updating");
+
+      createIconBurst(card.querySelector(".media-element-icon") || card);
+      if (card.classList.contains("audio-element")) {
+        playMultimediaAudioSound();
+      }
+
+      // La informacion aparece solo unos segundos y luego desaparece.
+      mediaElementTimer = window.setTimeout(resetMediaElementDetail, 8000);
+    }
+
+    mediaElementCards.forEach((card) => {
+      card.addEventListener("click", () => activateMediaElement(card));
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activateMediaElement(card);
+        }
       });
     });
 
@@ -687,7 +784,8 @@ function playHistoryDropSound() {
         branchCenter.querySelector("h3").textContent = button.dataset.title;
         branchCenter.querySelector("p").textContent = button.dataset.text;
 
-        branchResetTimer = window.setTimeout(resetBranchCenter, 9000);
+        // Mantiene la definición visible el tiempo suficiente para una lectura tranquila.
+        branchResetTimer = window.setTimeout(resetBranchCenter, 16000);
       });
     });
 

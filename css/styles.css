@@ -1661,6 +1661,7 @@
       color: var(--ink);
       text-align: center;
       background: transparent;
+      cursor: pointer;
       animation: elementFloat 4.8s ease-in-out infinite;
       transition: translate 0.25s ease, scale 0.25s ease, box-shadow 0.25s ease;
     }
@@ -1691,13 +1692,22 @@
       pointer-events: none;
     }
 
-    .media-element-card:hover {
+    .media-element-card:hover,
+    .media-element-card.active {
       z-index: 2;
       scale: 1.08;
     }
 
-    .media-element-card:hover::after {
+    .media-element-card:hover::after,
+    .media-element-card.active::after {
       opacity: 1;
+    }
+
+    .media-element-card.active .media-element-icon {
+      animation: mediaIconPop 0.62s ease both;
+      box-shadow:
+        0 22px 46px rgba(17, 24, 39, 0.22),
+        0 0 0 10px rgba(0, 184, 169, 0.1);
     }
 
     .media-element-icon {
@@ -1730,6 +1740,80 @@
       line-height: 1.2;
       background: rgba(255, 255, 255, 0.84);
       box-shadow: 0 12px 26px rgba(17, 24, 39, 0.08);
+    }
+
+    .media-element-detail {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      z-index: 3;
+      width: min(520px, calc(100% - 32px));
+      min-height: 0;
+      max-height: 0;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: rgba(241, 245, 249, 0.92);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.16), transparent 44%),
+        rgba(7, 20, 33, 0.94);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.24);
+      opacity: 0;
+      transform: translateX(-50%) translateY(12px);
+      overflow: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        max-height 0.22s ease,
+        padding 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .media-element-detail.show {
+      min-height: 104px;
+      max-height: 180px;
+      padding: 18px 22px;
+      border-color: rgba(0, 184, 169, 0.34);
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .media-element-detail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.32;
+      background:
+        linear-gradient(rgba(0, 184, 169, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 184, 169, 0.18) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .media-element-detail strong,
+    .media-element-detail p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .media-element-detail strong {
+      display: block;
+      margin-bottom: 8px;
+      color: white;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      font-size: 1.04rem;
+      font-weight: 800;
+    }
+
+    .media-element-detail p {
+      margin: 0;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .media-element-detail.updating {
+      animation: detailReveal 0.42s ease both;
     }
 
     .text-element {
@@ -1878,6 +1962,12 @@
       background: rgba(255, 255, 255, 0.72);
       box-shadow: 0 16px 34px rgba(17, 24, 39, 0.08);
       animation: branchFloat 4.6s ease-in-out infinite;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pillar-list li:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 58px rgba(37, 99, 235, 0.16);
     }
 
     .pillar-list li:nth-child(even) {
@@ -3789,6 +3879,22 @@
       50% { translate: 0 -14px; }
     }
 
+    @keyframes mediaIconPop {
+      0% { transform: scale(1) rotate(0deg); }
+      45% { transform: scale(1.16) rotate(-5deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes detailReveal {
+      0% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    @keyframes detailMobileReveal {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     @keyframes historyFloat {
       0%, 100% { translate: 0 0; }
       50% { translate: 0 -8px; }
@@ -4055,6 +4161,23 @@
         right: auto;
         top: auto;
         width: auto;
+      }
+
+      .media-element-detail {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        grid-column: 1 / -1;
+        width: 100%;
+        transform: translateY(10px);
+      }
+
+      .media-element-detail.show {
+        transform: translateY(0);
+      }
+
+      .media-element-detail.updating {
+        animation: detailMobileReveal 0.42s ease both;
       }
 
       .pillars-types-shell {
