@@ -5433,3 +5433,183 @@
         radial-gradient(circle at 88% 78%, rgba(0, 184, 169, 0.16), transparent 26%),
         #0b1424;
     }
+
+    /* Ajustes responsive finales.
+       Esta capa va al final porque el tema oscuro/claro redefine muchos
+       bloques; asi se evita que tablet y celular hereden posiciones pensadas
+       solo para escritorio. */
+    @media (max-width: 900px) {
+      /* Portadas de Ingenieria y Multimedia: al pasar a una sola columna el
+         orbe queda centrado y deja de desplazarse hacia la derecha. */
+      .engineering-stage,
+      .multimedia-stage {
+        justify-self: center;
+        width: 100%;
+        min-height: 390px;
+        transform: none;
+      }
+
+      .engineering-media-orbit,
+      .multimedia-media-orbit {
+        margin-inline: auto;
+      }
+
+      /* Areas de desempeno en tablet: las burbujas dejan el mapa absoluto de
+         escritorio y se ordenan en una rejilla para no montarse entre ellas. */
+      .areas-cloud {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 18px;
+        padding: 34px 24px 78px;
+      }
+
+      .area-bubble,
+      .area-bubble-a,
+      .area-bubble-b,
+      .area-bubble-c,
+      .area-bubble-d,
+      .area-bubble-e,
+      .area-bubble-f,
+      .area-bubble-g,
+      .area-bubble-h {
+        position: static;
+        width: auto;
+        transform: none;
+      }
+
+      .area-bubble img {
+        width: 88px;
+        height: 88px;
+      }
+
+      /* Innovacion 2030 en tablet: el engranaje se mantiene como pieza visual
+         principal y las tarjetas pasan a una rejilla legible debajo, evitando
+         tarjetas alargadas o con demasiado espacio vacio. */
+      .innovation-stage {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        align-items: start;
+      }
+
+      .gear-system {
+        position: relative;
+        left: auto;
+        top: auto;
+        order: -1;
+        grid-column: 1 / -1;
+        width: min(520px, 84vw);
+        margin: 0 auto 14px;
+        transform: none;
+      }
+
+      .innovation-note,
+      .innovation-note-left,
+      .innovation-note-right-top,
+      .innovation-note-left-bottom,
+      .innovation-note-right-bottom {
+        position: static;
+        max-width: none;
+        min-height: 150px;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .engineering-stage,
+      .multimedia-stage {
+        min-height: 330px;
+      }
+
+      .engineering-media-orbit,
+      .multimedia-media-orbit {
+        width: min(292px, 76vw);
+      }
+
+      .eng-orb,
+      .multi-orb {
+        width: 64px;
+        height: 64px;
+      }
+
+      .eng-orb span,
+      .multi-orb span {
+        font-size: 25px;
+      }
+
+      .engineering-center-chip,
+      .multimedia-center-chip {
+        width: 136px;
+        height: 136px;
+        padding: 18px;
+      }
+
+      .engineering-center-chip span,
+      .multimedia-center-chip span {
+        max-width: 94px;
+        font-size: 0.78rem;
+      }
+
+      .areas-cloud {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 16px 70px;
+      }
+
+      .innovation-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .gear-system {
+        width: min(380px, 88vw);
+      }
+
+      .innovation-note {
+        min-height: auto;
+      }
+
+      /* Accesos flotantes en celular: se reserva una franja independiente para
+         "Anterior" y los tres botones rapidos se compactan para que no se
+         monten sobre el boton de la esquina inferior derecha. */
+      .floating-actions {
+        left: 10px;
+        right: 76px;
+        bottom: 10px;
+        gap: 6px;
+      }
+
+      .float-action {
+        width: 60px;
+        min-height: 50px;
+        padding: 6px 3px;
+      }
+
+      .float-action span {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+      }
+
+      .float-action small {
+        font-size: 0.54rem;
+        line-height: 0.95;
+      }
+
+      .previous-action {
+        right: 10px;
+        bottom: 10px;
+        width: 60px;
+        min-height: 50px;
+      }
+
+      .previous-action small {
+        font-size: 0.54rem;
+      }
+
+      body {
+        padding-bottom: 76px;
+      }
+    }

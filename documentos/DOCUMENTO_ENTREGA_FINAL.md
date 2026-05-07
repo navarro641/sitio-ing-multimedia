@@ -12,9 +12,11 @@
 
 ## Introducción general del documento
 
-Este documento reúne las evidencias principales del desarrollo del producto multimedia **Fundamentos de Ingeniería Multimedia**. En él se presenta la organización general de la entrega, el espacio correspondiente al Anexo 1, el enlace público del sitio web, el informe del proceso de creación y el cuestionario de reflexión sobre el trabajo realizado.
+Este documento reúne las evidencias principales de la tarea correspondiente al desarrollo de un contenido multimedia educativo. La actividad solicitó planear, producir, implementar, probar y publicar un producto digital que integrara diferentes formatos de información multimedia, como texto, imagen, video, audio, animación e hipervínculos.
 
-La finalidad de este archivo es mostrar de manera ordenada cómo se planeó, produjo, implementó y revisó el sitio web educativo interactivo. Además, permite evidenciar las decisiones tomadas durante el proceso, los recursos multimedia utilizados y la forma en que el producto responde a los objetivos de la actividad.
+Para responder a esta tarea se desarrolló el sitio web interactivo **Fundamentos de Ingeniería Multimedia**, orientado a explicar los conceptos principales de la ingeniería, la multimedia y la ingeniería multimedia. En este archivo se organiza la entrega final: el espacio correspondiente al Anexo 1, el enlace público del producto, el informe del proceso de creación y el cuestionario de reflexión sobre el trabajo realizado.
+
+La finalidad de este documento es mostrar de manera ordenada cómo se abordó la tarea desde la idea inicial hasta la publicación del sitio. Además, permite evidenciar las decisiones tomadas durante el proceso, los recursos multimedia utilizados, las pruebas realizadas y la forma en que el producto responde a los criterios solicitados en la actividad académica.
 
 ---
 
@@ -22,11 +24,12 @@ La finalidad de este archivo es mostrar de manera ordenada cómo se planeó, pro
 
 ### Objetivo general
 
-Presentar de forma organizada las evidencias del producto multimedia desarrollado, integrando la información del proyecto, el enlace de acceso, el informe del proceso y las respuestas del cuestionario solicitado para la entrega.
+Presentar de forma organizada las evidencias de la tarea de desarrollo multimedia, integrando la información del producto creado, el enlace público de acceso, el informe del proceso, el espacio del Anexo 1 y las respuestas del cuestionario solicitado para la entrega.
 
 ### Objetivos específicos
 
 - Identificar el producto multimedia desarrollado y su propósito educativo.
+- Explicar cómo el sitio web responde a la tarea planteada mediante la integración de texto, imagen, video, audio, animación e hipervínculos.
 - Registrar el espacio correspondiente al Anexo 1 - Matriz de preproducción y pruebas multimedia.
 - Incluir el enlace público del sitio web publicado para su revisión.
 - Describir las fases de preproducción, producción, implementación y postproducción del proyecto.
@@ -235,8 +238,8 @@ Por eso creo que trabajar en equipo habría sido una ventaja si el grupo estuvie
 
 ## Conclusión general del documento
 
-Este documento permite reunir en una sola entrega los elementos principales del proyecto multimedia: la identificación del producto, el Anexo 1, el enlace público del sitio, el informe del proceso y el cuestionario final. Su estructura facilita comprender no solo el resultado obtenido, sino también el camino seguido para llegar a él.
+Este documento permite reunir en una sola entrega los elementos principales solicitados para la tarea: la identificación del producto multimedia, el espacio del Anexo 1, el enlace público del sitio web, el informe del proceso y el cuestionario final. Su estructura facilita comprender no solo el resultado obtenido, sino también el camino seguido para cumplir con los requerimientos de la actividad.
 
-En conjunto, la evidencia presentada muestra que el producto fue desarrollado mediante un proceso organizado de planeación, diseño, implementación, prueba y ajuste. También demuestra que la creación de un contenido multimedia requiere integrar distintos formatos de información, cuidar la experiencia del usuario y realizar modificaciones cuando el funcionamiento real del producto lo exige.
+En conjunto, la evidencia presentada muestra que la tarea fue desarrollada mediante un proceso organizado de planeación, diseño, implementación, prueba y ajuste. También demuestra que la creación de un contenido multimedia no consiste únicamente en reunir información, sino en transformarla en una experiencia digital clara, navegable e interactiva, capaz de combinar distintos formatos de comunicación.
 
-La entrega final evidencia que el sitio web cumple con el propósito de explicar los fundamentos de la Ingeniería Multimedia de forma interactiva, visual y accesible, utilizando recursos digitales que fortalecen la comprensión del tema.
+La entrega final evidencia que el sitio web cumple con el propósito académico de explicar los fundamentos de la Ingeniería Multimedia de forma interactiva, visual y accesible. Además, permite reconocer la importancia de adaptar el diseño inicial durante la construcción del producto, probar las funciones implementadas y publicar el resultado mediante un enlace funcional para su revisión.
